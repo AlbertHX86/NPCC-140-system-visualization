@@ -1,4 +1,4 @@
-# NPCC-140 Bus System Visualization
+[npcc_real_map.html](https://github.com/user-attachments/files/21782007/npcc_real_map.html)# NPCC-140 Bus System Visualization
 
 ## Overview
 This project provides a geospatial visualization of the **NPCC-140 Bus test system**, which spans across the northeastern region of the United States and parts of Canada. The visualization displays the **electric power transmission network**—including buses, transmission lines, and transformers—using interactive map layers.
@@ -26,7 +26,12567 @@ The NPCC-140 system is widely used in power systems research for **grid planning
     - 🟪 **IESO** (Ontario/Quebec) – 31 buses  
     - 🟧 **MISO** (Michigan) – 10 buses
 
----
+---[Uploading<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_0859cb3e008a0e7d26f75470f66c88ff {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position: fixed; 
+            bottom: 10px; left: 10px; width: 250px; height: 200px; 
+            background-color: white; border:2px solid grey; z-index:9999; 
+            font-size:14px; padding: 10px; border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+<h4 style="margin-top:0;"><b>NPCC 140-Bus</b></h4>
+<p style="margin:5px 0;"><b>By Area:</b></p>
+
+    <p style="margin:3px 0;">
+        <span style="color:#e41a1c; font-size:18px;">●</span> 
+        ISO-NE (New England) (36个)
+    </p>
+    
+    <p style="margin:3px 0;">
+        <span style="color:#377eb8; font-size:18px;">●</span> 
+        NYISO Upstate (36个)
+    </p>
+    
+    <p style="margin:3px 0;">
+        <span style="color:#4daf4a; font-size:18px;">●</span> 
+        NYISO Downstate (10个)
+    </p>
+    
+    <p style="margin:3px 0;">
+        <span style="color:#984ea3; font-size:18px;">●</span> 
+        IESO (Ontario/Quebec) (31个)
+    </p>
+    
+    <p style="margin:3px 0;">
+        <span style="color:#ff7f00; font-size:18px;">●</span> 
+        MISO (Michigan) (10个)
+    </p>
+    
+    <p style="margin:3px 0;">
+        <span style="color:#ffff33; font-size:18px;">●</span> 
+        PJM (17个)
+    </p>
+    
+<p style="margin-top:10px; font-size:12px; color:gray;">
+Click a bus to view details
+</p>
+</div>
+    
+<div style="position: fixed; top: 10px; right: 10px; width: 180px; background-color: white; 
+            border:2px solid grey; z-index:9999; font-size:13px; padding: 10px; border-radius: 5px;">
+<div style="margin-bottom:6px">◯ Bus</div>
+<div style="font-weight:bold; margin-bottom:6px">Branch</div>
+<div><span style="display:inline-block; width:22px; height:4px; background:#7b3294; margin-right:8px;"></span>&lt;100 kV</div>
+<div><span style="display:inline-block; width:22px; height:4px; background:#000000; margin-right:8px;"></span>100–200 kV</div>
+<div><span style="display:inline-block; width:22px; height:4px; background:#1f78b4; margin-right:8px;"></span>220/230 kV</div>
+<div><span style="display:inline-block; width:22px; height:4px; background:#e31a1c; margin-right:8px;"></span>345 kV</div>
+<div><span style="display:inline-block; width:22px; height:4px; background:#ff7f00; margin-right:8px;"></span>500 kV</div>
+</div>
+    
+<div style="position: fixed; bottom: 10px; right: 10px; background-color: white; border:1px solid #cccccc; 
+            z-index:9999; font-size:12px; padding:6px 10px; border-radius:4px; box-shadow: 0 0 10px rgba(0,0,0,0.15);">
+  made by <a href="https://www.linkedin.com/in/alberthx/" target="_blank" rel="noopener noreferrer">Xiao Huang</a>, 2025
+</div>
+    
+            <div class="folium-map" id="map_0859cb3e008a0e7d26f75470f66c88ff" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_0859cb3e008a0e7d26f75470f66c88ff = L.map(
+                "map_0859cb3e008a0e7d26f75470f66c88ff",
+                {
+                    center: [42.37627857142857, -76.50112857142858],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_9818abd953676d82f63f095e31c7b44d = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_9818abd953676d82f63f095e31c7b44d.addTo(map_0859cb3e008a0e7d26f75470f66c88ff);
+        
+    
+            var tile_layer_be1a672370fdbfe274ae7593af508295 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Esri",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_be1a672370fdbfe274ae7593af508295.addTo(map_0859cb3e008a0e7d26f75470f66c88ff);
+        
+    
+            var tile_layer_8db4352cae80e4960661949d69eb8797 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_8db4352cae80e4960661949d69eb8797.addTo(map_0859cb3e008a0e7d26f75470f66c88ff);
+        
+    
+            var feature_group_2c4725e9ed5bad8e25dfb25a2680eb01 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_db509bedbac5bea09ad48e8c48071a5a = L.circleMarker(
+                [41.005, -72.057],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_29d253f4078e3fb6bd92b5a0a38accf2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bb821e519362498a7bd3d07508be2222 = $(`<div id="html_bb821e519362498a7bd3d07508be2222" style="width: 100.0%; height: 100.0%;">         <b>MILLSTONE PT</b><br>         Bus ID: 1<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.005°, -72.057°)         </div>`)[0];
+                popup_29d253f4078e3fb6bd92b5a0a38accf2.setContent(html_bb821e519362498a7bd3d07508be2222);
+            
+        
+
+        circle_marker_db509bedbac5bea09ad48e8c48071a5a.bindPopup(popup_29d253f4078e3fb6bd92b5a0a38accf2)
+        ;
+
+        
+    
+    
+            circle_marker_db509bedbac5bea09ad48e8c48071a5a.bindTooltip(
+                `<div>
+                     MILLSTONE PT (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8f7a245bc146bb39130972cd81cdbd04 = L.circleMarker(
+                [41.298, -72.297],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_15e6eb866abe531553ffbfc93eab846a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0ef03babde5c440b54e281d3583f40e9 = $(`<div id="html_0ef03babde5c440b54e281d3583f40e9" style="width: 100.0%; height: 100.0%;">         <b>MONTVILLE</b><br>         Bus ID: 2<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.298°, -72.297°)         </div>`)[0];
+                popup_15e6eb866abe531553ffbfc93eab846a.setContent(html_0ef03babde5c440b54e281d3583f40e9);
+            
+        
+
+        circle_marker_8f7a245bc146bb39130972cd81cdbd04.bindPopup(popup_15e6eb866abe531553ffbfc93eab846a)
+        ;
+
+        
+    
+    
+            circle_marker_8f7a245bc146bb39130972cd81cdbd04.bindTooltip(
+                `<div>
+                     MONTVILLE (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4daa7ad1103186c68ba119ee0ff5f5c9 = L.circleMarker(
+                [41.478, -72.01],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_b34ee1a26b09bb77843aafd4fc4ed3d5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3a54001ee0e5e6187d8f5b3f49652eda = $(`<div id="html_3a54001ee0e5e6187d8f5b3f49652eda" style="width: 100.0%; height: 100.0%;">         <b>MONTVILLE</b><br>         Bus ID: 3<br>         Voltage: 115.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.478°, -72.010°)         </div>`)[0];
+                popup_b34ee1a26b09bb77843aafd4fc4ed3d5.setContent(html_3a54001ee0e5e6187d8f5b3f49652eda);
+            
+        
+
+        circle_marker_4daa7ad1103186c68ba119ee0ff5f5c9.bindPopup(popup_b34ee1a26b09bb77843aafd4fc4ed3d5)
+        ;
+
+        
+    
+    
+            circle_marker_4daa7ad1103186c68ba119ee0ff5f5c9.bindTooltip(
+                `<div>
+                     MONTVILLE (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a816543da7930c923f47ca906ab10a6d = L.circleMarker(
+                [41.275, -71.798],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_5bad27a6a1f2e44173d69a6e3b9d002e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_89d0813400ada15a859c8d26f83b9140 = $(`<div id="html_89d0813400ada15a859c8d26f83b9140" style="width: 100.0%; height: 100.0%;">         <b>MONTVILLE</b><br>         Bus ID: 4<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.275°, -71.798°)         </div>`)[0];
+                popup_5bad27a6a1f2e44173d69a6e3b9d002e.setContent(html_89d0813400ada15a859c8d26f83b9140);
+            
+        
+
+        circle_marker_a816543da7930c923f47ca906ab10a6d.bindPopup(popup_5bad27a6a1f2e44173d69a6e3b9d002e)
+        ;
+
+        
+    
+    
+            circle_marker_a816543da7930c923f47ca906ab10a6d.bindTooltip(
+                `<div>
+                     MONTVILLE (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2e71197bb6975851f7dbc3b43c0282a9 = L.circleMarker(
+                [41.76, -72.078],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_6d788474bbae2ac87d3ef61e192c3078 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_134aa090dd9bea7f6c1ef618afb30fba = $(`<div id="html_134aa090dd9bea7f6c1ef618afb30fba" style="width: 100.0%; height: 100.0%;">         <b>CARD ST</b><br>         Bus ID: 5<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.760°, -72.078°)         </div>`)[0];
+                popup_6d788474bbae2ac87d3ef61e192c3078.setContent(html_134aa090dd9bea7f6c1ef618afb30fba);
+            
+        
+
+        circle_marker_2e71197bb6975851f7dbc3b43c0282a9.bindPopup(popup_6d788474bbae2ac87d3ef61e192c3078)
+        ;
+
+        
+    
+    
+            circle_marker_2e71197bb6975851f7dbc3b43c0282a9.bindTooltip(
+                `<div>
+                     CARD ST (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_19a6856b7ba81486a2a81c0e16ecadfc = L.circleMarker(
+                [41.969, -71.616],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_1e94690b6352cc18e0de611c8df89663 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6f29946c74b7d8958b2fbfe6f674707a = $(`<div id="html_6f29946c74b7d8958b2fbfe6f674707a" style="width: 100.0%; height: 100.0%;">         <b>SHERMAN RD</b><br>         Bus ID: 6<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.969°, -71.616°)         </div>`)[0];
+                popup_1e94690b6352cc18e0de611c8df89663.setContent(html_6f29946c74b7d8958b2fbfe6f674707a);
+            
+        
+
+        circle_marker_19a6856b7ba81486a2a81c0e16ecadfc.bindPopup(popup_1e94690b6352cc18e0de611c8df89663)
+        ;
+
+        
+    
+    
+            circle_marker_19a6856b7ba81486a2a81c0e16ecadfc.bindTooltip(
+                `<div>
+                     SHERMAN RD (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5da6397d19a636bc88afd25efbf00ec1 = L.circleMarker(
+                [42.206, -71.249],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_4eff4888377be1e0f1d8e9f2137bc592 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3ee58e5843fb3cb6b0a04536ab6f5772 = $(`<div id="html_3ee58e5843fb3cb6b0a04536ab6f5772" style="width: 100.0%; height: 100.0%;">         <b>MEDWAY</b><br>         Bus ID: 7<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (42.206°, -71.249°)         </div>`)[0];
+                popup_4eff4888377be1e0f1d8e9f2137bc592.setContent(html_3ee58e5843fb3cb6b0a04536ab6f5772);
+            
+        
+
+        circle_marker_5da6397d19a636bc88afd25efbf00ec1.bindPopup(popup_4eff4888377be1e0f1d8e9f2137bc592)
+        ;
+
+        
+    
+    
+            circle_marker_5da6397d19a636bc88afd25efbf00ec1.bindTooltip(
+                `<div>
+                     MEDWAY (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9b0da214441408778697d912b16c1c04 = L.circleMarker(
+                [42.189, -71.672],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_0bc23a3fb0a9de679c08b9ec5ac24ab9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d8105107a74839cf69f2c0f093c4ac3c = $(`<div id="html_d8105107a74839cf69f2c0f093c4ac3c" style="width: 100.0%; height: 100.0%;">         <b>MILLBURY</b><br>         Bus ID: 8<br>         Voltage: 115.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (42.189°, -71.672°)         </div>`)[0];
+                popup_0bc23a3fb0a9de679c08b9ec5ac24ab9.setContent(html_d8105107a74839cf69f2c0f093c4ac3c);
+            
+        
+
+        circle_marker_9b0da214441408778697d912b16c1c04.bindPopup(popup_0bc23a3fb0a9de679c08b9ec5ac24ab9)
+        ;
+
+        
+    
+    
+            circle_marker_9b0da214441408778697d912b16c1c04.bindTooltip(
+                `<div>
+                     MILLBURY (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0b9f7e943711b1de770a1adf0faffa8d = L.circleMarker(
+                [42.088, -72.039],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_119a0e471c24a675f700e7edf1f0bb4c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_926e639996df9e5ff5f0d93e74739250 = $(`<div id="html_926e639996df9e5ff5f0d93e74739250" style="width: 100.0%; height: 100.0%;">         <b>CARPENTER HL</b><br>         Bus ID: 9<br>         Voltage: 115.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (42.088°, -72.039°)         </div>`)[0];
+                popup_119a0e471c24a675f700e7edf1f0bb4c.setContent(html_926e639996df9e5ff5f0d93e74739250);
+            
+        
+
+        circle_marker_0b9f7e943711b1de770a1adf0faffa8d.bindPopup(popup_119a0e471c24a675f700e7edf1f0bb4c)
+        ;
+
+        
+    
+    
+            circle_marker_0b9f7e943711b1de770a1adf0faffa8d.bindTooltip(
+                `<div>
+                     CARPENTER HL (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d3bc396eb14447741969df3e0ce7e9ab = L.circleMarker(
+                [41.648, -71.089],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_72a1197d75b2640840cbb05eef319fd6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d6ce83fac9eb85e3afc10a0c7ef658a7 = $(`<div id="html_d6ce83fac9eb85e3afc10a0c7ef658a7" style="width: 100.0%; height: 100.0%;">         <b>BRAYTON PT</b><br>         Bus ID: 10<br>         Voltage: 115.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.648°, -71.089°)         </div>`)[0];
+                popup_72a1197d75b2640840cbb05eef319fd6.setContent(html_d6ce83fac9eb85e3afc10a0c7ef658a7);
+            
+        
+
+        circle_marker_d3bc396eb14447741969df3e0ce7e9ab.bindPopup(popup_72a1197d75b2640840cbb05eef319fd6)
+        ;
+
+        
+    
+    
+            circle_marker_d3bc396eb14447741969df3e0ce7e9ab.bindTooltip(
+                `<div>
+                     BRAYTON PT (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ffd92f6c835740e804ab463e83913e59 = L.circleMarker(
+                [41.507, -71.455],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_fb68de7e2feede3e5e92bc1441cc15f7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b88e4765b00d7ea5dff671400d855512 = $(`<div id="html_b88e4765b00d7ea5dff671400d855512" style="width: 100.0%; height: 100.0%;">         <b>BRAYTON PT</b><br>         Bus ID: 11<br>         Voltage: 115.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.507°, -71.455°)         </div>`)[0];
+                popup_fb68de7e2feede3e5e92bc1441cc15f7.setContent(html_b88e4765b00d7ea5dff671400d855512);
+            
+        
+
+        circle_marker_ffd92f6c835740e804ab463e83913e59.bindPopup(popup_fb68de7e2feede3e5e92bc1441cc15f7)
+        ;
+
+        
+    
+    
+            circle_marker_ffd92f6c835740e804ab463e83913e59.bindTooltip(
+                `<div>
+                     BRAYTON PT (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b5ebb550d5ca899ffc1228f0748a1e6b = L.circleMarker(
+                [41.975, -71.129],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_feaf29655459ca3d2ab26c8e43d5e21e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0fa96c6ea9bc3d3b1b993d80a2f79061 = $(`<div id="html_0fa96c6ea9bc3d3b1b993d80a2f79061" style="width: 100.0%; height: 100.0%;">         <b>BRIDGEWATER</b><br>         Bus ID: 12<br>         Voltage: 115.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.975°, -71.129°)         </div>`)[0];
+                popup_feaf29655459ca3d2ab26c8e43d5e21e.setContent(html_0fa96c6ea9bc3d3b1b993d80a2f79061);
+            
+        
+
+        circle_marker_b5ebb550d5ca899ffc1228f0748a1e6b.bindPopup(popup_feaf29655459ca3d2ab26c8e43d5e21e)
+        ;
+
+        
+    
+    
+            circle_marker_b5ebb550d5ca899ffc1228f0748a1e6b.bindTooltip(
+                `<div>
+                     BRIDGEWATER (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bf61d24032557cc64db840c5452ca238 = L.circleMarker(
+                [41.71, -70.49],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_568c0a6502ab89992c714cf5b73d2127 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3cf782a817475e45c90f6076cf2b194d = $(`<div id="html_3cf782a817475e45c90f6076cf2b194d" style="width: 100.0%; height: 100.0%;">         <b>PILGRIM</b><br>         Bus ID: 13<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.710°, -70.490°)         </div>`)[0];
+                popup_568c0a6502ab89992c714cf5b73d2127.setContent(html_3cf782a817475e45c90f6076cf2b194d);
+            
+        
+
+        circle_marker_bf61d24032557cc64db840c5452ca238.bindPopup(popup_568c0a6502ab89992c714cf5b73d2127)
+        ;
+
+        
+    
+    
+            circle_marker_bf61d24032557cc64db840c5452ca238.bindTooltip(
+                `<div>
+                     PILGRIM (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0a735f4b932718ed0404b58af20fdac6 = L.circleMarker(
+                [41.721, -70.163],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_cb9d045d74481af5de2eeca20676663e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9c4f6abdabeffed74eeee702eba2c0ce = $(`<div id="html_9c4f6abdabeffed74eeee702eba2c0ce" style="width: 100.0%; height: 100.0%;">         <b>CANAL</b><br>         Bus ID: 14<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.721°, -70.163°)         </div>`)[0];
+                popup_cb9d045d74481af5de2eeca20676663e.setContent(html_9c4f6abdabeffed74eeee702eba2c0ce);
+            
+        
+
+        circle_marker_0a735f4b932718ed0404b58af20fdac6.bindPopup(popup_cb9d045d74481af5de2eeca20676663e)
+        ;
+
+        
+    
+    
+            circle_marker_0a735f4b932718ed0404b58af20fdac6.bindTooltip(
+                `<div>
+                     CANAL (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f7646c672c22e08bf58e4bc3bb0f93eb = L.circleMarker(
+                [42.229, -70.723],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_497c2c2fdc2197210e22a9eee9152131 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c407e61da70ce73204a68b19315e9e14 = $(`<div id="html_c407e61da70ce73204a68b19315e9e14" style="width: 100.0%; height: 100.0%;">         <b>WALPOLA</b><br>         Bus ID: 15<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (42.229°, -70.723°)         </div>`)[0];
+                popup_497c2c2fdc2197210e22a9eee9152131.setContent(html_c407e61da70ce73204a68b19315e9e14);
+            
+        
+
+        circle_marker_f7646c672c22e08bf58e4bc3bb0f93eb.bindPopup(popup_497c2c2fdc2197210e22a9eee9152131)
+        ;
+
+        
+    
+    
+            circle_marker_f7646c672c22e08bf58e4bc3bb0f93eb.bindTooltip(
+                `<div>
+                     WALPOLA (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1ff4fa15a2f65cdaa211f6c21b36fc92 = L.circleMarker(
+                [42.81, -72.479],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_480aa9e9163bc25e311ba14480270e31 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7c5ea0ca39148219dc371d55187d3dae = $(`<div id="html_7c5ea0ca39148219dc371d55187d3dae" style="width: 100.0%; height: 100.0%;">         <b>VERMONT YNK</b><br>         Bus ID: 16<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (42.810°, -72.479°)         </div>`)[0];
+                popup_480aa9e9163bc25e311ba14480270e31.setContent(html_7c5ea0ca39148219dc371d55187d3dae);
+            
+        
+
+        circle_marker_1ff4fa15a2f65cdaa211f6c21b36fc92.bindPopup(popup_480aa9e9163bc25e311ba14480270e31)
+        ;
+
+        
+    
+    
+            circle_marker_1ff4fa15a2f65cdaa211f6c21b36fc92.bindTooltip(
+                `<div>
+                     VERMONT YNK (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9f294d45fb17c5e427b566b5ced6e925 = L.circleMarker(
+                [42.826, -71.442],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_7ff20c2c1fd0eacbf8fee64a1b0972fd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_905f52a3891017eb746b908a134f0189 = $(`<div id="html_905f52a3891017eb746b908a134f0189" style="width: 100.0%; height: 100.0%;">         <b>SCOBIE</b><br>         Bus ID: 17<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (42.826°, -71.442°)         </div>`)[0];
+                popup_7ff20c2c1fd0eacbf8fee64a1b0972fd.setContent(html_905f52a3891017eb746b908a134f0189);
+            
+        
+
+        circle_marker_9f294d45fb17c5e427b566b5ced6e925.bindPopup(popup_7ff20c2c1fd0eacbf8fee64a1b0972fd)
+        ;
+
+        
+    
+    
+            circle_marker_9f294d45fb17c5e427b566b5ced6e925.bindTooltip(
+                `<div>
+                     SCOBIE (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_543bd47a9645dfa5b3034868a02f5dc7 = L.circleMarker(
+                [42.528, -71.298],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_753765a3c966c82499a311af6f9de5f3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b3d577807a5469e86ded333df5256ed4 = $(`<div id="html_b3d577807a5469e86ded333df5256ed4" style="width: 100.0%; height: 100.0%;">         <b>SANDY POND</b><br>         Bus ID: 18<br>         Voltage: 115.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (42.528°, -71.298°)         </div>`)[0];
+                popup_753765a3c966c82499a311af6f9de5f3.setContent(html_b3d577807a5469e86ded333df5256ed4);
+            
+        
+
+        circle_marker_543bd47a9645dfa5b3034868a02f5dc7.bindPopup(popup_753765a3c966c82499a311af6f9de5f3)
+        ;
+
+        
+    
+    
+            circle_marker_543bd47a9645dfa5b3034868a02f5dc7.bindTooltip(
+                `<div>
+                     SANDY POND (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a631cc8ca2e6193d995cd896024c55d7 = L.circleMarker(
+                [43.114, -70.589],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_37e45fa4e9a63ff388b20587dd883dca = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7db90a631511773832c87af55e39a71d = $(`<div id="html_7db90a631511773832c87af55e39a71d" style="width: 100.0%; height: 100.0%;">         <b>POWNAL</b><br>         Bus ID: 19<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (43.114°, -70.589°)         </div>`)[0];
+                popup_37e45fa4e9a63ff388b20587dd883dca.setContent(html_7db90a631511773832c87af55e39a71d);
+            
+        
+
+        circle_marker_a631cc8ca2e6193d995cd896024c55d7.bindPopup(popup_37e45fa4e9a63ff388b20587dd883dca)
+        ;
+
+        
+    
+    
+            circle_marker_a631cc8ca2e6193d995cd896024c55d7.bindTooltip(
+                `<div>
+                     POWNAL (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e11b8a2fdecb639c844a019f844a600e = L.circleMarker(
+                [43.864, -69.833],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_39a5ec3fdf03c74f77cb638bbe893853 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8138d4f39015807498a397f4c80f8816 = $(`<div id="html_8138d4f39015807498a397f4c80f8816" style="width: 100.0%; height: 100.0%;">         <b>MAINE YANKEE</b><br>         Bus ID: 20<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (43.864°, -69.833°)         </div>`)[0];
+                popup_39a5ec3fdf03c74f77cb638bbe893853.setContent(html_8138d4f39015807498a397f4c80f8816);
+            
+        
+
+        circle_marker_e11b8a2fdecb639c844a019f844a600e.bindPopup(popup_39a5ec3fdf03c74f77cb638bbe893853)
+        ;
+
+        
+    
+    
+            circle_marker_e11b8a2fdecb639c844a019f844a600e.bindTooltip(
+                `<div>
+                     MAINE YANKEE (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_25eb9827fb2b3b924c2815b68f9d7998 = L.circleMarker(
+                [41.005, -72.404],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_fc51dddcb04b2ef21f76916ab99583cd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d0603522a86f55b7377283fd54793bd7 = $(`<div id="html_d0603522a86f55b7377283fd54793bd7" style="width: 100.0%; height: 100.0%;">         <b>MILLSTONE PT</b><br>         Bus ID: 21<br>         Voltage: 24.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.005°, -72.404°)         </div>`)[0];
+                popup_fc51dddcb04b2ef21f76916ab99583cd.setContent(html_d0603522a86f55b7377283fd54793bd7);
+            
+        
+
+        circle_marker_25eb9827fb2b3b924c2815b68f9d7998.bindPopup(popup_fc51dddcb04b2ef21f76916ab99583cd)
+        ;
+
+        
+    
+    
+            circle_marker_25eb9827fb2b3b924c2815b68f9d7998.bindTooltip(
+                `<div>
+                     MILLSTONE PT (24.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_534f138e083c9c7437b467b817a56c99 = L.circleMarker(
+                [41.411, -70.881],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_0588ed14e0f20faa42c0d1a0621cb697 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e029a7f64fa36ed6635dc3ffecc1e321 = $(`<div id="html_e029a7f64fa36ed6635dc3ffecc1e321" style="width: 100.0%; height: 100.0%;">         <b>BRAYTON PT</b><br>         Bus ID: 22<br>         Voltage: 18.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.411°, -70.881°)         </div>`)[0];
+                popup_0588ed14e0f20faa42c0d1a0621cb697.setContent(html_e029a7f64fa36ed6635dc3ffecc1e321);
+            
+        
+
+        circle_marker_534f138e083c9c7437b467b817a56c99.bindPopup(popup_0588ed14e0f20faa42c0d1a0621cb697)
+        ;
+
+        
+    
+    
+            circle_marker_534f138e083c9c7437b467b817a56c99.bindTooltip(
+                `<div>
+                     BRAYTON PT (18.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1431e2491e37b78428964343236d88cf = L.circleMarker(
+                [41.349, -71.343],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_5e8d4f74ff4fc04c59ab3408e2294ec7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8b102ad80e32919ce1b18dc9e483b590 = $(`<div id="html_8b102ad80e32919ce1b18dc9e483b590" style="width: 100.0%; height: 100.0%;">         <b>BRAYTON PT</b><br>         Bus ID: 23<br>         Voltage: 20.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.349°, -71.343°)         </div>`)[0];
+                popup_5e8d4f74ff4fc04c59ab3408e2294ec7.setContent(html_8b102ad80e32919ce1b18dc9e483b590);
+            
+        
+
+        circle_marker_1431e2491e37b78428964343236d88cf.bindPopup(popup_5e8d4f74ff4fc04c59ab3408e2294ec7)
+        ;
+
+        
+    
+    
+            circle_marker_1431e2491e37b78428964343236d88cf.bindTooltip(
+                `<div>
+                     BRAYTON PT (20.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1f454d53df9e4c99fcf08b77c116f537 = L.circleMarker(
+                [41.467, -70.538],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_621c33bba12c9fca58163ae7bd81e74c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_54987abf39a426a7abeb4d8e17a5654c = $(`<div id="html_54987abf39a426a7abeb4d8e17a5654c" style="width: 100.0%; height: 100.0%;">         <b>PILGRIM</b><br>         Bus ID: 24<br>         Voltage: 22.8 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.467°, -70.538°)         </div>`)[0];
+                popup_621c33bba12c9fca58163ae7bd81e74c.setContent(html_54987abf39a426a7abeb4d8e17a5654c);
+            
+        
+
+        circle_marker_1f454d53df9e4c99fcf08b77c116f537.bindPopup(popup_621c33bba12c9fca58163ae7bd81e74c)
+        ;
+
+        
+    
+    
+            circle_marker_1f454d53df9e4c99fcf08b77c116f537.bindTooltip(
+                `<div>
+                     PILGRIM (22.8 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d066a7ec47909a434bbdbdc2ba4565e9 = L.circleMarker(
+                [41.399, -70.187],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_f7d3dbcb55ad96c90687c27f478a6ee9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1ebeb311c61bcdb7ef09dfbee8540b24 = $(`<div id="html_1ebeb311c61bcdb7ef09dfbee8540b24" style="width: 100.0%; height: 100.0%;">         <b>CANAL</b><br>         Bus ID: 25<br>         Voltage: 20.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.399°, -70.187°)         </div>`)[0];
+                popup_f7d3dbcb55ad96c90687c27f478a6ee9.setContent(html_1ebeb311c61bcdb7ef09dfbee8540b24);
+            
+        
+
+        circle_marker_d066a7ec47909a434bbdbdc2ba4565e9.bindPopup(popup_f7d3dbcb55ad96c90687c27f478a6ee9)
+        ;
+
+        
+    
+    
+            circle_marker_d066a7ec47909a434bbdbdc2ba4565e9.bindTooltip(
+                `<div>
+                     CANAL (20.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d01e3ca874ea4c58e151a73d28e86d01 = L.circleMarker(
+                [43.893, -69.506],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_939736223caa6654a8166268918b3b0f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f0b6095fc00d701a20c2f078e363b4dc = $(`<div id="html_f0b6095fc00d701a20c2f078e363b4dc" style="width: 100.0%; height: 100.0%;">         <b>MAINE YANKEE</b><br>         Bus ID: 26<br>         Voltage: 20.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (43.893°, -69.506°)         </div>`)[0];
+                popup_939736223caa6654a8166268918b3b0f.setContent(html_f0b6095fc00d701a20c2f078e363b4dc);
+            
+        
+
+        circle_marker_d01e3ca874ea4c58e151a73d28e86d01.bindPopup(popup_939736223caa6654a8166268918b3b0f)
+        ;
+
+        
+    
+    
+            circle_marker_d01e3ca874ea4c58e151a73d28e86d01.bindTooltip(
+                `<div>
+                     MAINE YANKEE (20.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b9f124ea9f0a49831d570b02ae17133f = L.circleMarker(
+                [43.001, -72.91],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_c6636ae6b8320bebef5235e9d54d38db = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6c1d9beeb22f5c15a123400ff72c2ba8 = $(`<div id="html_6c1d9beeb22f5c15a123400ff72c2ba8" style="width: 100.0%; height: 100.0%;">         <b>VERMONT YNK</b><br>         Bus ID: 27<br>         Voltage: 22.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (43.001°, -72.910°)         </div>`)[0];
+                popup_c6636ae6b8320bebef5235e9d54d38db.setContent(html_6c1d9beeb22f5c15a123400ff72c2ba8);
+            
+        
+
+        circle_marker_b9f124ea9f0a49831d570b02ae17133f.bindPopup(popup_c6636ae6b8320bebef5235e9d54d38db)
+        ;
+
+        
+    
+    
+            circle_marker_b9f124ea9f0a49831d570b02ae17133f.bindTooltip(
+                `<div>
+                     VERMONT YNK (22.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2f7169324c1c9c32e46a1e07cbc7b53c = L.circleMarker(
+                [42.465, -72.199],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_e19d274065eb6658e07435ed04d33529 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_86a35136ca88570697ff8a73d31cb5dc = $(`<div id="html_86a35136ca88570697ff8a73d31cb5dc" style="width: 100.0%; height: 100.0%;">         <b>NORTHFIELD</b><br>         Bus ID: 28<br>         Voltage: 13.8 kV<br>         Area: ISO-NE (New England)<br>         Coord: (42.465°, -72.199°)         </div>`)[0];
+                popup_e19d274065eb6658e07435ed04d33529.setContent(html_86a35136ca88570697ff8a73d31cb5dc);
+            
+        
+
+        circle_marker_2f7169324c1c9c32e46a1e07cbc7b53c.bindPopup(popup_e19d274065eb6658e07435ed04d33529)
+        ;
+
+        
+    
+    
+            circle_marker_2f7169324c1c9c32e46a1e07cbc7b53c.bindTooltip(
+                `<div>
+                     NORTHFIELD (13.8 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_88120679fee90e26280641309e3d8479 = L.circleMarker(
+                [42.482, -72.726],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_44ecdbb22796a100cea096f2062b5bd0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dcf492fa3249bd56870e2638fd7e9279 = $(`<div id="html_dcf492fa3249bd56870e2638fd7e9279" style="width: 100.0%; height: 100.0%;">         <b>NORTHFIELD</b><br>         Bus ID: 29<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (42.482°, -72.726°)         </div>`)[0];
+                popup_44ecdbb22796a100cea096f2062b5bd0.setContent(html_dcf492fa3249bd56870e2638fd7e9279);
+            
+        
+
+        circle_marker_88120679fee90e26280641309e3d8479.bindPopup(popup_44ecdbb22796a100cea096f2062b5bd0)
+        ;
+
+        
+    
+    
+            circle_marker_88120679fee90e26280641309e3d8479.bindTooltip(
+                `<div>
+                     NORTHFIELD (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_672d04060cc14c6fd7edf97b2ce37e6d = L.circleMarker(
+                [42.178, -72.582],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_9cd04089f2fa9c65f734f2d7fd7b7075 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5813a06ea524fb5314567429f2e9b09f = $(`<div id="html_5813a06ea524fb5314567429f2e9b09f" style="width: 100.0%; height: 100.0%;">         <b>LUDLOW</b><br>         Bus ID: 30<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (42.178°, -72.582°)         </div>`)[0];
+                popup_9cd04089f2fa9c65f734f2d7fd7b7075.setContent(html_5813a06ea524fb5314567429f2e9b09f);
+            
+        
+
+        circle_marker_672d04060cc14c6fd7edf97b2ce37e6d.bindPopup(popup_9cd04089f2fa9c65f734f2d7fd7b7075)
+        ;
+
+        
+    
+    
+            circle_marker_672d04060cc14c6fd7edf97b2ce37e6d.bindTooltip(
+                `<div>
+                     LUDLOW (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2e0a2b0e4b8de2c25748b966deeb7200 = L.circleMarker(
+                [41.839, -72.581],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_8edd26abb969caa85414f540734d4b07 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_91bd28142ba2b9e8f1a7e3a6c68e3a77 = $(`<div id="html_91bd28142ba2b9e8f1a7e3a6c68e3a77" style="width: 100.0%; height: 100.0%;">         <b>MANCHESTER</b><br>         Bus ID: 31<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.839°, -72.581°)         </div>`)[0];
+                popup_8edd26abb969caa85414f540734d4b07.setContent(html_91bd28142ba2b9e8f1a7e3a6c68e3a77);
+            
+        
+
+        circle_marker_2e0a2b0e4b8de2c25748b966deeb7200.bindPopup(popup_8edd26abb969caa85414f540734d4b07)
+        ;
+
+        
+    
+    
+            circle_marker_2e0a2b0e4b8de2c25748b966deeb7200.bindTooltip(
+                `<div>
+                     MANCHESTER (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f67f797742a5b14e50f2715bb1c794bc = L.circleMarker(
+                [41.619, -72.772],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_7ea6a4078b1f281b1294c61dbb5cd302 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_64f6b731ad9468c98c4df8eee15a5f1e = $(`<div id="html_64f6b731ad9468c98c4df8eee15a5f1e" style="width: 100.0%; height: 100.0%;">         <b>SCOVILL ROCK</b><br>         Bus ID: 32<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.619°, -72.772°)         </div>`)[0];
+                popup_7ea6a4078b1f281b1294c61dbb5cd302.setContent(html_64f6b731ad9468c98c4df8eee15a5f1e);
+            
+        
+
+        circle_marker_f67f797742a5b14e50f2715bb1c794bc.bindPopup(popup_7ea6a4078b1f281b1294c61dbb5cd302)
+        ;
+
+        
+    
+    
+            circle_marker_f67f797742a5b14e50f2715bb1c794bc.bindTooltip(
+                `<div>
+                     SCOVILL ROCK (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_34e62148c6c0dcda804fdfcdff48eea9 = L.circleMarker(
+                [41.371, -72.556],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_41ee271beaa12e6911aa592eaf93fa85 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a26d818967695b596db7e772c554a774 = $(`<div id="html_a26d818967695b596db7e772c554a774" style="width: 100.0%; height: 100.0%;">         <b>HADDAM NECK</b><br>         Bus ID: 33<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.371°, -72.556°)         </div>`)[0];
+                popup_41ee271beaa12e6911aa592eaf93fa85.setContent(html_a26d818967695b596db7e772c554a774);
+            
+        
+
+        circle_marker_34e62148c6c0dcda804fdfcdff48eea9.bindPopup(popup_41ee271beaa12e6911aa592eaf93fa85)
+        ;
+
+        
+    
+    
+            circle_marker_34e62148c6c0dcda804fdfcdff48eea9.bindTooltip(
+                `<div>
+                     HADDAM NECK (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6e2f6facf8cff90b7cfc2633f01be972 = L.circleMarker(
+                [41.304, -72.987],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_57a127d7fac12e642bad93f61ff3ab7d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_34cd8e8387577649b4cf95bc81f7bd59 = $(`<div id="html_34cd8e8387577649b4cf95bc81f7bd59" style="width: 100.0%; height: 100.0%;">         <b>BLACK POND</b><br>         Bus ID: 34<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.304°, -72.987°)         </div>`)[0];
+                popup_57a127d7fac12e642bad93f61ff3ab7d.setContent(html_34cd8e8387577649b4cf95bc81f7bd59);
+            
+        
+
+        circle_marker_6e2f6facf8cff90b7cfc2633f01be972.bindPopup(popup_57a127d7fac12e642bad93f61ff3ab7d)
+        ;
+
+        
+    
+    
+            circle_marker_6e2f6facf8cff90b7cfc2633f01be972.bindTooltip(
+                `<div>
+                     BLACK POND (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6a70b3a238123f69160556e6fe796d27 = L.circleMarker(
+                [41.563, -73.187],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_4a84f7510395139ba5f4aae6cf3e9800 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_770830c7199b7c0a51f896f12ff2f499 = $(`<div id="html_770830c7199b7c0a51f896f12ff2f499" style="width: 100.0%; height: 100.0%;">         <b>SOUTHINGTEN</b><br>         Bus ID: 35<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.563°, -73.187°)         </div>`)[0];
+                popup_4a84f7510395139ba5f4aae6cf3e9800.setContent(html_770830c7199b7c0a51f896f12ff2f499);
+            
+        
+
+        circle_marker_6a70b3a238123f69160556e6fe796d27.bindPopup(popup_4a84f7510395139ba5f4aae6cf3e9800)
+        ;
+
+        
+    
+    
+            circle_marker_6a70b3a238123f69160556e6fe796d27.bindTooltip(
+                `<div>
+                     SOUTHINGTEN (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b1619a17a0c61ef1adf294c42019ccd6 = L.circleMarker(
+                [41.174, -72.643],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e41a1c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_6dd49f5efe87ec40527da126b706c8f5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_49645a14c08c5242b9d354b4ad1fe677 = $(`<div id="html_49645a14c08c5242b9d354b4ad1fe677" style="width: 100.0%; height: 100.0%;">         <b>CONN YANKEE</b><br>         Bus ID: 36<br>         Voltage: 345.0 kV<br>         Area: ISO-NE (New England)<br>         Coord: (41.174°, -72.643°)         </div>`)[0];
+                popup_6dd49f5efe87ec40527da126b706c8f5.setContent(html_49645a14c08c5242b9d354b4ad1fe677);
+            
+        
+
+        circle_marker_b1619a17a0c61ef1adf294c42019ccd6.bindPopup(popup_6dd49f5efe87ec40527da126b706c8f5)
+        ;
+
+        
+    
+    
+            circle_marker_b1619a17a0c61ef1adf294c42019ccd6.bindTooltip(
+                `<div>
+                     CONN YANKEE (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a9f37e8cf9d669c74796f39a12824f18 = L.circleMarker(
+                [42.494, -73.923],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_08c646927566c81e6888e87ba52c9dec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bbed8d22821a91f1f70787bf56c14622 = $(`<div id="html_bbed8d22821a91f1f70787bf56c14622" style="width: 100.0%; height: 100.0%;">         <b>NEW SEATHED</b><br>         Bus ID: 37<br>         Voltage: 345.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.494°, -73.923°)         </div>`)[0];
+                popup_08c646927566c81e6888e87ba52c9dec.setContent(html_bbed8d22821a91f1f70787bf56c14622);
+            
+        
+
+        circle_marker_a9f37e8cf9d669c74796f39a12824f18.bindPopup(popup_08c646927566c81e6888e87ba52c9dec)
+        ;
+
+        
+    
+    
+            circle_marker_a9f37e8cf9d669c74796f39a12824f18.bindTooltip(
+                `<div>
+                     NEW SEATHED (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0d2717de7a540ea6fc5505967f1a1cdc = L.circleMarker(
+                [42.336, -74.88],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_7e4c727a5530bfb948caf4b355f8cc26 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fe19a477661d8f698d16935e0b952dcf = $(`<div id="html_fe19a477661d8f698d16935e0b952dcf" style="width: 100.0%; height: 100.0%;">         <b>GILBOA</b><br>         Bus ID: 38<br>         Voltage: 345.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.336°, -74.880°)         </div>`)[0];
+                popup_7e4c727a5530bfb948caf4b355f8cc26.setContent(html_fe19a477661d8f698d16935e0b952dcf);
+            
+        
+
+        circle_marker_0d2717de7a540ea6fc5505967f1a1cdc.bindPopup(popup_7e4c727a5530bfb948caf4b355f8cc26)
+        ;
+
+        
+    
+    
+            circle_marker_0d2717de7a540ea6fc5505967f1a1cdc.bindTooltip(
+                `<div>
+                     GILBOA (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_66617fab54c6620e342a6f2aa13a1a69 = L.circleMarker(
+                [42.042, -74.001],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_dd5748c6783990fc77b33775c01a0412 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_81ee821ba8112dd75691ee8aca79ce50 = $(`<div id="html_81ee821ba8112dd75691ee8aca79ce50" style="width: 100.0%; height: 100.0%;">         <b>LEEDS</b><br>         Bus ID: 39<br>         Voltage: 345.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.042°, -74.001°)         </div>`)[0];
+                popup_dd5748c6783990fc77b33775c01a0412.setContent(html_81ee821ba8112dd75691ee8aca79ce50);
+            
+        
+
+        circle_marker_66617fab54c6620e342a6f2aa13a1a69.bindPopup(popup_dd5748c6783990fc77b33775c01a0412)
+        ;
+
+        
+    
+    
+            circle_marker_66617fab54c6620e342a6f2aa13a1a69.bindTooltip(
+                `<div>
+                     LEEDS (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_04044539724475f30714c7cd57e18de8 = L.circleMarker(
+                [42.646, -74.066],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_3c68a36d943fe73c47b30b1643603203 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_906f6333ab1510c7eb6b3d1412860625 = $(`<div id="html_906f6333ab1510c7eb6b3d1412860625" style="width: 100.0%; height: 100.0%;">         <b>NEW SEATHED</b><br>         Bus ID: 40<br>         Voltage: 230.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.646°, -74.066°)         </div>`)[0];
+                popup_3c68a36d943fe73c47b30b1643603203.setContent(html_906f6333ab1510c7eb6b3d1412860625);
+            
+        
+
+        circle_marker_04044539724475f30714c7cd57e18de8.bindPopup(popup_3c68a36d943fe73c47b30b1643603203)
+        ;
+
+        
+    
+    
+            circle_marker_04044539724475f30714c7cd57e18de8.bindTooltip(
+                `<div>
+                     NEW SEATHED (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a64de28db81eae7fa4ae05888f79c6d7 = L.circleMarker(
+                [43.086, -73.78],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_1a687c90bf3f96341c9a7d1f81712886 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a04ca25bd92913d8d9922d57f8504381 = $(`<div id="html_a04ca25bd92913d8d9922d57f8504381" style="width: 100.0%; height: 100.0%;">         <b>ROTTERDAM</b><br>         Bus ID: 41<br>         Voltage: 115.0 kV<br>         Area: NYISO Upstate<br>         Coord: (43.086°, -73.780°)         </div>`)[0];
+                popup_1a687c90bf3f96341c9a7d1f81712886.setContent(html_a04ca25bd92913d8d9922d57f8504381);
+            
+        
+
+        circle_marker_a64de28db81eae7fa4ae05888f79c6d7.bindPopup(popup_1a687c90bf3f96341c9a7d1f81712886)
+        ;
+
+        
+    
+    
+            circle_marker_a64de28db81eae7fa4ae05888f79c6d7.bindTooltip(
+                `<div>
+                     ROTTERDAM (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b967d178fb93771d9f8fd7f411a7d88f = L.circleMarker(
+                [42.702, -73.628],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_95ae275daac8f0e2e340f8c16a5960f0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_49c2b5712c53c514bcc4328196ba63d1 = $(`<div id="html_49c2b5712c53c514bcc4328196ba63d1" style="width: 100.0%; height: 100.0%;">         <b>ALBANY</b><br>         Bus ID: 42<br>         Voltage: 115.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.702°, -73.628°)         </div>`)[0];
+                popup_95ae275daac8f0e2e340f8c16a5960f0.setContent(html_49c2b5712c53c514bcc4328196ba63d1);
+            
+        
+
+        circle_marker_b967d178fb93771d9f8fd7f411a7d88f.bindPopup(popup_95ae275daac8f0e2e340f8c16a5960f0)
+        ;
+
+        
+    
+    
+            circle_marker_b967d178fb93771d9f8fd7f411a7d88f.bindTooltip(
+                `<div>
+                     ALBANY (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2b1401bffdedf0e7b00ca3e6637e2749 = L.circleMarker(
+                [42.894, -75.24],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_58a82f549c152aa2d1e328d2261ceed5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f472219ffa307b6fc4e2c9020e8053f0 = $(`<div id="html_f472219ffa307b6fc4e2c9020e8053f0" style="width: 100.0%; height: 100.0%;">         <b>EDIC</b><br>         Bus ID: 43<br>         Voltage: 345.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.894°, -75.240°)         </div>`)[0];
+                popup_58a82f549c152aa2d1e328d2261ceed5.setContent(html_f472219ffa307b6fc4e2c9020e8053f0);
+            
+        
+
+        circle_marker_2b1401bffdedf0e7b00ca3e6637e2749.bindPopup(popup_58a82f549c152aa2d1e328d2261ceed5)
+        ;
+
+        
+    
+    
+            circle_marker_2b1401bffdedf0e7b00ca3e6637e2749.bindTooltip(
+                `<div>
+                     EDIC (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a7f9be4b5ee89c8ed6ef33b41a519fc5 = L.circleMarker(
+                [43.013, -75.136],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_32e2ebffb7c1d1b440af69c9083e21e6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_22f225a0dbe367e37c9b7116e3804223 = $(`<div id="html_22f225a0dbe367e37c9b7116e3804223" style="width: 100.0%; height: 100.0%;">         <b>PORTER</b><br>         Bus ID: 44<br>         Voltage: 230.0 kV<br>         Area: NYISO Upstate<br>         Coord: (43.013°, -75.136°)         </div>`)[0];
+                popup_32e2ebffb7c1d1b440af69c9083e21e6.setContent(html_22f225a0dbe367e37c9b7116e3804223);
+            
+        
+
+        circle_marker_a7f9be4b5ee89c8ed6ef33b41a519fc5.bindPopup(popup_32e2ebffb7c1d1b440af69c9083e21e6)
+        ;
+
+        
+    
+    
+            circle_marker_a7f9be4b5ee89c8ed6ef33b41a519fc5.bindTooltip(
+                `<div>
+                     PORTER (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2dc96025a0fe949ee5fdda56050c0df6 = L.circleMarker(
+                [43.131, -75.24],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_e38d3df7cf5bcb549f04a9ee94f5a0f2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7c3350f2c302add1adcb114faeb3a959 = $(`<div id="html_7c3350f2c302add1adcb114faeb3a959" style="width: 100.0%; height: 100.0%;">         <b>PORTER</b><br>         Bus ID: 45<br>         Voltage: 115.0 kV<br>         Area: NYISO Upstate<br>         Coord: (43.131°, -75.240°)         </div>`)[0];
+                popup_e38d3df7cf5bcb549f04a9ee94f5a0f2.setContent(html_7c3350f2c302add1adcb114faeb3a959);
+            
+        
+
+        circle_marker_2dc96025a0fe949ee5fdda56050c0df6.bindPopup(popup_e38d3df7cf5bcb549f04a9ee94f5a0f2)
+        ;
+
+        
+    
+    
+            circle_marker_2dc96025a0fe949ee5fdda56050c0df6.bindTooltip(
+                `<div>
+                     PORTER (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9abe7f7f021e12312ecb8b5c7336241e = L.circleMarker(
+                [44.428, -75.051],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_927fb58be5a64c549a1bfda49e68e796 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ded50033c384e86feb45fe5e8fb5e61b = $(`<div id="html_ded50033c384e86feb45fe5e8fb5e61b" style="width: 100.0%; height: 100.0%;">         <b>COLTON</b><br>         Bus ID: 46<br>         Voltage: 115.0 kV<br>         Area: NYISO Upstate<br>         Coord: (44.428°, -75.051°)         </div>`)[0];
+                popup_927fb58be5a64c549a1bfda49e68e796.setContent(html_ded50033c384e86feb45fe5e8fb5e61b);
+            
+        
+
+        circle_marker_9abe7f7f021e12312ecb8b5c7336241e.bindPopup(popup_927fb58be5a64c549a1bfda49e68e796)
+        ;
+
+        
+    
+    
+            circle_marker_9abe7f7f021e12312ecb8b5c7336241e.bindTooltip(
+                `<div>
+                     COLTON (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_10b62034c00d1f802498f61bbc61882b = L.circleMarker(
+                [44.654, -75.211],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_88ec5e1538430777f506ed80371a21a0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_37e6f6b664b64420ef1873b7c7ee47b8 = $(`<div id="html_37e6f6b664b64420ef1873b7c7ee47b8" style="width: 100.0%; height: 100.0%;">         <b>MOSES W</b><br>         Bus ID: 47<br>         Voltage: 230.0 kV<br>         Area: NYISO Upstate<br>         Coord: (44.654°, -75.211°)         </div>`)[0];
+                popup_88ec5e1538430777f506ed80371a21a0.setContent(html_37e6f6b664b64420ef1873b7c7ee47b8);
+            
+        
+
+        circle_marker_10b62034c00d1f802498f61bbc61882b.bindPopup(popup_88ec5e1538430777f506ed80371a21a0)
+        ;
+
+        
+    
+    
+            circle_marker_10b62034c00d1f802498f61bbc61882b.bindTooltip(
+                `<div>
+                     MOSES W (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eebae29138efd27e7d0b5d8926587c1f = L.circleMarker(
+                [44.846, -74.821],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_a9356205e54c5a538e083cf9edaa3061 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7848bf07b79755c04786d023fe909324 = $(`<div id="html_7848bf07b79755c04786d023fe909324" style="width: 100.0%; height: 100.0%;">         <b>MOSES E</b><br>         Bus ID: 48<br>         Voltage: 230.0 kV<br>         Area: NYISO Upstate<br>         Coord: (44.846°, -74.821°)         </div>`)[0];
+                popup_a9356205e54c5a538e083cf9edaa3061.setContent(html_7848bf07b79755c04786d023fe909324);
+            
+        
+
+        circle_marker_eebae29138efd27e7d0b5d8926587c1f.bindPopup(popup_a9356205e54c5a538e083cf9edaa3061)
+        ;
+
+        
+    
+    
+            circle_marker_eebae29138efd27e7d0b5d8926587c1f.bindTooltip(
+                `<div>
+                     MOSES E (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f93b91058a1d6beabd59c3b060ea132d = L.circleMarker(
+                [44.699, -74.134],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_683c1273cbe3b7a8db1dc9a3b521c771 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9955163ff571c0f0adff46a889a2a4ce = $(`<div id="html_9955163ff571c0f0adff46a889a2a4ce" style="width: 100.0%; height: 100.0%;">         <b>PLATTSBURGH</b><br>         Bus ID: 49<br>         Voltage: 115.0 kV<br>         Area: NYISO Upstate<br>         Coord: (44.699°, -74.134°)         </div>`)[0];
+                popup_683c1273cbe3b7a8db1dc9a3b521c771.setContent(html_9955163ff571c0f0adff46a889a2a4ce);
+            
+        
+
+        circle_marker_f93b91058a1d6beabd59c3b060ea132d.bindPopup(popup_683c1273cbe3b7a8db1dc9a3b521c771)
+        ;
+
+        
+    
+    
+            circle_marker_f93b91058a1d6beabd59c3b060ea132d.bindTooltip(
+                `<div>
+                     PLATTSBURGH (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0d2a56ad9bb7e640bbc8333dc2be4a93 = L.circleMarker(
+                [43.306, -76.333],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_7c90dc639c7c21d990dfb42c0d82ecd7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_056111df2ec58c21769980b3819932f0 = $(`<div id="html_056111df2ec58c21769980b3819932f0" style="width: 100.0%; height: 100.0%;">         <b>CLAY</b><br>         Bus ID: 50<br>         Voltage: 345.0 kV<br>         Area: NYISO Upstate<br>         Coord: (43.306°, -76.333°)         </div>`)[0];
+                popup_7c90dc639c7c21d990dfb42c0d82ecd7.setContent(html_056111df2ec58c21769980b3819932f0);
+            
+        
+
+        circle_marker_0d2a56ad9bb7e640bbc8333dc2be4a93.bindPopup(popup_7c90dc639c7c21d990dfb42c0d82ecd7)
+        ;
+
+        
+    
+    
+            circle_marker_0d2a56ad9bb7e640bbc8333dc2be4a93.bindTooltip(
+                `<div>
+                     CLAY (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b028d05adf75cfb4921acc13f43fa53d = L.circleMarker(
+                [42.939, -76.261],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_0d36932aa5db1bd72c4a9b20990c32ab = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c1a536a800f751029be02071f354fc0d = $(`<div id="html_c1a536a800f751029be02071f354fc0d" style="width: 100.0%; height: 100.0%;">         <b>CLAY</b><br>         Bus ID: 51<br>         Voltage: 115.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.939°, -76.261°)         </div>`)[0];
+                popup_0d36932aa5db1bd72c4a9b20990c32ab.setContent(html_c1a536a800f751029be02071f354fc0d);
+            
+        
+
+        circle_marker_b028d05adf75cfb4921acc13f43fa53d.bindPopup(popup_0d36932aa5db1bd72c4a9b20990c32ab)
+        ;
+
+        
+    
+    
+            circle_marker_b028d05adf75cfb4921acc13f43fa53d.bindTooltip(
+                `<div>
+                     CLAY (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1a3f0fca3e61761a75bdd719bd6e6f26 = L.circleMarker(
+                [43.312, -77.482],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_a627f52356d6cefdf1b44f30eb62af26 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_28014566657e13e0280f84337493850b = $(`<div id="html_28014566657e13e0280f84337493850b" style="width: 100.0%; height: 100.0%;">         <b>ROCHESTER</b><br>         Bus ID: 52<br>         Voltage: 345.0 kV<br>         Area: NYISO Upstate<br>         Coord: (43.312°, -77.482°)         </div>`)[0];
+                popup_a627f52356d6cefdf1b44f30eb62af26.setContent(html_28014566657e13e0280f84337493850b);
+            
+        
+
+        circle_marker_1a3f0fca3e61761a75bdd719bd6e6f26.bindPopup(popup_a627f52356d6cefdf1b44f30eb62af26)
+        ;
+
+        
+    
+    
+            circle_marker_1a3f0fca3e61761a75bdd719bd6e6f26.bindTooltip(
+                `<div>
+                     ROCHESTER (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b7838d2ea3e88117c6a367933431d2cf = L.circleMarker(
+                [42.889, -77.777],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_a396a02136cfb33d597e65dbbf259447 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fd956c8bd79d4c30f7820c79c0d1a0ed = $(`<div id="html_fd956c8bd79d4c30f7820c79c0d1a0ed" style="width: 100.0%; height: 100.0%;">         <b>ROCHESTER</b><br>         Bus ID: 53<br>         Voltage: 115.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.889°, -77.777°)         </div>`)[0];
+                popup_a396a02136cfb33d597e65dbbf259447.setContent(html_fd956c8bd79d4c30f7820c79c0d1a0ed);
+            
+        
+
+        circle_marker_b7838d2ea3e88117c6a367933431d2cf.bindPopup(popup_a396a02136cfb33d597e65dbbf259447)
+        ;
+
+        
+    
+    
+            circle_marker_b7838d2ea3e88117c6a367933431d2cf.bindTooltip(
+                `<div>
+                     ROCHESTER (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_813275deda5982d528f4a043b3df47c9 = L.circleMarker(
+                [43.125, -78.352],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_7766106244bb58dae230372e1ef85611 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7e93be622a2ce4f773be4ff8e74bdf64 = $(`<div id="html_7e93be622a2ce4f773be4ff8e74bdf64" style="width: 100.0%; height: 100.0%;">         <b>NIAGARA W</b><br>         Bus ID: 54<br>         Voltage: 230.0 kV<br>         Area: NYISO Upstate<br>         Coord: (43.125°, -78.352°)         </div>`)[0];
+                popup_7766106244bb58dae230372e1ef85611.setContent(html_7e93be622a2ce4f773be4ff8e74bdf64);
+            
+        
+
+        circle_marker_813275deda5982d528f4a043b3df47c9.bindPopup(popup_7766106244bb58dae230372e1ef85611)
+        ;
+
+        
+    
+    
+            circle_marker_813275deda5982d528f4a043b3df47c9.bindTooltip(
+                `<div>
+                     NIAGARA W (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a6a95102a9cd83f1cd366fdbfb378dc4 = L.circleMarker(
+                [42.996, -78.591],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_8d635c06f242a1e01b9dbc7c4983470b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_321e4f266f5c31d6c4deaab1f879f096 = $(`<div id="html_321e4f266f5c31d6c4deaab1f879f096" style="width: 100.0%; height: 100.0%;">         <b>NIAGARA E</b><br>         Bus ID: 55<br>         Voltage: 230.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.996°, -78.591°)         </div>`)[0];
+                popup_8d635c06f242a1e01b9dbc7c4983470b.setContent(html_321e4f266f5c31d6c4deaab1f879f096);
+            
+        
+
+        circle_marker_a6a95102a9cd83f1cd366fdbfb378dc4.bindPopup(popup_8d635c06f242a1e01b9dbc7c4983470b)
+        ;
+
+        
+    
+    
+            circle_marker_a6a95102a9cd83f1cd366fdbfb378dc4.bindTooltip(
+                `<div>
+                     NIAGARA E (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eb6acf760db011e23cd1158c165831b9 = L.circleMarker(
+                [43.312, -78.743],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_92752b6cf3871994e4a5785bbd04493b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0619d120b7663ac34be8bf3a013a11a9 = $(`<div id="html_0619d120b7663ac34be8bf3a013a11a9" style="width: 100.0%; height: 100.0%;">         <b>HUNTLEY</b><br>         Bus ID: 56<br>         Voltage: 230.0 kV<br>         Area: NYISO Upstate<br>         Coord: (43.312°, -78.743°)         </div>`)[0];
+                popup_92752b6cf3871994e4a5785bbd04493b.setContent(html_0619d120b7663ac34be8bf3a013a11a9);
+            
+        
+
+        circle_marker_eb6acf760db011e23cd1158c165831b9.bindPopup(popup_92752b6cf3871994e4a5785bbd04493b)
+        ;
+
+        
+    
+    
+            circle_marker_eb6acf760db011e23cd1158c165831b9.bindTooltip(
+                `<div>
+                     HUNTLEY (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9cf187cd0a0fd0ca7ed956d22abc893e = L.circleMarker(
+                [42.911, -79.125],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_e8320e6b8d8e8e583d62ef87907652db = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_82ff5190c31601645f69d4dcb208a53b = $(`<div id="html_82ff5190c31601645f69d4dcb208a53b" style="width: 100.0%; height: 100.0%;">         <b>HUNTLEY</b><br>         Bus ID: 57<br>         Voltage: 115.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.911°, -79.125°)         </div>`)[0];
+                popup_e8320e6b8d8e8e583d62ef87907652db.setContent(html_82ff5190c31601645f69d4dcb208a53b);
+            
+        
+
+        circle_marker_9cf187cd0a0fd0ca7ed956d22abc893e.bindPopup(popup_e8320e6b8d8e8e583d62ef87907652db)
+        ;
+
+        
+    
+    
+            circle_marker_9cf187cd0a0fd0ca7ed956d22abc893e.bindTooltip(
+                `<div>
+                     HUNTLEY (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3fe965126fd6ab5447932f239056e2b3 = L.circleMarker(
+                [42.714, -79.133],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_6b88560373fbb70676c6bb9e9fa1eef9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f2f165b93ca42d49987151a2e2175b52 = $(`<div id="html_f2f165b93ca42d49987151a2e2175b52" style="width: 100.0%; height: 100.0%;">         <b>GARDENVILLE</b><br>         Bus ID: 58<br>         Voltage: 230.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.714°, -79.133°)         </div>`)[0];
+                popup_6b88560373fbb70676c6bb9e9fa1eef9.setContent(html_f2f165b93ca42d49987151a2e2175b52);
+            
+        
+
+        circle_marker_3fe965126fd6ab5447932f239056e2b3.bindPopup(popup_6b88560373fbb70676c6bb9e9fa1eef9)
+        ;
+
+        
+    
+    
+            circle_marker_3fe965126fd6ab5447932f239056e2b3.bindTooltip(
+                `<div>
+                     GARDENVILLE (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f4370d8293ac87b4e4db16f953d54454 = L.circleMarker(
+                [42.561, -78.797],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_9ccc995890d28bbbf82a70a6de6e2b4f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_38deab24a1aaa8971fed9ad00bdfa233 = $(`<div id="html_38deab24a1aaa8971fed9ad00bdfa233" style="width: 100.0%; height: 100.0%;">         <b>GARDENVILLE</b><br>         Bus ID: 59<br>         Voltage: 115.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.561°, -78.797°)         </div>`)[0];
+                popup_9ccc995890d28bbbf82a70a6de6e2b4f.setContent(html_38deab24a1aaa8971fed9ad00bdfa233);
+            
+        
+
+        circle_marker_f4370d8293ac87b4e4db16f953d54454.bindPopup(popup_9ccc995890d28bbbf82a70a6de6e2b4f)
+        ;
+
+        
+    
+    
+            circle_marker_f4370d8293ac87b4e4db16f953d54454.bindTooltip(
+                `<div>
+                     GARDENVILLE (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3e43e24dbb9b97fb3d27ad00fedeabbc = L.circleMarker(
+                [42.33, -79.315],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_4f578fe1ed8ba49f3fd6ece92b1992b4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_12ee5df0b37874da14d27a18905efd82 = $(`<div id="html_12ee5df0b37874da14d27a18905efd82" style="width: 100.0%; height: 100.0%;">         <b>DUNKIRK</b><br>         Bus ID: 60<br>         Voltage: 230.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.330°, -79.315°)         </div>`)[0];
+                popup_4f578fe1ed8ba49f3fd6ece92b1992b4.setContent(html_12ee5df0b37874da14d27a18905efd82);
+            
+        
+
+        circle_marker_3e43e24dbb9b97fb3d27ad00fedeabbc.bindPopup(popup_4f578fe1ed8ba49f3fd6ece92b1992b4)
+        ;
+
+        
+    
+    
+            circle_marker_3e43e24dbb9b97fb3d27ad00fedeabbc.bindTooltip(
+                `<div>
+                     DUNKIRK (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c4cb641f4aa7b97438334c7127c58054 = L.circleMarker(
+                [42.234, -78.828],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_ceac39411da5d4d7fd1e5f4a9290bb8a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ce901d9461cd928e3f098e0bdd815a76 = $(`<div id="html_ce901d9461cd928e3f098e0bdd815a76" style="width: 100.0%; height: 100.0%;">         <b>DUNKIRK</b><br>         Bus ID: 61<br>         Voltage: 115.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.234°, -78.828°)         </div>`)[0];
+                popup_ceac39411da5d4d7fd1e5f4a9290bb8a.setContent(html_ce901d9461cd928e3f098e0bdd815a76);
+            
+        
+
+        circle_marker_c4cb641f4aa7b97438334c7127c58054.bindPopup(popup_ceac39411da5d4d7fd1e5f4a9290bb8a)
+        ;
+
+        
+    
+    
+            circle_marker_c4cb641f4aa7b97438334c7127c58054.bindTooltip(
+                `<div>
+                     DUNKIRK (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e64bbc451fa75b8c764a0337fca12996 = L.circleMarker(
+                [42.708, -78.255],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_b9af84829a89e23fd130c3212a3081f6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_78faa95ca560ecbb7305a9c5357a36f2 = $(`<div id="html_78faa95ca560ecbb7305a9c5357a36f2" style="width: 100.0%; height: 100.0%;">         <b>STOLLE RD</b><br>         Bus ID: 62<br>         Voltage: 230.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.708°, -78.255°)         </div>`)[0];
+                popup_b9af84829a89e23fd130c3212a3081f6.setContent(html_78faa95ca560ecbb7305a9c5357a36f2);
+            
+        
+
+        circle_marker_e64bbc451fa75b8c764a0337fca12996.bindPopup(popup_b9af84829a89e23fd130c3212a3081f6)
+        ;
+
+        
+    
+    
+            circle_marker_e64bbc451fa75b8c764a0337fca12996.bindTooltip(
+                `<div>
+                     STOLLE RD (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eb167b14e02c3d553b11ead22e238c21 = L.circleMarker(
+                [42.42, -77.824],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_32fe79ff77938ec9c20482ca02a7e0aa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a608a9d92f783f132dcc6300616e0e7f = $(`<div id="html_a608a9d92f783f132dcc6300616e0e7f" style="width: 100.0%; height: 100.0%;">         <b>MEYER</b><br>         Bus ID: 63<br>         Voltage: 230.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.420°, -77.824°)         </div>`)[0];
+                popup_32fe79ff77938ec9c20482ca02a7e0aa.setContent(html_a608a9d92f783f132dcc6300616e0e7f);
+            
+        
+
+        circle_marker_eb167b14e02c3d553b11ead22e238c21.bindPopup(popup_32fe79ff77938ec9c20482ca02a7e0aa)
+        ;
+
+        
+    
+    
+            circle_marker_eb167b14e02c3d553b11ead22e238c21.bindTooltip(
+                `<div>
+                     MEYER (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cb1bf511caf84f3ff827c5fd4757d89d = L.circleMarker(
+                [42.409, -77.592],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_9d431621420d078c5e7dceb8a10f206c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0852ab8d8138cc136cdf26e199f23b6e = $(`<div id="html_0852ab8d8138cc136cdf26e199f23b6e" style="width: 100.0%; height: 100.0%;">         <b>MEYER</b><br>         Bus ID: 64<br>         Voltage: 115.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.409°, -77.592°)         </div>`)[0];
+                popup_9d431621420d078c5e7dceb8a10f206c.setContent(html_0852ab8d8138cc136cdf26e199f23b6e);
+            
+        
+
+        circle_marker_cb1bf511caf84f3ff827c5fd4757d89d.bindPopup(popup_9d431621420d078c5e7dceb8a10f206c)
+        ;
+
+        
+    
+    
+            circle_marker_cb1bf511caf84f3ff827c5fd4757d89d.bindTooltip(
+                `<div>
+                     MEYER (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2aa93075d41285c931b9c878257250b1 = L.circleMarker(
+                [42.629, -76.978],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_1234e89e29c738f75191fedbb56eae7e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_84c1f6b0e0b7bbfdb1b39b9e5488839b = $(`<div id="html_84c1f6b0e0b7bbfdb1b39b9e5488839b" style="width: 100.0%; height: 100.0%;">         <b>GESONIDGE</b><br>         Bus ID: 65<br>         Voltage: 115.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.629°, -76.978°)         </div>`)[0];
+                popup_1234e89e29c738f75191fedbb56eae7e.setContent(html_84c1f6b0e0b7bbfdb1b39b9e5488839b);
+            
+        
+
+        circle_marker_2aa93075d41285c931b9c878257250b1.bindPopup(popup_1234e89e29c738f75191fedbb56eae7e)
+        ;
+
+        
+    
+    
+            circle_marker_2aa93075d41285c931b9c878257250b1.bindTooltip(
+                `<div>
+                     GESONIDGE (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a7bda853299b51e89e3d3358c69b40ff = L.circleMarker(
+                [41.862, -76.203],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_d53454ac8e0384a8087f20bda71e2721 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0e5327a568652f8ef74968b8a92c6f6f = $(`<div id="html_0e5327a568652f8ef74968b8a92c6f6f" style="width: 100.0%; height: 100.0%;">         <b>WATERCURE</b><br>         Bus ID: 66<br>         Voltage: 345.0 kV<br>         Area: NYISO Upstate<br>         Coord: (41.862°, -76.203°)         </div>`)[0];
+                popup_d53454ac8e0384a8087f20bda71e2721.setContent(html_0e5327a568652f8ef74968b8a92c6f6f);
+            
+        
+
+        circle_marker_a7bda853299b51e89e3d3358c69b40ff.bindPopup(popup_d53454ac8e0384a8087f20bda71e2721)
+        ;
+
+        
+    
+    
+            circle_marker_a7bda853299b51e89e3d3358c69b40ff.bindTooltip(
+                `<div>
+                     WATERCURE (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_427b8703be300815fb74be83f7c0498b = L.circleMarker(
+                [41.952, -77.041],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_688e9239796e91c4bfad4e1b1904e2e4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_473aba65593bf223fb894ed203f6efe6 = $(`<div id="html_473aba65593bf223fb894ed203f6efe6" style="width: 100.0%; height: 100.0%;">         <b>WRHL</b><br>         Bus ID: 67<br>         Voltage: 230.0 kV<br>         Area: NYISO Upstate<br>         Coord: (41.952°, -77.041°)         </div>`)[0];
+                popup_688e9239796e91c4bfad4e1b1904e2e4.setContent(html_473aba65593bf223fb894ed203f6efe6);
+            
+        
+
+        circle_marker_427b8703be300815fb74be83f7c0498b.bindPopup(popup_688e9239796e91c4bfad4e1b1904e2e4)
+        ;
+
+        
+    
+    
+            circle_marker_427b8703be300815fb74be83f7c0498b.bindTooltip(
+                `<div>
+                     WRHL (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_837c984d9b286ebaa5551fb97befd53c = L.circleMarker(
+                [42.15, -76.714],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_ef01401f8a41d27488e82fbf1252ede0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_313336d1af596b54083828f7836889d9 = $(`<div id="html_313336d1af596b54083828f7836889d9" style="width: 100.0%; height: 100.0%;">         <b>HILLSIDE</b><br>         Bus ID: 68<br>         Voltage: 115.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.150°, -76.714°)         </div>`)[0];
+                popup_ef01401f8a41d27488e82fbf1252ede0.setContent(html_313336d1af596b54083828f7836889d9);
+            
+        
+
+        circle_marker_837c984d9b286ebaa5551fb97befd53c.bindPopup(popup_ef01401f8a41d27488e82fbf1252ede0)
+        ;
+
+        
+    
+    
+            circle_marker_837c984d9b286ebaa5551fb97befd53c.bindTooltip(
+                `<div>
+                     HILLSIDE (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_04385945a2308e3a0cc38a5f4ca7b9e7 = L.circleMarker(
+                [42.009, -75.397],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_76d66e8d5f2154e90a9e7511411690fc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6b007d759c63a836baf94de7ce9dd793 = $(`<div id="html_6b007d759c63a836baf94de7ce9dd793" style="width: 100.0%; height: 100.0%;">         <b>BINGHAMTON</b><br>         Bus ID: 69<br>         Voltage: 345.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.009°, -75.397°)         </div>`)[0];
+                popup_76d66e8d5f2154e90a9e7511411690fc.setContent(html_6b007d759c63a836baf94de7ce9dd793);
+            
+        
+
+        circle_marker_04385945a2308e3a0cc38a5f4ca7b9e7.bindPopup(popup_76d66e8d5f2154e90a9e7511411690fc)
+        ;
+
+        
+    
+    
+            circle_marker_04385945a2308e3a0cc38a5f4ca7b9e7.bindTooltip(
+                `<div>
+                     BINGHAMTON (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_de683f7d3199b3517344b7b4dd82e2cd = L.circleMarker(
+                [42.014, -75.988],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_dd0ba7686e5dde8c93e2517b616647ed = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f403c09ad64aec5fbc7391e0ea0c5838 = $(`<div id="html_f403c09ad64aec5fbc7391e0ea0c5838" style="width: 100.0%; height: 100.0%;">         <b>BINGHAMTON</b><br>         Bus ID: 70<br>         Voltage: 230.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.014°, -75.988°)         </div>`)[0];
+                popup_dd0ba7686e5dde8c93e2517b616647ed.setContent(html_f403c09ad64aec5fbc7391e0ea0c5838);
+            
+        
+
+        circle_marker_de683f7d3199b3517344b7b4dd82e2cd.bindPopup(popup_dd0ba7686e5dde8c93e2517b616647ed)
+        ;
+
+        
+    
+    
+            circle_marker_de683f7d3199b3517344b7b4dd82e2cd.bindTooltip(
+                `<div>
+                     BINGHAMTON (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_35634d5a85969b305b141cc14dd95a94 = L.circleMarker(
+                [42.33, -75.789],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_eeb8a0f62cd708ad532fa4cac5687d9d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_06233df7eed2aae28d3b89623588e421 = $(`<div id="html_06233df7eed2aae28d3b89623588e421" style="width: 100.0%; height: 100.0%;">         <b>BINGHAMTON</b><br>         Bus ID: 71<br>         Voltage: 115.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.330°, -75.789°)         </div>`)[0];
+                popup_eeb8a0f62cd708ad532fa4cac5687d9d.setContent(html_06233df7eed2aae28d3b89623588e421);
+            
+        
+
+        circle_marker_35634d5a85969b305b141cc14dd95a94.bindPopup(popup_eeb8a0f62cd708ad532fa4cac5687d9d)
+        ;
+
+        
+    
+    
+            circle_marker_35634d5a85969b305b141cc14dd95a94.bindTooltip(
+                `<div>
+                     BINGHAMTON (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e618df286ba88fca38c7c84d147b80f8 = L.circleMarker(
+                [42.635, -76.093],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_3cfa3c53190610b820500dc85ae07875 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2287b9e344933df9cf4511825e634114 = $(`<div id="html_2287b9e344933df9cf4511825e634114" style="width: 100.0%; height: 100.0%;">         <b>LAPEER</b><br>         Bus ID: 72<br>         Voltage: 115.0 kV<br>         Area: NYISO Upstate<br>         Coord: (42.635°, -76.093°)         </div>`)[0];
+                popup_3cfa3c53190610b820500dc85ae07875.setContent(html_2287b9e344933df9cf4511825e634114);
+            
+        
+
+        circle_marker_e618df286ba88fca38c7c84d147b80f8.bindPopup(popup_3cfa3c53190610b820500dc85ae07875)
+        ;
+
+        
+    
+    
+            circle_marker_e618df286ba88fca38c7c84d147b80f8.bindTooltip(
+                `<div>
+                     LAPEER (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_782c0f06abca1c6b3407f6ec5665af60 = L.circleMarker(
+                [41.58, -73.641],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4daf4a", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_ccc6aa9f04af03603468d44db92feb2c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_906840eb4745d1430454052474de3d43 = $(`<div id="html_906840eb4745d1430454052474de3d43" style="width: 100.0%; height: 100.0%;">         <b>PLEASANT VLY</b><br>         Bus ID: 73<br>         Voltage: 345.0 kV<br>         Area: NYISO Downstate<br>         Coord: (41.580°, -73.641°)         </div>`)[0];
+                popup_ccc6aa9f04af03603468d44db92feb2c.setContent(html_906840eb4745d1430454052474de3d43);
+            
+        
+
+        circle_marker_782c0f06abca1c6b3407f6ec5665af60.bindPopup(popup_ccc6aa9f04af03603468d44db92feb2c)
+        ;
+
+        
+    
+    
+            circle_marker_782c0f06abca1c6b3407f6ec5665af60.bindTooltip(
+                `<div>
+                     PLEASANT VLY (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9c6d41f55244e9052f44e76cb5c47e51 = L.circleMarker(
+                [41.304, -73.769],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4daf4a", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_87e78346ed5518e02d44df52fbce9590 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0958cfa4f645f786e0587bc0d6447271 = $(`<div id="html_0958cfa4f645f786e0587bc0d6447271" style="width: 100.0%; height: 100.0%;">         <b>MILLWOOD</b><br>         Bus ID: 74<br>         Voltage: 345.0 kV<br>         Area: NYISO Downstate<br>         Coord: (41.304°, -73.769°)         </div>`)[0];
+                popup_87e78346ed5518e02d44df52fbce9590.setContent(html_0958cfa4f645f786e0587bc0d6447271);
+            
+        
+
+        circle_marker_9c6d41f55244e9052f44e76cb5c47e51.bindPopup(popup_87e78346ed5518e02d44df52fbce9590)
+        ;
+
+        
+    
+    
+            circle_marker_9c6d41f55244e9052f44e76cb5c47e51.bindTooltip(
+                `<div>
+                     MILLWOOD (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_020ecc43036f576a32779f5828540f07 = L.circleMarker(
+                [41.078, -74.861],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4daf4a", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_b688f85e7a70f477930266f56275c215 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ba61c7f92a7683484cf48d4fca31e7cf = $(`<div id="html_ba61c7f92a7683484cf48d4fca31e7cf" style="width: 100.0%; height: 100.0%;">         <b>RAMAPO</b><br>         Bus ID: 75<br>         Voltage: 138.0 kV<br>         Area: NYISO Downstate<br>         Coord: (41.078°, -74.861°)         </div>`)[0];
+                popup_b688f85e7a70f477930266f56275c215.setContent(html_ba61c7f92a7683484cf48d4fca31e7cf);
+            
+        
+
+        circle_marker_020ecc43036f576a32779f5828540f07.bindPopup(popup_b688f85e7a70f477930266f56275c215)
+        ;
+
+        
+    
+    
+            circle_marker_020ecc43036f576a32779f5828540f07.bindTooltip(
+                `<div>
+                     RAMAPO (138.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8efd43fe6344787f974a7c6dd6babae7 = L.circleMarker(
+                [41.174, -74.311],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4daf4a", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_e86a460b90be73a13596513cd0044cef = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4bf9620663a320c7bc1075ab9444475b = $(`<div id="html_4bf9620663a320c7bc1075ab9444475b" style="width: 100.0%; height: 100.0%;">         <b>RAMAPO</b><br>         Bus ID: 76<br>         Voltage: 345.0 kV<br>         Area: NYISO Downstate<br>         Coord: (41.174°, -74.311°)         </div>`)[0];
+                popup_e86a460b90be73a13596513cd0044cef.setContent(html_4bf9620663a320c7bc1075ab9444475b);
+            
+        
+
+        circle_marker_8efd43fe6344787f974a7c6dd6babae7.bindPopup(popup_e86a460b90be73a13596513cd0044cef)
+        ;
+
+        
+    
+    
+            circle_marker_8efd43fe6344787f974a7c6dd6babae7.bindTooltip(
+                `<div>
+                     RAMAPO (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_61e7e34a12ee195143418b561e95392d = L.circleMarker(
+                [41.36, -74.12],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4daf4a", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_b9625bf4649747dc190f26c0c440d985 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fc9443001281e04a8b291308ba53153e = $(`<div id="html_fc9443001281e04a8b291308ba53153e" style="width: 100.0%; height: 100.0%;">         <b>BUCHANAN</b><br>         Bus ID: 77<br>         Voltage: 345.0 kV<br>         Area: NYISO Downstate<br>         Coord: (41.360°, -74.120°)         </div>`)[0];
+                popup_b9625bf4649747dc190f26c0c440d985.setContent(html_fc9443001281e04a8b291308ba53153e);
+            
+        
+
+        circle_marker_61e7e34a12ee195143418b561e95392d.bindPopup(popup_b9625bf4649747dc190f26c0c440d985)
+        ;
+
+        
+    
+    
+            circle_marker_61e7e34a12ee195143418b561e95392d.bindTooltip(
+                `<div>
+                     BUCHANAN (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ca72a65e74e628de69d5d1532f0120f7 = L.circleMarker(
+                [40.773, -73.424],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4daf4a", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_9d3958ad61d6ada7d38dadbcacf7c79a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9e18ed95f009fc35c820b045eed9e664 = $(`<div id="html_9e18ed95f009fc35c820b045eed9e664" style="width: 100.0%; height: 100.0%;">         <b>CE UG</b><br>         Bus ID: 78<br>         Voltage: 345.0 kV<br>         Area: NYISO Downstate<br>         Coord: (40.773°, -73.424°)         </div>`)[0];
+                popup_9d3958ad61d6ada7d38dadbcacf7c79a.setContent(html_9e18ed95f009fc35c820b045eed9e664);
+            
+        
+
+        circle_marker_ca72a65e74e628de69d5d1532f0120f7.bindPopup(popup_9d3958ad61d6ada7d38dadbcacf7c79a)
+        ;
+
+        
+    
+    
+            circle_marker_ca72a65e74e628de69d5d1532f0120f7.bindTooltip(
+                `<div>
+                     CE UG (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a93cf4b0ccd07fc13496cbf3b8273235 = L.circleMarker(
+                [40.379, -73.264],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4daf4a", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_6e001ad80fda15f4f2963824e91b5202 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f474344abc39a306ddca396004a36dca = $(`<div id="html_f474344abc39a306ddca396004a36dca" style="width: 100.0%; height: 100.0%;">         <b>RAV A-3</b><br>         Bus ID: 79<br>         Voltage: 22.0 kV<br>         Area: NYISO Downstate<br>         Coord: (40.379°, -73.264°)         </div>`)[0];
+                popup_6e001ad80fda15f4f2963824e91b5202.setContent(html_f474344abc39a306ddca396004a36dca);
+            
+        
+
+        circle_marker_a93cf4b0ccd07fc13496cbf3b8273235.bindPopup(popup_6e001ad80fda15f4f2963824e91b5202)
+        ;
+
+        
+    
+    
+            circle_marker_a93cf4b0ccd07fc13496cbf3b8273235.bindTooltip(
+                `<div>
+                     RAV A-3 (22.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_708e5307c5c218b2aaa2c1ee367d3018 = L.circleMarker(
+                [40.852, -73.145],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4daf4a", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_450f32685f70c6c46f66b11d2308adc7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_46d40c0ce7742f40c4f5fd76dbef89b0 = $(`<div id="html_46d40c0ce7742f40c4f5fd76dbef89b0" style="width: 100.0%; height: 100.0%;">         <b>NORTHPORT</b><br>         Bus ID: 80<br>         Voltage: 138.0 kV<br>         Area: NYISO Downstate<br>         Coord: (40.852°, -73.145°)         </div>`)[0];
+                popup_450f32685f70c6c46f66b11d2308adc7.setContent(html_46d40c0ce7742f40c4f5fd76dbef89b0);
+            
+        
+
+        circle_marker_708e5307c5c218b2aaa2c1ee367d3018.bindPopup(popup_450f32685f70c6c46f66b11d2308adc7)
+        ;
+
+        
+    
+    
+            circle_marker_708e5307c5c218b2aaa2c1ee367d3018.bindTooltip(
+                `<div>
+                     NORTHPORT (138.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_63f4830c474066d7a830f44e587e72c5 = L.circleMarker(
+                [40.491, -73.775],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4daf4a", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_7ddabc7d6d8704689fadbf89249b1e35 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_68ab9bb9bcce2579467ef8fa4447df79 = $(`<div id="html_68ab9bb9bcce2579467ef8fa4447df79" style="width: 100.0%; height: 100.0%;">         <b>GOETHALS</b><br>         Bus ID: 81<br>         Voltage: 345.0 kV<br>         Area: NYISO Downstate<br>         Coord: (40.491°, -73.775°)         </div>`)[0];
+                popup_7ddabc7d6d8704689fadbf89249b1e35.setContent(html_68ab9bb9bcce2579467ef8fa4447df79);
+            
+        
+
+        circle_marker_63f4830c474066d7a830f44e587e72c5.bindPopup(popup_7ddabc7d6d8704689fadbf89249b1e35)
+        ;
+
+        
+    
+    
+            circle_marker_63f4830c474066d7a830f44e587e72c5.bindTooltip(
+                `<div>
+                     GOETHALS (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d8d11e7be052728ed14d0116082b07b6 = L.circleMarker(
+                [40.745, -73.783],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4daf4a", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_ab785d5fa70a6f163293b343ac22a9c4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1aecf49a0d96f5e9ecebe236ccc00f92 = $(`<div id="html_1aecf49a0d96f5e9ecebe236ccc00f92" style="width: 100.0%; height: 100.0%;">         <b>AK-3</b><br>         Bus ID: 82<br>         Voltage: 22.0 kV<br>         Area: NYISO Downstate<br>         Coord: (40.745°, -73.783°)         </div>`)[0];
+                popup_ab785d5fa70a6f163293b343ac22a9c4.setContent(html_1aecf49a0d96f5e9ecebe236ccc00f92);
+            
+        
+
+        circle_marker_d8d11e7be052728ed14d0116082b07b6.bindPopup(popup_ab785d5fa70a6f163293b343ac22a9c4)
+        ;
+
+        
+    
+    
+            circle_marker_d8d11e7be052728ed14d0116082b07b6.bindTooltip(
+                `<div>
+                     AK-3 (22.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_04d73e8d512172497a87e2653b5e899b = L.circleMarker(
+                [42.11, -82.905],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_3070107453d534a97144e195802d6037 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1f5df990196e3ae6a93e8b565640ee20 = $(`<div id="html_1f5df990196e3ae6a93e8b565640ee20" style="width: 100.0%; height: 100.0%;">         <b>KEITH</b><br>         Bus ID: 83<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (42.110°, -82.905°)         </div>`)[0];
+                popup_3070107453d534a97144e195802d6037.setContent(html_1f5df990196e3ae6a93e8b565640ee20);
+            
+        
+
+        circle_marker_04d73e8d512172497a87e2653b5e899b.bindPopup(popup_3070107453d534a97144e195802d6037)
+        ;
+
+        
+    
+    
+            circle_marker_04d73e8d512172497a87e2653b5e899b.bindTooltip(
+                `<div>
+                     KEITH (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d0fcaebab90d7c6db45b61a049e9433c = L.circleMarker(
+                [41.975, -83.24],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_a464fbd81b7fafe89044c89ff875aafd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5479032254d51b9e92351a01c19bd6ef = $(`<div id="html_5479032254d51b9e92351a01c19bd6ef" style="width: 100.0%; height: 100.0%;">         <b>KEITH JCT</b><br>         Bus ID: 84<br>         Voltage: 118.1 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (41.975°, -83.240°)         </div>`)[0];
+                popup_a464fbd81b7fafe89044c89ff875aafd.setContent(html_5479032254d51b9e92351a01c19bd6ef);
+            
+        
+
+        circle_marker_d0fcaebab90d7c6db45b61a049e9433c.bindPopup(popup_a464fbd81b7fafe89044c89ff875aafd)
+        ;
+
+        
+    
+    
+            circle_marker_d0fcaebab90d7c6db45b61a049e9433c.bindTooltip(
+                `<div>
+                     KEITH JCT (118.1 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d1dbe951722cb5cac9601cee572fd7ce = L.circleMarker(
+                [42.544, -82.443],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_9f0c0eb2cdb645b6e8f00bb41bbacd3c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2428aacbea0d19b2baae820a4338af55 = $(`<div id="html_2428aacbea0d19b2baae820a4338af55" style="width: 100.0%; height: 100.0%;">         <b>LAMBTON</b><br>         Bus ID: 85<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (42.544°, -82.443°)         </div>`)[0];
+                popup_9f0c0eb2cdb645b6e8f00bb41bbacd3c.setContent(html_2428aacbea0d19b2baae820a4338af55);
+            
+        
+
+        circle_marker_d1dbe951722cb5cac9601cee572fd7ce.bindPopup(popup_9f0c0eb2cdb645b6e8f00bb41bbacd3c)
+        ;
+
+        
+    
+    
+            circle_marker_d1dbe951722cb5cac9601cee572fd7ce.bindTooltip(
+                `<div>
+                     LAMBTON (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_22f2780e0d5a6fe9e5d1ea8c0833a46b = L.circleMarker(
+                [42.81, -82.476],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_ca0dd2640357ca96157195065e20e756 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_24b1e929f9bdc947fd91c9dbc2748602 = $(`<div id="html_24b1e929f9bdc947fd91c9dbc2748602" style="width: 100.0%; height: 100.0%;">         <b>LAMBTON</b><br>         Bus ID: 86<br>         Voltage: 24.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (42.810°, -82.476°)         </div>`)[0];
+                popup_ca0dd2640357ca96157195065e20e756.setContent(html_24b1e929f9bdc947fd91c9dbc2748602);
+            
+        
+
+        circle_marker_22f2780e0d5a6fe9e5d1ea8c0833a46b.bindPopup(popup_ca0dd2640357ca96157195065e20e756)
+        ;
+
+        
+    
+    
+            circle_marker_22f2780e0d5a6fe9e5d1ea8c0833a46b.bindTooltip(
+                `<div>
+                     LAMBTON (24.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a248775c38d66658f8f3a6c8d3a625e4 = L.circleMarker(
+                [42.437, -82.61],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_90ef277d5cd45228bdd73fdf59acb1e2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a8b6ee545d2cd879e7426408787f369b = $(`<div id="html_a8b6ee545d2cd879e7426408787f369b" style="width: 100.0%; height: 100.0%;">         <b>LAMBTON</b><br>         Bus ID: 87<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (42.437°, -82.610°)         </div>`)[0];
+                popup_90ef277d5cd45228bdd73fdf59acb1e2.setContent(html_a8b6ee545d2cd879e7426408787f369b);
+            
+        
+
+        circle_marker_a248775c38d66658f8f3a6c8d3a625e4.bindPopup(popup_90ef277d5cd45228bdd73fdf59acb1e2)
+        ;
+
+        
+    
+    
+            circle_marker_a248775c38d66658f8f3a6c8d3a625e4.bindTooltip(
+                `<div>
+                     LAMBTON (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d8776af86e965e3c018e227e4acd314f = L.circleMarker(
+                [42.81, -81.917],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_fd7fc200fac87b9c1b96f79928db6abe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_626a6a4c662f4d61e8973c423631ed3c = $(`<div id="html_626a6a4c662f4d61e8973c423631ed3c" style="width: 100.0%; height: 100.0%;">         <b>SCOTT</b><br>         Bus ID: 88<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (42.810°, -81.917°)         </div>`)[0];
+                popup_fd7fc200fac87b9c1b96f79928db6abe.setContent(html_626a6a4c662f4d61e8973c423631ed3c);
+            
+        
+
+        circle_marker_d8776af86e965e3c018e227e4acd314f.bindPopup(popup_fd7fc200fac87b9c1b96f79928db6abe)
+        ;
+
+        
+    
+    
+            circle_marker_d8776af86e965e3c018e227e4acd314f.bindTooltip(
+                `<div>
+                     SCOTT (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b6b8115a8e4537b4b3ea52be966f438d = L.circleMarker(
+                [42.911, -82.205],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_2d048fae3c6ac04cb74d6e90e050d5af = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d68a4acc42a5eb86d98b45caa3474780 = $(`<div id="html_d68a4acc42a5eb86d98b45caa3474780" style="width: 100.0%; height: 100.0%;">         <b>SCOTT</b><br>         Bus ID: 89<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (42.911°, -82.205°)         </div>`)[0];
+                popup_2d048fae3c6ac04cb74d6e90e050d5af.setContent(html_d68a4acc42a5eb86d98b45caa3474780);
+            
+        
+
+        circle_marker_b6b8115a8e4537b4b3ea52be966f438d.bindPopup(popup_2d048fae3c6ac04cb74d6e90e050d5af)
+        ;
+
+        
+    
+    
+            circle_marker_b6b8115a8e4537b4b3ea52be966f438d.bindTooltip(
+                `<div>
+                     SCOTT (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2171b94f704a1b39d5f631402062699a = L.circleMarker(
+                [43.255, -82.468],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_f733858287f224f1321f5229a9e253b3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bcc462db3fb7be16d59d39bb1bc74e90 = $(`<div id="html_bcc462db3fb7be16d59d39bb1bc74e90" style="width: 100.0%; height: 100.0%;">         <b>VIDA</b><br>         Bus ID: 90<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (43.255°, -82.468°)         </div>`)[0];
+                popup_f733858287f224f1321f5229a9e253b3.setContent(html_bcc462db3fb7be16d59d39bb1bc74e90);
+            
+        
+
+        circle_marker_2171b94f704a1b39d5f631402062699a.bindPopup(popup_f733858287f224f1321f5229a9e253b3)
+        ;
+
+        
+    
+    
+            circle_marker_2171b94f704a1b39d5f631402062699a.bindTooltip(
+                `<div>
+                     VIDA (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d6466ee6b1e08b0a3afa29d804b1547c = L.circleMarker(
+                [43.876, -79.406],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_03150d707019630295fcb848ac1058ea = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aeb12f24077c8b1c94020980fd09e56e = $(`<div id="html_aeb12f24077c8b1c94020980fd09e56e" style="width: 100.0%; height: 100.0%;">         <b>RICHVIEW</b><br>         Bus ID: 91<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (43.876°, -79.406°)         </div>`)[0];
+                popup_03150d707019630295fcb848ac1058ea.setContent(html_aeb12f24077c8b1c94020980fd09e56e);
+            
+        
+
+        circle_marker_d6466ee6b1e08b0a3afa29d804b1547c.bindPopup(popup_03150d707019630295fcb848ac1058ea)
+        ;
+
+        
+    
+    
+            circle_marker_d6466ee6b1e08b0a3afa29d804b1547c.bindTooltip(
+                `<div>
+                     RICHVIEW (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_15fa812f23fab3f68923bed4145b2693 = L.circleMarker(
+                [46.482, -81.095],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_ea3b4f94d97b817a15733dd584eff7bc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_581afc0e53ecff39b893742737e0c24b = $(`<div id="html_581afc0e53ecff39b893742737e0c24b" style="width: 100.0%; height: 100.0%;">         <b>HANMER</b><br>         Bus ID: 92<br>         Voltage: 500.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (46.482°, -81.095°)         </div>`)[0];
+                popup_ea3b4f94d97b817a15733dd584eff7bc.setContent(html_581afc0e53ecff39b893742737e0c24b);
+            
+        
+
+        circle_marker_15fa812f23fab3f68923bed4145b2693.bindPopup(popup_ea3b4f94d97b817a15733dd584eff7bc)
+        ;
+
+        
+    
+    
+            circle_marker_15fa812f23fab3f68923bed4145b2693.bindTooltip(
+                `<div>
+                     HANMER (500.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3175aa08186794bb343c0a7fe8f87161 = L.circleMarker(
+                [44.733, -79.639],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_b9139ac0f23d32aa3a173117c9414a4a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5f15f7741d72fe76fa7a51b87c301ac8 = $(`<div id="html_5f15f7741d72fe76fa7a51b87c301ac8" style="width: 100.0%; height: 100.0%;">         <b>ESSA</b><br>         Bus ID: 93<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (44.733°, -79.639°)         </div>`)[0];
+                popup_b9139ac0f23d32aa3a173117c9414a4a.setContent(html_5f15f7741d72fe76fa7a51b87c301ac8);
+            
+        
+
+        circle_marker_3175aa08186794bb343c0a7fe8f87161.bindPopup(popup_b9139ac0f23d32aa3a173117c9414a4a)
+        ;
+
+        
+    
+    
+            circle_marker_3175aa08186794bb343c0a7fe8f87161.bindTooltip(
+                `<div>
+                     ESSA (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_faef7bdce39eb72e82c78604d4ca5d89 = L.circleMarker(
+                [44.0, -80.101],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_aa89352149586e2f5ac04adf4a3910b6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7e335f6951312f99138d3b897c6d8c2c = $(`<div id="html_7e335f6951312f99138d3b897c6d8c2c" style="width: 100.0%; height: 100.0%;">         <b>ORANGEVILLE</b><br>         Bus ID: 94<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (44.000°, -80.101°)         </div>`)[0];
+                popup_aa89352149586e2f5ac04adf4a3910b6.setContent(html_7e335f6951312f99138d3b897c6d8c2c);
+            
+        
+
+        circle_marker_faef7bdce39eb72e82c78604d4ca5d89.bindPopup(popup_aa89352149586e2f5ac04adf4a3910b6)
+        ;
+
+        
+    
+    
+            circle_marker_faef7bdce39eb72e82c78604d4ca5d89.bindTooltip(
+                `<div>
+                     ORANGEVILLE (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b101f4d2fd128cf2db3aac0bc0d77a50 = L.circleMarker(
+                [46.087, -78.102],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_848d0a568436401ed39dd4d66adc8da9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_23512bf16942a5643946de22f763c8fa = $(`<div id="html_23512bf16942a5643946de22f763c8fa" style="width: 100.0%; height: 100.0%;">         <b>DES JOAC</b><br>         Bus ID: 95<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (46.087°, -78.102°)         </div>`)[0];
+                popup_848d0a568436401ed39dd4d66adc8da9.setContent(html_23512bf16942a5643946de22f763c8fa);
+            
+        
+
+        circle_marker_b101f4d2fd128cf2db3aac0bc0d77a50.bindPopup(popup_848d0a568436401ed39dd4d66adc8da9)
+        ;
+
+        
+    
+    
+            circle_marker_b101f4d2fd128cf2db3aac0bc0d77a50.bindTooltip(
+                `<div>
+                     DES JOAC (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_98f5c450a15770569104d344a28d3fd6 = L.circleMarker(
+                [46.194, -79.523],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_a3ac36a2cb2b796da4caf1b3c72ec57c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bd1e1ecfa9591c7d754520ec104d9b7e = $(`<div id="html_bd1e1ecfa9591c7d754520ec104d9b7e" style="width: 100.0%; height: 100.0%;">         <b>HOLDEN</b><br>         Bus ID: 96<br>         Voltage: 13.8 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (46.194°, -79.523°)         </div>`)[0];
+                popup_a3ac36a2cb2b796da4caf1b3c72ec57c.setContent(html_bd1e1ecfa9591c7d754520ec104d9b7e);
+            
+        
+
+        circle_marker_98f5c450a15770569104d344a28d3fd6.bindPopup(popup_a3ac36a2cb2b796da4caf1b3c72ec57c)
+        ;
+
+        
+    
+    
+            circle_marker_98f5c450a15770569104d344a28d3fd6.bindTooltip(
+                `<div>
+                     HOLDEN (13.8 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8eb998b47784400d1f475d86bc0b3cd7 = L.circleMarker(
+                [46.199, -81.349],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_cd47c49bee12f635019ca99f04c3f3bd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_49f2127a557ac47b42288d60525cc8ff = $(`<div id="html_49f2127a557ac47b42288d60525cc8ff" style="width: 100.0%; height: 100.0%;">         <b>MARTINDELE</b><br>         Bus ID: 97<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (46.199°, -81.349°)         </div>`)[0];
+                popup_cd47c49bee12f635019ca99f04c3f3bd.setContent(html_49f2127a557ac47b42288d60525cc8ff);
+            
+        
+
+        circle_marker_8eb998b47784400d1f475d86bc0b3cd7.bindPopup(popup_cd47c49bee12f635019ca99f04c3f3bd)
+        ;
+
+        
+    
+    
+            circle_marker_8eb998b47784400d1f475d86bc0b3cd7.bindTooltip(
+                `<div>
+                     MARTINDELE (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ef5617171717fb279cc13274aa7e3ad5 = L.circleMarker(
+                [44.637, -75.953],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_3224daf1dff62f6aa5f2905e5a013a83 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4f9e4df9aff99c84f85e0af08b72dec3 = $(`<div id="html_4f9e4df9aff99c84f85e0af08b72dec3" style="width: 100.0%; height: 100.0%;">         <b>STLA</b><br>         Bus ID: 98<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (44.637°, -75.953°)         </div>`)[0];
+                popup_3224daf1dff62f6aa5f2905e5a013a83.setContent(html_4f9e4df9aff99c84f85e0af08b72dec3);
+            
+        
+
+        circle_marker_ef5617171717fb279cc13274aa7e3ad5.bindPopup(popup_3224daf1dff62f6aa5f2905e5a013a83)
+        ;
+
+        
+    
+    
+            circle_marker_ef5617171717fb279cc13274aa7e3ad5.bindTooltip(
+                `<div>
+                     STLA (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ceb7afb1253ffa26c05f6cfc6d2e05ef = L.circleMarker(
+                [44.976, -75.372],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_e484f5685be95bfb15429d0512f9ca27 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f8bac8812e626fa145a0c7d4da1ac1c1 = $(`<div id="html_f8bac8812e626fa145a0c7d4da1ac1c1" style="width: 100.0%; height: 100.0%;">         <b>PVR</b><br>         Bus ID: 99<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (44.976°, -75.372°)         </div>`)[0];
+                popup_e484f5685be95bfb15429d0512f9ca27.setContent(html_f8bac8812e626fa145a0c7d4da1ac1c1);
+            
+        
+
+        circle_marker_ceb7afb1253ffa26c05f6cfc6d2e05ef.bindPopup(popup_e484f5685be95bfb15429d0512f9ca27)
+        ;
+
+        
+    
+    
+            circle_marker_ceb7afb1253ffa26c05f6cfc6d2e05ef.bindTooltip(
+                `<div>
+                     PVR (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_303cad74337edcd4f64064a5d77ebb30 = L.circleMarker(
+                [45.066, -74.853],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_ab5bced71c64bef2b81069f52c6a5bb4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3b682dfbc464ec253d5bb94174810a3a = $(`<div id="html_3b682dfbc464ec253d5bb94174810a3a" style="width: 100.0%; height: 100.0%;">         <b>PHAS</b><br>         Bus ID: 100<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (45.066°, -74.853°)         </div>`)[0];
+                popup_ab5bced71c64bef2b81069f52c6a5bb4.setContent(html_3b682dfbc464ec253d5bb94174810a3a);
+            
+        
+
+        circle_marker_303cad74337edcd4f64064a5d77ebb30.bindPopup(popup_ab5bced71c64bef2b81069f52c6a5bb4)
+        ;
+
+        
+    
+    
+            circle_marker_303cad74337edcd4f64064a5d77ebb30.bindTooltip(
+                `<div>
+                     PHAS (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8e4b6771329bed0762776ec5449c94e8 = L.circleMarker(
+                [42.917, -79.843],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_54df6d4861e18bd09ff74198d386cd1a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8ea2ed4e1be316d4c13f571aa21ac3fa = $(`<div id="html_8ea2ed4e1be316d4c13f571aa21ac3fa" style="width: 100.0%; height: 100.0%;">         <b>SAB 2</b><br>         Bus ID: 101<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (42.917°, -79.843°)         </div>`)[0];
+                popup_54df6d4861e18bd09ff74198d386cd1a.setContent(html_8ea2ed4e1be316d4c13f571aa21ac3fa);
+            
+        
+
+        circle_marker_8e4b6771329bed0762776ec5449c94e8.bindPopup(popup_54df6d4861e18bd09ff74198d386cd1a)
+        ;
+
+        
+    
+    
+            circle_marker_8e4b6771329bed0762776ec5449c94e8.bindTooltip(
+                `<div>
+                     SAB 2 (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0e90eb2dd80e69a64a07781e5b789aa1 = L.circleMarker(
+                [43.266, -79.349],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_2d590eebed6705588f591b7cd4596089 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4f1fa5fcfe7bc1df17e3486262ad9bae = $(`<div id="html_4f1fa5fcfe7bc1df17e3486262ad9bae" style="width: 100.0%; height: 100.0%;">         <b>BP 76</b><br>         Bus ID: 102<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (43.266°, -79.349°)         </div>`)[0];
+                popup_2d590eebed6705588f591b7cd4596089.setContent(html_4f1fa5fcfe7bc1df17e3486262ad9bae);
+            
+        
+
+        circle_marker_0e90eb2dd80e69a64a07781e5b789aa1.bindPopup(popup_2d590eebed6705588f591b7cd4596089)
+        ;
+
+        
+    
+    
+            circle_marker_0e90eb2dd80e69a64a07781e5b789aa1.bindTooltip(
+                `<div>
+                     BP 76 (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b5650296afe516f1cc81064e8d4564de = L.circleMarker(
+                [43.069, -79.317],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_261769e7e3ca8b3a765dbf37d93133b6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_acfad80766e421f52e48a367dc6f54d7 = $(`<div id="html_acfad80766e421f52e48a367dc6f54d7" style="width: 100.0%; height: 100.0%;">         <b>PA 27</b><br>         Bus ID: 103<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (43.069°, -79.317°)         </div>`)[0];
+                popup_261769e7e3ca8b3a765dbf37d93133b6.setContent(html_acfad80766e421f52e48a367dc6f54d7);
+            
+        
+
+        circle_marker_b5650296afe516f1cc81064e8d4564de.bindPopup(popup_261769e7e3ca8b3a765dbf37d93133b6)
+        ;
+
+        
+    
+    
+            circle_marker_b5650296afe516f1cc81064e8d4564de.bindTooltip(
+                `<div>
+                     PA 27 (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_63ad906d6d9525504af15ac0eefb0157 = L.circleMarker(
+                [43.148, -80.019],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_103ce2183da304430c2cd16f8cbfeba6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_38fbc561bec94b24dc35df341680e731 = $(`<div id="html_38fbc561bec94b24dc35df341680e731" style="width: 100.0%; height: 100.0%;">         <b>BEACH</b><br>         Bus ID: 104<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (43.148°, -80.019°)         </div>`)[0];
+                popup_103ce2183da304430c2cd16f8cbfeba6.setContent(html_38fbc561bec94b24dc35df341680e731);
+            
+        
+
+        circle_marker_63ad906d6d9525504af15ac0eefb0157.bindPopup(popup_103ce2183da304430c2cd16f8cbfeba6)
+        ;
+
+        
+    
+    
+            circle_marker_63ad906d6d9525504af15ac0eefb0157.bindTooltip(
+                `<div>
+                     BEACH (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c9f38f1291950a3edc5cf5e25052248a = L.circleMarker(
+                [42.731, -81.486],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_f959780c73563c1b7f441bdc16a70a5b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b4e00ab28b436e7089c258755b1a2e0b = $(`<div id="html_b4e00ab28b436e7089c258755b1a2e0b" style="width: 100.0%; height: 100.0%;">         <b>BUCHANAN</b><br>         Bus ID: 105<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (42.731°, -81.486°)         </div>`)[0];
+                popup_f959780c73563c1b7f441bdc16a70a5b.setContent(html_b4e00ab28b436e7089c258755b1a2e0b);
+            
+        
+
+        circle_marker_c9f38f1291950a3edc5cf5e25052248a.bindPopup(popup_f959780c73563c1b7f441bdc16a70a5b)
+        ;
+
+        
+    
+    
+            circle_marker_c9f38f1291950a3edc5cf5e25052248a.bindTooltip(
+                `<div>
+                     BUCHANAN (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9787761e88f0d6dd16247de6aab5476a = L.circleMarker(
+                [43.137, -80.921],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_55fb5e7a92142bce04f3dbcdf9074830 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c628a55c4d43bf81485d5909d8c81679 = $(`<div id="html_c628a55c4d43bf81485d5909d8c81679" style="width: 100.0%; height: 100.0%;">         <b>NEALE</b><br>         Bus ID: 106<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (43.137°, -80.921°)         </div>`)[0];
+                popup_55fb5e7a92142bce04f3dbcdf9074830.setContent(html_c628a55c4d43bf81485d5909d8c81679);
+            
+        
+
+        circle_marker_9787761e88f0d6dd16247de6aab5476a.bindPopup(popup_55fb5e7a92142bce04f3dbcdf9074830)
+        ;
+
+        
+    
+    
+            circle_marker_9787761e88f0d6dd16247de6aab5476a.bindTooltip(
+                `<div>
+                     NEALE (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4d91240babcb7018c10b8803fc0f5490 = L.circleMarker(
+                [42.99, -80.793],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_4806ccdbeed506a5cfa10d74545ce91c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a6e32d386e34e679910dcc473d8af45e = $(`<div id="html_a6e32d386e34e679910dcc473d8af45e" style="width: 100.0%; height: 100.0%;">         <b>NEALE</b><br>         Bus ID: 107<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (42.990°, -80.793°)         </div>`)[0];
+                popup_4806ccdbeed506a5cfa10d74545ce91c.setContent(html_a6e32d386e34e679910dcc473d8af45e);
+            
+        
+
+        circle_marker_4d91240babcb7018c10b8803fc0f5490.bindPopup(popup_4806ccdbeed506a5cfa10d74545ce91c)
+        ;
+
+        
+    
+    
+            circle_marker_4d91240babcb7018c10b8803fc0f5490.bindTooltip(
+                `<div>
+                     NEALE (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fa50ac8bf0d08753a6fe00a5e8953acc = L.circleMarker(
+                [43.706, -79.781],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_a51cd69a6b3c7468a93c81e4857bc7c6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1fdab1269d98af841bb6092fdbe2a5c2 = $(`<div id="html_1fdab1269d98af841bb6092fdbe2a5c2" style="width: 100.0%; height: 100.0%;">         <b>S CT</b><br>         Bus ID: 108<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (43.706°, -79.781°)         </div>`)[0];
+                popup_a51cd69a6b3c7468a93c81e4857bc7c6.setContent(html_1fdab1269d98af841bb6092fdbe2a5c2);
+            
+        
+
+        circle_marker_fa50ac8bf0d08753a6fe00a5e8953acc.bindPopup(popup_a51cd69a6b3c7468a93c81e4857bc7c6)
+        ;
+
+        
+    
+    
+            circle_marker_fa50ac8bf0d08753a6fe00a5e8953acc.bindTooltip(
+                `<div>
+                     S CT (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fffca1ea0a08cd46fbff76b2e27ab998 = L.circleMarker(
+                [43.34, -79.94],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_11174afe1cba6ef2ab193836784f9110 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_98a9f2e52234f99cda15f9a3af171c9f = $(`<div id="html_98a9f2e52234f99cda15f9a3af171c9f" style="width: 100.0%; height: 100.0%;">         <b>SLT</b><br>         Bus ID: 109<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (43.340°, -79.940°)         </div>`)[0];
+                popup_11174afe1cba6ef2ab193836784f9110.setContent(html_98a9f2e52234f99cda15f9a3af171c9f);
+            
+        
+
+        circle_marker_fffca1ea0a08cd46fbff76b2e27ab998.bindPopup(popup_11174afe1cba6ef2ab193836784f9110)
+        ;
+
+        
+    
+    
+            circle_marker_fffca1ea0a08cd46fbff76b2e27ab998.bindTooltip(
+                `<div>
+                     SLT (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f939f8385a90d7c0409b2151ec6c5031 = L.circleMarker(
+                [43.103, -79.644],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_bc0d94fdcf6ff17a857204e44cf33139 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_430c711a129d739328243dc157c4da09 = $(`<div id="html_430c711a129d739328243dc157c4da09" style="width: 100.0%; height: 100.0%;">         <b>BURLINGTON</b><br>         Bus ID: 110<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (43.103°, -79.644°)         </div>`)[0];
+                popup_bc0d94fdcf6ff17a857204e44cf33139.setContent(html_430c711a129d739328243dc157c4da09);
+            
+        
+
+        circle_marker_f939f8385a90d7c0409b2151ec6c5031.bindPopup(popup_bc0d94fdcf6ff17a857204e44cf33139)
+        ;
+
+        
+    
+    
+            circle_marker_f939f8385a90d7c0409b2151ec6c5031.bindTooltip(
+                `<div>
+                     BURLINGTON (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ffc807915ac643b2bf1db04485944525 = L.circleMarker(
+                [43.52, -80.754],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_7d0327bd41479ea7320ada1288661987 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_faea3c363189e66b19e0776607ffa33a = $(`<div id="html_faea3c363189e66b19e0776607ffa33a" style="width: 100.0%; height: 100.0%;">         <b>DETWIERER</b><br>         Bus ID: 111<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (43.520°, -80.754°)         </div>`)[0];
+                popup_7d0327bd41479ea7320ada1288661987.setContent(html_faea3c363189e66b19e0776607ffa33a);
+            
+        
+
+        circle_marker_ffc807915ac643b2bf1db04485944525.bindPopup(popup_7d0327bd41479ea7320ada1288661987)
+        ;
+
+        
+    
+    
+            circle_marker_ffc807915ac643b2bf1db04485944525.bindTooltip(
+                `<div>
+                     DETWIERER (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5b15a814a89e08c777fc9a69faef5fc8 = L.circleMarker(
+                [42.206, -81.565],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_6aa22961c59402899fa6b389283a60a7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eb39897723a7e49f34d90bca5ed9389b = $(`<div id="html_eb39897723a7e49f34d90bca5ed9389b" style="width: 100.0%; height: 100.0%;">         <b>CHATHAM</b><br>         Bus ID: 112<br>         Voltage: 220.0 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (42.206°, -81.565°)         </div>`)[0];
+                popup_6aa22961c59402899fa6b389283a60a7.setContent(html_eb39897723a7e49f34d90bca5ed9389b);
+            
+        
+
+        circle_marker_5b15a814a89e08c777fc9a69faef5fc8.bindPopup(popup_6aa22961c59402899fa6b389283a60a7)
+        ;
+
+        
+    
+    
+            circle_marker_5b15a814a89e08c777fc9a69faef5fc8.bindTooltip(
+                `<div>
+                     CHATHAM (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6b650be40ee3bfa1dd776f4f1969d94c = L.circleMarker(
+                [42.003, -82.123],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#984ea3", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_97d0f50b9b290f58f88bdb9a71d45348 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a109318e2822fdd010db1d8ff6db253f = $(`<div id="html_a109318e2822fdd010db1d8ff6db253f" style="width: 100.0%; height: 100.0%;">         <b>LAUZON</b><br>         Bus ID: 113<br>         Voltage: 118.1 kV<br>         Area: IESO (Ontario/Quebec)<br>         Coord: (42.003°, -82.123°)         </div>`)[0];
+                popup_97d0f50b9b290f58f88bdb9a71d45348.setContent(html_a109318e2822fdd010db1d8ff6db253f);
+            
+        
+
+        circle_marker_6b650be40ee3bfa1dd776f4f1969d94c.bindPopup(popup_97d0f50b9b290f58f88bdb9a71d45348)
+        ;
+
+        
+    
+    
+            circle_marker_6b650be40ee3bfa1dd776f4f1969d94c.bindTooltip(
+                `<div>
+                     LAUZON (118.1 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_802a4b748a25a601a3158a8fe5f48cfc = L.circleMarker(
+                [42.911, -82.763],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_411c646db411d91a8849b3a03b350da5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0b67c63670c86f82b4a139640f43a0c5 = $(`<div id="html_0b67c63670c86f82b4a139640f43a0c5" style="width: 100.0%; height: 100.0%;">         <b>MARYSVILLE</b><br>         Bus ID: 114<br>         Voltage: 220.0 kV<br>         Area: MISO (Michigan)<br>         Coord: (42.911°, -82.763°)         </div>`)[0];
+                popup_411c646db411d91a8849b3a03b350da5.setContent(html_0b67c63670c86f82b4a139640f43a0c5);
+            
+        
+
+        circle_marker_802a4b748a25a601a3158a8fe5f48cfc.bindPopup(popup_411c646db411d91a8849b3a03b350da5)
+        ;
+
+        
+    
+    
+            circle_marker_802a4b748a25a601a3158a8fe5f48cfc.bindTooltip(
+                `<div>
+                     MARYSVILLE (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5410b259f77cf4fd475dbbb72c10c686 = L.circleMarker(
+                [42.629, -82.77],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_c6494aec0b8b13e570a070ad91f07c40 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8665fd2afab01ca2c601f2b49040abbe = $(`<div id="html_8665fd2afab01ca2c601f2b49040abbe" style="width: 100.0%; height: 100.0%;">         <b>ST CLAIR</b><br>         Bus ID: 115<br>         Voltage: 500.0 kV<br>         Area: MISO (Michigan)<br>         Coord: (42.629°, -82.770°)         </div>`)[0];
+                popup_c6494aec0b8b13e570a070ad91f07c40.setContent(html_8665fd2afab01ca2c601f2b49040abbe);
+            
+        
+
+        circle_marker_5410b259f77cf4fd475dbbb72c10c686.bindPopup(popup_c6494aec0b8b13e570a070ad91f07c40)
+        ;
+
+        
+    
+    
+            circle_marker_5410b259f77cf4fd475dbbb72c10c686.bindTooltip(
+                `<div>
+                     ST CLAIR (500.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bb9c4b950ceabf02949cd8341586f767 = L.circleMarker(
+                [42.324, -82.921],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_32993829ed06e5fe45e6e8b7eab990bc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d24021d1fe6d96ee6ed6cca5b37a22bc = $(`<div id="html_d24021d1fe6d96ee6ed6cca5b37a22bc" style="width: 100.0%; height: 100.0%;">         <b>WATERMAN</b><br>         Bus ID: 116<br>         Voltage: 220.0 kV<br>         Area: MISO (Michigan)<br>         Coord: (42.324°, -82.921°)         </div>`)[0];
+                popup_32993829ed06e5fe45e6e8b7eab990bc.setContent(html_d24021d1fe6d96ee6ed6cca5b37a22bc);
+            
+        
+
+        circle_marker_bb9c4b950ceabf02949cd8341586f767.bindPopup(popup_32993829ed06e5fe45e6e8b7eab990bc)
+        ;
+
+        
+    
+    
+            circle_marker_bb9c4b950ceabf02949cd8341586f767.bindTooltip(
+                `<div>
+                     WATERMAN (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_11fab857be86955c719cb07e27d232eb = L.circleMarker(
+                [42.573, -83.488],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_668041ef65c394f658017dc0d8062a71 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a3e82d8b14e031d957a7f0c9f21e39a1 = $(`<div id="html_a3e82d8b14e031d957a7f0c9f21e39a1" style="width: 100.0%; height: 100.0%;">         <b>PONTIAC</b><br>         Bus ID: 117<br>         Voltage: 230.0 kV<br>         Area: MISO (Michigan)<br>         Coord: (42.573°, -83.488°)         </div>`)[0];
+                popup_668041ef65c394f658017dc0d8062a71.setContent(html_a3e82d8b14e031d957a7f0c9f21e39a1);
+            
+        
+
+        circle_marker_11fab857be86955c719cb07e27d232eb.bindPopup(popup_668041ef65c394f658017dc0d8062a71)
+        ;
+
+        
+    
+    
+            circle_marker_11fab857be86955c719cb07e27d232eb.bindTooltip(
+                `<div>
+                     PONTIAC (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4ba6b097134d7574e218540b8c428a4e = L.circleMarker(
+                [42.127, -83.495],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_59d43945f09b6b2e623cdbf828ce5b2b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_108b99fc97cbecdcfd23bbb68125170f = $(`<div id="html_108b99fc97cbecdcfd23bbb68125170f" style="width: 100.0%; height: 100.0%;">         <b>WAYNE</b><br>         Bus ID: 118<br>         Voltage: 115.0 kV<br>         Area: MISO (Michigan)<br>         Coord: (42.127°, -83.495°)         </div>`)[0];
+                popup_59d43945f09b6b2e623cdbf828ce5b2b.setContent(html_108b99fc97cbecdcfd23bbb68125170f);
+            
+        
+
+        circle_marker_4ba6b097134d7574e218540b8c428a4e.bindPopup(popup_59d43945f09b6b2e623cdbf828ce5b2b)
+        ;
+
+        
+    
+    
+            circle_marker_4ba6b097134d7574e218540b8c428a4e.bindTooltip(
+                `<div>
+                     WAYNE (115.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a89a542fa7724606248463ef42e75399 = L.circleMarker(
+                [43.109, -83.633],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_07c167b0b843ea4139e16237b8a00baa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1dcb05658f0f9159b80b3950c6776bdb = $(`<div id="html_1dcb05658f0f9159b80b3950c6776bdb" style="width: 100.0%; height: 100.0%;">         <b>THETFORD</b><br>         Bus ID: 119<br>         Voltage: 220.0 kV<br>         Area: MISO (Michigan)<br>         Coord: (43.109°, -83.633°)         </div>`)[0];
+                popup_07c167b0b843ea4139e16237b8a00baa.setContent(html_1dcb05658f0f9159b80b3950c6776bdb);
+            
+        
+
+        circle_marker_a89a542fa7724606248463ef42e75399.bindPopup(popup_07c167b0b843ea4139e16237b8a00baa)
+        ;
+
+        
+    
+    
+            circle_marker_a89a542fa7724606248463ef42e75399.bindTooltip(
+                `<div>
+                     THETFORD (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f5f5d99e870f0c89ea1859354ef4032c = L.circleMarker(
+                [43.199, -85.755],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_7e77b280ffbb6208b65795fad4f5e0f1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d7659f2466cc85bcc7665afafcfb6775 = $(`<div id="html_d7659f2466cc85bcc7665afafcfb6775" style="width: 100.0%; height: 100.0%;">         <b>ARGENTA</b><br>         Bus ID: 120<br>         Voltage: 220.0 kV<br>         Area: MISO (Michigan)<br>         Coord: (43.199°, -85.755°)         </div>`)[0];
+                popup_7e77b280ffbb6208b65795fad4f5e0f1.setContent(html_d7659f2466cc85bcc7665afafcfb6775);
+            
+        
+
+        circle_marker_f5f5d99e870f0c89ea1859354ef4032c.bindPopup(popup_7e77b280ffbb6208b65795fad4f5e0f1)
+        ;
+
+        
+    
+    
+            circle_marker_f5f5d99e870f0c89ea1859354ef4032c.bindTooltip(
+                `<div>
+                     ARGENTA (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_215bb50f0dce5642a6f45c43843ace82 = L.circleMarker(
+                [42.494, -83.145],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_590aaeb4381c5a325a855856cf6ef4d9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8ae37cfd351ed870e5457d9321013672 = $(`<div id="html_8ae37cfd351ed870e5457d9321013672" style="width: 100.0%; height: 100.0%;">         <b>SC415</b><br>         Bus ID: 121<br>         Voltage: 220.0 kV<br>         Area: MISO (Michigan)<br>         Coord: (42.494°, -83.145°)         </div>`)[0];
+                popup_590aaeb4381c5a325a855856cf6ef4d9.setContent(html_8ae37cfd351ed870e5457d9321013672);
+            
+        
+
+        circle_marker_215bb50f0dce5642a6f45c43843ace82.bindPopup(popup_590aaeb4381c5a325a855856cf6ef4d9)
+        ;
+
+        
+    
+    
+            circle_marker_215bb50f0dce5642a6f45c43843ace82.bindTooltip(
+                `<div>
+                     SC415 (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f60da2f294e52834dd26ea2cc4123fae = L.circleMarker(
+                [42.319, -83.201],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_035d33569cb5e13cccddd9062978ec6e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5ce17127f04eaf8000a63580bfc989df = $(`<div id="html_5ce17127f04eaf8000a63580bfc989df" style="width: 100.0%; height: 100.0%;">         <b>WATERMAN</b><br>         Bus ID: 122<br>         Voltage: 220.0 kV<br>         Area: MISO (Michigan)<br>         Coord: (42.319°, -83.201°)         </div>`)[0];
+                popup_035d33569cb5e13cccddd9062978ec6e.setContent(html_5ce17127f04eaf8000a63580bfc989df);
+            
+        
+
+        circle_marker_f60da2f294e52834dd26ea2cc4123fae.bindPopup(popup_035d33569cb5e13cccddd9062978ec6e)
+        ;
+
+        
+    
+    
+            circle_marker_f60da2f294e52834dd26ea2cc4123fae.bindTooltip(
+                `<div>
+                     WATERMAN (220.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cdc3116f9f0d8faf8f38c5741dc6e99e = L.circleMarker(
+                [41.619, -83.502],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_b2344ca75d3e669b32a212147f2a0d1e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_39ead678e9d02f686ccc56d41f1f7b62 = $(`<div id="html_39ead678e9d02f686ccc56d41f1f7b62" style="width: 100.0%; height: 100.0%;">         <b>MONROE</b><br>         Bus ID: 123<br>         Voltage: 230.0 kV<br>         Area: MISO (Michigan)<br>         Coord: (41.619°, -83.502°)         </div>`)[0];
+                popup_b2344ca75d3e669b32a212147f2a0d1e.setContent(html_39ead678e9d02f686ccc56d41f1f7b62);
+            
+        
+
+        circle_marker_cdc3116f9f0d8faf8f38c5741dc6e99e.bindPopup(popup_b2344ca75d3e669b32a212147f2a0d1e)
+        ;
+
+        
+    
+    
+            circle_marker_cdc3116f9f0d8faf8f38c5741dc6e99e.bindTooltip(
+                `<div>
+                     MONROE (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bfbc16d7e16c1374a79ac6b02af36c53 = L.circleMarker(
+                [40.627, -74.709],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff33", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_d945f95228574e97d6a5c3337e11fef0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_03fa35960af75600877158779a8ca282 = $(`<div id="html_03fa35960af75600877158779a8ca282" style="width: 100.0%; height: 100.0%;">         <b>BRANCHBURG</b><br>         Bus ID: 124<br>         Voltage: 230.0 kV<br>         Area: PJM<br>         Coord: (40.627°, -74.709°)         </div>`)[0];
+                popup_d945f95228574e97d6a5c3337e11fef0.setContent(html_03fa35960af75600877158779a8ca282);
+            
+        
+
+        circle_marker_bfbc16d7e16c1374a79ac6b02af36c53.bindPopup(popup_d945f95228574e97d6a5c3337e11fef0)
+        ;
+
+        
+    
+    
+            circle_marker_bfbc16d7e16c1374a79ac6b02af36c53.bindTooltip(
+                `<div>
+                     BRANCHBURG (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b9980511da42ad900eca4d271431e1e1 = L.circleMarker(
+                [40.486, -74.301],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff33", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_5ca13d994e7dca8d140a358d4b79da83 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3c719c907955acade6d366232f987dfc = $(`<div id="html_3c719c907955acade6d366232f987dfc" style="width: 100.0%; height: 100.0%;">         <b>LINDON</b><br>         Bus ID: 125<br>         Voltage: 230.0 kV<br>         Area: PJM<br>         Coord: (40.486°, -74.301°)         </div>`)[0];
+                popup_5ca13d994e7dca8d140a358d4b79da83.setContent(html_3c719c907955acade6d366232f987dfc);
+            
+        
+
+        circle_marker_b9980511da42ad900eca4d271431e1e1.bindPopup(popup_5ca13d994e7dca8d140a358d4b79da83)
+        ;
+
+        
+    
+    
+            circle_marker_b9980511da42ad900eca4d271431e1e1.bindTooltip(
+                `<div>
+                     LINDON (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_062bc3a7e020325ec5f0e46c12e6e8c2 = L.circleMarker(
+                [40.892, -74.047],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff33", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_05cc2eb4f061336414a31f45118a7fbd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6502d1b16b165fe085ef8b3ccd44bbaa = $(`<div id="html_6502d1b16b165fe085ef8b3ccd44bbaa" style="width: 100.0%; height: 100.0%;">         <b>HUDSON</b><br>         Bus ID: 126<br>         Voltage: 230.0 kV<br>         Area: PJM<br>         Coord: (40.892°, -74.047°)         </div>`)[0];
+                popup_05cc2eb4f061336414a31f45118a7fbd.setContent(html_6502d1b16b165fe085ef8b3ccd44bbaa);
+            
+        
+
+        circle_marker_062bc3a7e020325ec5f0e46c12e6e8c2.bindPopup(popup_05cc2eb4f061336414a31f45118a7fbd)
+        ;
+
+        
+    
+    
+            circle_marker_062bc3a7e020325ec5f0e46c12e6e8c2.bindTooltip(
+                `<div>
+                     HUDSON (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_334b8395401febeb8d9dca9c55aed1f2 = L.circleMarker(
+                [40.779, -75.706],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff33", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_e0fc266c3b8a549eaa788e5f8df06cc0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_22428a8dfe19cad3103f92b858b1e8dc = $(`<div id="html_22428a8dfe19cad3103f92b858b1e8dc" style="width: 100.0%; height: 100.0%;">         <b>ALBURTIS</b><br>         Bus ID: 127<br>         Voltage: 500.0 kV<br>         Area: PJM<br>         Coord: (40.779°, -75.706°)         </div>`)[0];
+                popup_e0fc266c3b8a549eaa788e5f8df06cc0.setContent(html_22428a8dfe19cad3103f92b858b1e8dc);
+            
+        
+
+        circle_marker_334b8395401febeb8d9dca9c55aed1f2.bindPopup(popup_e0fc266c3b8a549eaa788e5f8df06cc0)
+        ;
+
+        
+    
+    
+            circle_marker_334b8395401febeb8d9dca9c55aed1f2.bindTooltip(
+                `<div>
+                     ALBURTIS (500.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b51d2c789201c0be0d91b06275fda6ea = L.circleMarker(
+                [40.136, -75.202],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff33", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_e765f36def19f89d9878d5571c01b0da = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_22ce913aa010471b4ba500dce09f45e2 = $(`<div id="html_22ce913aa010471b4ba500dce09f45e2" style="width: 100.0%; height: 100.0%;">         <b>WHITPAIN</b><br>         Bus ID: 128<br>         Voltage: 500.0 kV<br>         Area: PJM<br>         Coord: (40.136°, -75.202°)         </div>`)[0];
+                popup_e765f36def19f89d9878d5571c01b0da.setContent(html_22ce913aa010471b4ba500dce09f45e2);
+            
+        
+
+        circle_marker_b51d2c789201c0be0d91b06275fda6ea.bindPopup(popup_e765f36def19f89d9878d5571c01b0da)
+        ;
+
+        
+    
+    
+            circle_marker_b51d2c789201c0be0d91b06275fda6ea.bindTooltip(
+                `<div>
+                     WHITPAIN (500.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_143eb8a4b956c35ae3853e52b0b52e52 = L.circleMarker(
+                [39.837, -75.68],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff33", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_07ef2731eeee5a0fdd2cf9c654951d06 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_97db0f917d04a443b050169cdab5df24 = $(`<div id="html_97db0f917d04a443b050169cdab5df24" style="width: 100.0%; height: 100.0%;">         <b>KEENEY</b><br>         Bus ID: 129<br>         Voltage: 500.0 kV<br>         Area: PJM<br>         Coord: (39.837°, -75.680°)         </div>`)[0];
+                popup_07ef2731eeee5a0fdd2cf9c654951d06.setContent(html_97db0f917d04a443b050169cdab5df24);
+            
+        
+
+        circle_marker_143eb8a4b956c35ae3853e52b0b52e52.bindPopup(popup_07ef2731eeee5a0fdd2cf9c654951d06)
+        ;
+
+        
+    
+    
+            circle_marker_143eb8a4b956c35ae3853e52b0b52e52.bindTooltip(
+                `<div>
+                     KEENEY (500.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4878cfd43df1d1d29212276bfd5c0a82 = L.circleMarker(
+                [39.91, -76.079],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff33", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_3a221ecffbcc813df9f0fb500ddd51b8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f3a544a45490e8e4d99960414f963c18 = $(`<div id="html_f3a544a45490e8e4d99960414f963c18" style="width: 100.0%; height: 100.0%;">         <b>PEACH BOTTOM</b><br>         Bus ID: 130<br>         Voltage: 500.0 kV<br>         Area: PJM<br>         Coord: (39.910°, -76.079°)         </div>`)[0];
+                popup_3a221ecffbcc813df9f0fb500ddd51b8.setContent(html_f3a544a45490e8e4d99960414f963c18);
+            
+        
+
+        circle_marker_4878cfd43df1d1d29212276bfd5c0a82.bindPopup(popup_3a221ecffbcc813df9f0fb500ddd51b8)
+        ;
+
+        
+    
+    
+            circle_marker_4878cfd43df1d1d29212276bfd5c0a82.bindTooltip(
+                `<div>
+                     PEACH BOTTOM (500.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d22dc3fb7b01881d0fb650b2b62b1113 = L.circleMarker(
+                [39.961, -76.518],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff33", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_8c3a573f48de5a18fe8c835482e6a373 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_69c4582ff9921522aae2a14bd58e55c7 = $(`<div id="html_69c4582ff9921522aae2a14bd58e55c7" style="width: 100.0%; height: 100.0%;">         <b>CONASTONE</b><br>         Bus ID: 131<br>         Voltage: 500.0 kV<br>         Area: PJM<br>         Coord: (39.961°, -76.518°)         </div>`)[0];
+                popup_8c3a573f48de5a18fe8c835482e6a373.setContent(html_69c4582ff9921522aae2a14bd58e55c7);
+            
+        
+
+        circle_marker_d22dc3fb7b01881d0fb650b2b62b1113.bindPopup(popup_8c3a573f48de5a18fe8c835482e6a373)
+        ;
+
+        
+    
+    
+            circle_marker_d22dc3fb7b01881d0fb650b2b62b1113.bindTooltip(
+                `<div>
+                     CONASTONE (500.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0e74f3bbfc892d01f4b16d1d6e1e4b26 = L.circleMarker(
+                [40.638, -77.389],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff33", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_ab087608edac9c3bc912c48abcdf917c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6c2e09efabcf2d656179529dd7874389 = $(`<div id="html_6c2e09efabcf2d656179529dd7874389" style="width: 100.0%; height: 100.0%;">         <b>JUNIATA</b><br>         Bus ID: 132<br>         Voltage: 500.0 kV<br>         Area: PJM<br>         Coord: (40.638°, -77.389°)         </div>`)[0];
+                popup_ab087608edac9c3bc912c48abcdf917c.setContent(html_6c2e09efabcf2d656179529dd7874389);
+            
+        
+
+        circle_marker_0e74f3bbfc892d01f4b16d1d6e1e4b26.bindPopup(popup_ab087608edac9c3bc912c48abcdf917c)
+        ;
+
+        
+    
+    
+            circle_marker_0e74f3bbfc892d01f4b16d1d6e1e4b26.bindTooltip(
+                `<div>
+                     JUNIATA (500.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_af54de87c4cd666ae543afbd52f225a5 = L.circleMarker(
+                [40.435, -79.096],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff33", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_69fc98aaa430890801dfe51deb98179d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_81bbb728608b5fc74335c841430094de = $(`<div id="html_81bbb728608b5fc74335c841430094de" style="width: 100.0%; height: 100.0%;">         <b>CONEMAUGH</b><br>         Bus ID: 133<br>         Voltage: 500.0 kV<br>         Area: PJM<br>         Coord: (40.435°, -79.096°)         </div>`)[0];
+                popup_69fc98aaa430890801dfe51deb98179d.setContent(html_81bbb728608b5fc74335c841430094de);
+            
+        
+
+        circle_marker_af54de87c4cd666ae543afbd52f225a5.bindPopup(popup_69fc98aaa430890801dfe51deb98179d)
+        ;
+
+        
+    
+    
+            circle_marker_af54de87c4cd666ae543afbd52f225a5.bindTooltip(
+                `<div>
+                     CONEMAUGH (500.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_518a95ad580070b109132042e68a2f0c = L.circleMarker(
+                [41.072, -78.826],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff33", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_4311d6aecd6d4fe72313295c8df38beb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4fcaba54e73e9b7dc96aea875035a6c4 = $(`<div id="html_4fcaba54e73e9b7dc96aea875035a6c4" style="width: 100.0%; height: 100.0%;">         <b>HOMER CITY</b><br>         Bus ID: 134<br>         Voltage: 230.0 kV<br>         Area: PJM<br>         Coord: (41.072°, -78.826°)         </div>`)[0];
+                popup_4311d6aecd6d4fe72313295c8df38beb.setContent(html_4fcaba54e73e9b7dc96aea875035a6c4);
+            
+        
+
+        circle_marker_518a95ad580070b109132042e68a2f0c.bindPopup(popup_4311d6aecd6d4fe72313295c8df38beb)
+        ;
+
+        
+    
+    
+            circle_marker_518a95ad580070b109132042e68a2f0c.bindTooltip(
+                `<div>
+                     HOMER CITY (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f19699a8939b6ae199dc3dde3f70091b = L.circleMarker(
+                [40.785, -79.408],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff33", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_63e97a26e7161e728165865ae0dc98d0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_272ce2132fd55a5fe1bfba6d34e0404e = $(`<div id="html_272ce2132fd55a5fe1bfba6d34e0404e" style="width: 100.0%; height: 100.0%;">         <b>KEYSTONE</b><br>         Bus ID: 135<br>         Voltage: 500.0 kV<br>         Area: PJM<br>         Coord: (40.785°, -79.408°)         </div>`)[0];
+                popup_63e97a26e7161e728165865ae0dc98d0.setContent(html_272ce2132fd55a5fe1bfba6d34e0404e);
+            
+        
+
+        circle_marker_f19699a8939b6ae199dc3dde3f70091b.bindPopup(popup_63e97a26e7161e728165865ae0dc98d0)
+        ;
+
+        
+    
+    
+            circle_marker_f19699a8939b6ae199dc3dde3f70091b.bindTooltip(
+                `<div>
+                     KEYSTONE (500.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_84b183e263ad2a1fd98dc96ba3c9962c = L.circleMarker(
+                [41.665, -80.295],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff33", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_5df378674b1a25f0b0b8d3cc51e7bd09 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5553609f05fd328843ba890bc339a310 = $(`<div id="html_5553609f05fd328843ba890bc339a310" style="width: 100.0%; height: 100.0%;">         <b>ERIE W</b><br>         Bus ID: 136<br>         Voltage: 345.0 kV<br>         Area: PJM<br>         Coord: (41.665°, -80.295°)         </div>`)[0];
+                popup_5df378674b1a25f0b0b8d3cc51e7bd09.setContent(html_5553609f05fd328843ba890bc339a310);
+            
+        
+
+        circle_marker_84b183e263ad2a1fd98dc96ba3c9962c.bindPopup(popup_5df378674b1a25f0b0b8d3cc51e7bd09)
+        ;
+
+        
+    
+    
+            circle_marker_84b183e263ad2a1fd98dc96ba3c9962c.bindTooltip(
+                `<div>
+                     ERIE W (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0df23d0a0ab2f1011fb197f7c1ff9348 = L.circleMarker(
+                [42.133, -79.953],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff33", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_68d64c06c6e6cda652e5fb2cefeafb2b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_db9290364a74b0776233e181d1f0301e = $(`<div id="html_db9290364a74b0776233e181d1f0301e" style="width: 100.0%; height: 100.0%;">         <b>ERIE S</b><br>         Bus ID: 137<br>         Voltage: 230.0 kV<br>         Area: PJM<br>         Coord: (42.133°, -79.953°)         </div>`)[0];
+                popup_68d64c06c6e6cda652e5fb2cefeafb2b.setContent(html_db9290364a74b0776233e181d1f0301e);
+            
+        
+
+        circle_marker_0df23d0a0ab2f1011fb197f7c1ff9348.bindPopup(popup_68d64c06c6e6cda652e5fb2cefeafb2b)
+        ;
+
+        
+    
+    
+            circle_marker_0df23d0a0ab2f1011fb197f7c1ff9348.bindTooltip(
+                `<div>
+                     ERIE S (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2caf3b6a557af585c3d617d38480ee6f = L.circleMarker(
+                [41.715, -76.266],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff33", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_6a265fbf6bbf169c49689c6538df5e0d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_19021df18ef222a657c2177c9b005a00 = $(`<div id="html_19021df18ef222a657c2177c9b005a00" style="width: 100.0%; height: 100.0%;">         <b>E TOMANO</b><br>         Bus ID: 138<br>         Voltage: 230.0 kV<br>         Area: PJM<br>         Coord: (41.715°, -76.266°)         </div>`)[0];
+                popup_6a265fbf6bbf169c49689c6538df5e0d.setContent(html_19021df18ef222a657c2177c9b005a00);
+            
+        
+
+        circle_marker_2caf3b6a557af585c3d617d38480ee6f.bindPopup(popup_6a265fbf6bbf169c49689c6538df5e0d)
+        ;
+
+        
+    
+    
+            circle_marker_2caf3b6a557af585c3d617d38480ee6f.bindTooltip(
+                `<div>
+                     E TOMANO (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_13c9d59aafaeb9f42deb3e2ff9d387c0 = L.circleMarker(
+                [38.94, -82.212],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff33", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_010abebaec572fc76b613059026b9bb4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_abf5139c4463166d02b484017e11cbb7 = $(`<div id="html_abf5139c4463166d02b484017e11cbb7" style="width: 100.0%; height: 100.0%;">         <b>KYGER</b><br>         Bus ID: 139<br>         Voltage: 345.0 kV<br>         Area: PJM<br>         Coord: (38.940°, -82.212°)         </div>`)[0];
+                popup_010abebaec572fc76b613059026b9bb4.setContent(html_abf5139c4463166d02b484017e11cbb7);
+            
+        
+
+        circle_marker_13c9d59aafaeb9f42deb3e2ff9d387c0.bindPopup(popup_010abebaec572fc76b613059026b9bb4)
+        ;
+
+        
+    
+    
+            circle_marker_13c9d59aafaeb9f42deb3e2ff9d387c0.bindTooltip(
+                `<div>
+                     KYGER (345.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5d19518b1e09d7c890a2f1574e55e8f2 = L.circleMarker(
+                [41.952, -79.283],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff33", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2c4725e9ed5bad8e25dfb25a2680eb01);
+        
+    
+        var popup_45c27ca9ddf849ad2b065abac41d5b54 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_60fe050765818b0fb93acb06b4ca64e8 = $(`<div id="html_60fe050765818b0fb93acb06b4ca64e8" style="width: 100.0%; height: 100.0%;">         <b>TE</b><br>         Bus ID: 140<br>         Voltage: 230.0 kV<br>         Area: PJM<br>         Coord: (41.952°, -79.283°)         </div>`)[0];
+                popup_45c27ca9ddf849ad2b065abac41d5b54.setContent(html_60fe050765818b0fb93acb06b4ca64e8);
+            
+        
+
+        circle_marker_5d19518b1e09d7c890a2f1574e55e8f2.bindPopup(popup_45c27ca9ddf849ad2b065abac41d5b54)
+        ;
+
+        
+    
+    
+            circle_marker_5d19518b1e09d7c890a2f1574e55e8f2.bindTooltip(
+                `<div>
+                     TE (230.0 kV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_2c4725e9ed5bad8e25dfb25a2680eb01.addTo(map_0859cb3e008a0e7d26f75470f66c88ff);
+        
+    
+            var feature_group_02536cff67570d404ddab59ecaa2ca59 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_cbb8a0871139e133d4cb96d819a3717c = L.polyline(
+                [[41.005, -72.057], [41.298, -72.297]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_629b4c79fb7e302f6cd542e43c901427 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_703aa6b8c541df6f75b1d810412c3647 = $(`<div id="html_703aa6b8c541df6f75b1d810412c3647" style="width: 100.0%; height: 100.0%;"><b>0</b> (#1) ⇄ <b>1</b> (#2)<br>回路: 1 | 类型: 线路<br>距离(大圆): 38.3 km</div>`)[0];
+                popup_629b4c79fb7e302f6cd542e43c901427.setContent(html_703aa6b8c541df6f75b1d810412c3647);
+            
+        
+
+        poly_line_cbb8a0871139e133d4cb96d819a3717c.bindPopup(popup_629b4c79fb7e302f6cd542e43c901427)
+        ;
+
+        
+    
+    
+            poly_line_cbb8a0871139e133d4cb96d819a3717c.bindTooltip(
+                `<div>
+                     Line 1-2 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_bfbe493230e557bce9fd8740265f3393 = L.polyline(
+                [[41.005, -72.057], [41.275, -71.798]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_74d63e9ac4fee7ac8a2108cfaecd5f0e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_24ea8b6b31c52dca4779c183e5378c20 = $(`<div id="html_24ea8b6b31c52dca4779c183e5378c20" style="width: 100.0%; height: 100.0%;"><b>0</b> (#1) ⇄ <b>3</b> (#4)<br>回路: 1 | 类型: 线路<br>距离(大圆): 37.0 km</div>`)[0];
+                popup_74d63e9ac4fee7ac8a2108cfaecd5f0e.setContent(html_24ea8b6b31c52dca4779c183e5378c20);
+            
+        
+
+        poly_line_bfbe493230e557bce9fd8740265f3393.bindPopup(popup_74d63e9ac4fee7ac8a2108cfaecd5f0e)
+        ;
+
+        
+    
+    
+            poly_line_bfbe493230e557bce9fd8740265f3393.bindTooltip(
+                `<div>
+                     Line 1-4 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_b23bd38294f9cf695dfe40c5fcad0828 = L.polyline(
+                [[41.298, -72.297], [41.371, -72.556]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_a5a6aec5f9b1eb0f8213e3204a1a36a6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ce9004efeeb2df684eecad317b9e53d4 = $(`<div id="html_ce9004efeeb2df684eecad317b9e53d4" style="width: 100.0%; height: 100.0%;"><b>1</b> (#2) ⇄ <b>32</b> (#33)<br>回路: 1 | 类型: 线路<br>距离(大圆): 23.1 km</div>`)[0];
+                popup_a5a6aec5f9b1eb0f8213e3204a1a36a6.setContent(html_ce9004efeeb2df684eecad317b9e53d4);
+            
+        
+
+        poly_line_b23bd38294f9cf695dfe40c5fcad0828.bindPopup(popup_a5a6aec5f9b1eb0f8213e3204a1a36a6)
+        ;
+
+        
+    
+    
+            poly_line_b23bd38294f9cf695dfe40c5fcad0828.bindTooltip(
+                `<div>
+                     Line 2-33 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7dd6a818db4b0636a9c730801c8d5850 = L.polyline(
+                [[41.275, -71.798], [41.76, -72.078]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_b618e334352d0d8863f317ddbab4566b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b8891ecedb169bb0fe9fefd05a0c38cc = $(`<div id="html_b8891ecedb169bb0fe9fefd05a0c38cc" style="width: 100.0%; height: 100.0%;"><b>3</b> (#4) ⇄ <b>4</b> (#5)<br>回路: 1 | 类型: 线路<br>距离(大圆): 58.8 km</div>`)[0];
+                popup_b618e334352d0d8863f317ddbab4566b.setContent(html_b8891ecedb169bb0fe9fefd05a0c38cc);
+            
+        
+
+        poly_line_7dd6a818db4b0636a9c730801c8d5850.bindPopup(popup_b618e334352d0d8863f317ddbab4566b)
+        ;
+
+        
+    
+    
+            poly_line_7dd6a818db4b0636a9c730801c8d5850.bindTooltip(
+                `<div>
+                     Line 4-5 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_94053a264c80390a2a3e992b98f47784 = L.polyline(
+                [[41.76, -72.078], [41.969, -71.616]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_3eda8f8df7a39b9e188418975e7398ff = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fb149e2b8c15060ae38a08d7b6a46f67 = $(`<div id="html_fb149e2b8c15060ae38a08d7b6a46f67" style="width: 100.0%; height: 100.0%;"><b>4</b> (#5) ⇄ <b>5</b> (#6)<br>回路: 1 | 类型: 线路<br>距离(大圆): 44.8 km</div>`)[0];
+                popup_3eda8f8df7a39b9e188418975e7398ff.setContent(html_fb149e2b8c15060ae38a08d7b6a46f67);
+            
+        
+
+        poly_line_94053a264c80390a2a3e992b98f47784.bindPopup(popup_3eda8f8df7a39b9e188418975e7398ff)
+        ;
+
+        
+    
+    
+            poly_line_94053a264c80390a2a3e992b98f47784.bindTooltip(
+                `<div>
+                     Line 5-6 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_78fe80625841f48ed46bf1472c7b58ef = L.polyline(
+                [[41.76, -72.078], [41.839, -72.581]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_a50c1c95e426cbb33c0f8b80857ab243 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3d18a83e21de64a44f21f9e65ab41268 = $(`<div id="html_3d18a83e21de64a44f21f9e65ab41268" style="width: 100.0%; height: 100.0%;"><b>4</b> (#5) ⇄ <b>30</b> (#31)<br>回路: 1 | 类型: 线路<br>距离(大圆): 42.6 km</div>`)[0];
+                popup_a50c1c95e426cbb33c0f8b80857ab243.setContent(html_3d18a83e21de64a44f21f9e65ab41268);
+            
+        
+
+        poly_line_78fe80625841f48ed46bf1472c7b58ef.bindPopup(popup_a50c1c95e426cbb33c0f8b80857ab243)
+        ;
+
+        
+    
+    
+            poly_line_78fe80625841f48ed46bf1472c7b58ef.bindTooltip(
+                `<div>
+                     Line 5-31 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_dee569ebff49f4bc84182e04ef766298 = L.polyline(
+                [[41.969, -71.616], [42.206, -71.249]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_8d37d0eb883bbef3818dff04abfe8d8d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_98f6d30d22b405e21ee5bc55d292048c = $(`<div id="html_98f6d30d22b405e21ee5bc55d292048c" style="width: 100.0%; height: 100.0%;"><b>5</b> (#6) ⇄ <b>6</b> (#7)<br>回路: 1 | 类型: 线路<br>距离(大圆): 40.1 km</div>`)[0];
+                popup_8d37d0eb883bbef3818dff04abfe8d8d.setContent(html_98f6d30d22b405e21ee5bc55d292048c);
+            
+        
+
+        poly_line_dee569ebff49f4bc84182e04ef766298.bindPopup(popup_8d37d0eb883bbef3818dff04abfe8d8d)
+        ;
+
+        
+    
+    
+            poly_line_dee569ebff49f4bc84182e04ef766298.bindTooltip(
+                `<div>
+                     Line 6-7 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2a2381ed71e4012b7531448c31d038f6 = L.polyline(
+                [[42.206, -71.249], [42.189, -71.672]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_9272026ce845717282a7dd0ee62ec2c0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_978b9aaaf1a06572391995006c97b234 = $(`<div id="html_978b9aaaf1a06572391995006c97b234" style="width: 100.0%; height: 100.0%;"><b>6</b> (#7) ⇄ <b>7</b> (#8)<br>回路: 1 | 类型: 线路<br>距离(大圆): 34.9 km</div>`)[0];
+                popup_9272026ce845717282a7dd0ee62ec2c0.setContent(html_978b9aaaf1a06572391995006c97b234);
+            
+        
+
+        poly_line_2a2381ed71e4012b7531448c31d038f6.bindPopup(popup_9272026ce845717282a7dd0ee62ec2c0)
+        ;
+
+        
+    
+    
+            poly_line_2a2381ed71e4012b7531448c31d038f6.bindTooltip(
+                `<div>
+                     Line 7-8 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_11ff26084506ff93f1345d3ad2ba0c89 = L.polyline(
+                [[42.206, -71.249], [41.648, -71.089]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_b8fd0224b015ac214cd1accb56380e71 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_51868de11c778cfcc77179e540db6b29 = $(`<div id="html_51868de11c778cfcc77179e540db6b29" style="width: 100.0%; height: 100.0%;"><b>6</b> (#7) ⇄ <b>9</b> (#10)<br>回路: 1 | 类型: 线路<br>距离(大圆): 63.4 km</div>`)[0];
+                popup_b8fd0224b015ac214cd1accb56380e71.setContent(html_51868de11c778cfcc77179e540db6b29);
+            
+        
+
+        poly_line_11ff26084506ff93f1345d3ad2ba0c89.bindPopup(popup_b8fd0224b015ac214cd1accb56380e71)
+        ;
+
+        
+    
+    
+            poly_line_11ff26084506ff93f1345d3ad2ba0c89.bindTooltip(
+                `<div>
+                     Line 7-10 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_fd4089db1bf60e2b5d6879d8e5bb1583 = L.polyline(
+                [[42.206, -71.249], [41.975, -71.129]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_404eaf725028d40ab528fb6c41a95746 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c16420cdfddb1dd713d9664b77dbb711 = $(`<div id="html_c16420cdfddb1dd713d9664b77dbb711" style="width: 100.0%; height: 100.0%;"><b>6</b> (#7) ⇄ <b>11</b> (#12)<br>回路: 1 | 类型: 线路<br>距离(大圆): 27.5 km</div>`)[0];
+                popup_404eaf725028d40ab528fb6c41a95746.setContent(html_c16420cdfddb1dd713d9664b77dbb711);
+            
+        
+
+        poly_line_fd4089db1bf60e2b5d6879d8e5bb1583.bindPopup(popup_404eaf725028d40ab528fb6c41a95746)
+        ;
+
+        
+    
+    
+            poly_line_fd4089db1bf60e2b5d6879d8e5bb1583.bindTooltip(
+                `<div>
+                     Line 7-12 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c8f4fc20383929c54545e8d1df9d1cc3 = L.polyline(
+                [[42.206, -71.249], [42.229, -70.723]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_fdf105f06459f88f57d8818b3077a862 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_34c42e4d11e49d3bf2e9366fbdb71dac = $(`<div id="html_34c42e4d11e49d3bf2e9366fbdb71dac" style="width: 100.0%; height: 100.0%;"><b>6</b> (#7) ⇄ <b>14</b> (#15)<br>回路: 1 | 类型: 线路<br>距离(大圆): 43.4 km</div>`)[0];
+                popup_fdf105f06459f88f57d8818b3077a862.setContent(html_34c42e4d11e49d3bf2e9366fbdb71dac);
+            
+        
+
+        poly_line_c8f4fc20383929c54545e8d1df9d1cc3.bindPopup(popup_fdf105f06459f88f57d8818b3077a862)
+        ;
+
+        
+    
+    
+            poly_line_c8f4fc20383929c54545e8d1df9d1cc3.bindTooltip(
+                `<div>
+                     Line 7-15 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_07a9adb76b16587086c46b90b08253d8 = L.polyline(
+                [[42.189, -71.672], [42.088, -72.039]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_2cf7e68fc8964da18a801bbeb2954ad9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_961789efe34437010aac42c76a4aa5ec = $(`<div id="html_961789efe34437010aac42c76a4aa5ec" style="width: 100.0%; height: 100.0%;"><b>7</b> (#8) ⇄ <b>8</b> (#9)<br>回路: 1 | 类型: 线路<br>距离(大圆): 32.3 km</div>`)[0];
+                popup_2cf7e68fc8964da18a801bbeb2954ad9.setContent(html_961789efe34437010aac42c76a4aa5ec);
+            
+        
+
+        poly_line_07a9adb76b16587086c46b90b08253d8.bindPopup(popup_2cf7e68fc8964da18a801bbeb2954ad9)
+        ;
+
+        
+    
+    
+            poly_line_07a9adb76b16587086c46b90b08253d8.bindTooltip(
+                `<div>
+                     Line 8-9 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_bd2cda58ba76269e2fd88b8a6c12d042 = L.polyline(
+                [[42.189, -71.672], [42.528, -71.298]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_1e2437ee6e0356049245e3779f8d649d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_17f0583094ea00b439964f21df120ae1 = $(`<div id="html_17f0583094ea00b439964f21df120ae1" style="width: 100.0%; height: 100.0%;"><b>7</b> (#8) ⇄ <b>17</b> (#18)<br>回路: 1 | 类型: 线路<br>距离(大圆): 48.6 km</div>`)[0];
+                popup_1e2437ee6e0356049245e3779f8d649d.setContent(html_17f0583094ea00b439964f21df120ae1);
+            
+        
+
+        poly_line_bd2cda58ba76269e2fd88b8a6c12d042.bindPopup(popup_1e2437ee6e0356049245e3779f8d649d)
+        ;
+
+        
+    
+    
+            poly_line_bd2cda58ba76269e2fd88b8a6c12d042.bindTooltip(
+                `<div>
+                     Line 8-18 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9479930d07ed9d945a5ede8885994086 = L.polyline(
+                [[42.088, -72.039], [42.178, -72.582]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_d9c6ffcd5d6c42ee934d0c359dc0a07e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_20be76f0446850d8a440153e338e54fa = $(`<div id="html_20be76f0446850d8a440153e338e54fa" style="width: 100.0%; height: 100.0%;"><b>8</b> (#9) ⇄ <b>29</b> (#30)<br>回路: 1 | 类型: 线路<br>距离(大圆): 45.9 km</div>`)[0];
+                popup_d9c6ffcd5d6c42ee934d0c359dc0a07e.setContent(html_20be76f0446850d8a440153e338e54fa);
+            
+        
+
+        poly_line_9479930d07ed9d945a5ede8885994086.bindPopup(popup_d9c6ffcd5d6c42ee934d0c359dc0a07e)
+        ;
+
+        
+    
+    
+            poly_line_9479930d07ed9d945a5ede8885994086.bindTooltip(
+                `<div>
+                     Line 9-30 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_b152e673233439d91e8ec9774b70a2c7 = L.polyline(
+                [[41.975, -71.129], [41.71, -70.49]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_de4c61f9dcf4e01c86e7a61271272054 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ca9abf07ff1bb4615d45818b30b46eec = $(`<div id="html_ca9abf07ff1bb4615d45818b30b46eec" style="width: 100.0%; height: 100.0%;"><b>11</b> (#12) ⇄ <b>12</b> (#13)<br>回路: 1 | 类型: 线路<br>距离(大圆): 60.6 km</div>`)[0];
+                popup_de4c61f9dcf4e01c86e7a61271272054.setContent(html_ca9abf07ff1bb4615d45818b30b46eec);
+            
+        
+
+        poly_line_b152e673233439d91e8ec9774b70a2c7.bindPopup(popup_de4c61f9dcf4e01c86e7a61271272054)
+        ;
+
+        
+    
+    
+            poly_line_b152e673233439d91e8ec9774b70a2c7.bindTooltip(
+                `<div>
+                     Line 12-13 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_867da9adc70957ae79fcd66f9ef13cf1 = L.polyline(
+                [[41.71, -70.49], [41.721, -70.163]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_78f54044a9c0b7d688b280cb95e5fe44 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c07b079e1e9af69cd667c01702fbde4c = $(`<div id="html_c07b079e1e9af69cd667c01702fbde4c" style="width: 100.0%; height: 100.0%;"><b>12</b> (#13) ⇄ <b>13</b> (#14)<br>回路: 1 | 类型: 线路<br>距离(大圆): 27.2 km</div>`)[0];
+                popup_78f54044a9c0b7d688b280cb95e5fe44.setContent(html_c07b079e1e9af69cd667c01702fbde4c);
+            
+        
+
+        poly_line_867da9adc70957ae79fcd66f9ef13cf1.bindPopup(popup_78f54044a9c0b7d688b280cb95e5fe44)
+        ;
+
+        
+    
+    
+            poly_line_867da9adc70957ae79fcd66f9ef13cf1.bindTooltip(
+                `<div>
+                     Line 13-14 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_450601d0d3fe2bfc6edf963ee3c2abde = L.polyline(
+                [[41.721, -70.163], [42.229, -70.723]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_12e037f6839e4ed5fd4a7d1198459069 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f563405278af8cbde0a2e299641f1688 = $(`<div id="html_f563405278af8cbde0a2e299641f1688" style="width: 100.0%; height: 100.0%;"><b>13</b> (#14) ⇄ <b>14</b> (#15)<br>回路: 1 | 类型: 线路<br>距离(大圆): 73.0 km</div>`)[0];
+                popup_12e037f6839e4ed5fd4a7d1198459069.setContent(html_f563405278af8cbde0a2e299641f1688);
+            
+        
+
+        poly_line_450601d0d3fe2bfc6edf963ee3c2abde.bindPopup(popup_12e037f6839e4ed5fd4a7d1198459069)
+        ;
+
+        
+    
+    
+            poly_line_450601d0d3fe2bfc6edf963ee3c2abde.bindTooltip(
+                `<div>
+                     Line 14-15 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a0f7faede42fc51e761d1d38ca90d664 = L.polyline(
+                [[42.81, -72.479], [42.826, -71.442]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_5a20ff1b8c1302537a23f9926f15dc7a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e90abe2a65312e4bd2326fd183876903 = $(`<div id="html_e90abe2a65312e4bd2326fd183876903" style="width: 100.0%; height: 100.0%;"><b>15</b> (#16) ⇄ <b>16</b> (#17)<br>回路: 1 | 类型: 线路<br>距离(大圆): 84.6 km</div>`)[0];
+                popup_5a20ff1b8c1302537a23f9926f15dc7a.setContent(html_e90abe2a65312e4bd2326fd183876903);
+            
+        
+
+        poly_line_a0f7faede42fc51e761d1d38ca90d664.bindPopup(popup_5a20ff1b8c1302537a23f9926f15dc7a)
+        ;
+
+        
+    
+    
+            poly_line_a0f7faede42fc51e761d1d38ca90d664.bindTooltip(
+                `<div>
+                     Line 16-17 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_5f309a54ab8e0290f95f1c619539ea42 = L.polyline(
+                [[42.81, -72.479], [42.482, -72.726]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_f26b456ac669e2dc604b178b511bfb86 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6251ce41e79d90622f0d09a08fc426f7 = $(`<div id="html_6251ce41e79d90622f0d09a08fc426f7" style="width: 100.0%; height: 100.0%;"><b>15</b> (#16) ⇄ <b>28</b> (#29)<br>回路: 1 | 类型: 线路<br>距离(大圆): 41.7 km</div>`)[0];
+                popup_f26b456ac669e2dc604b178b511bfb86.setContent(html_6251ce41e79d90622f0d09a08fc426f7);
+            
+        
+
+        poly_line_5f309a54ab8e0290f95f1c619539ea42.bindPopup(popup_f26b456ac669e2dc604b178b511bfb86)
+        ;
+
+        
+    
+    
+            poly_line_5f309a54ab8e0290f95f1c619539ea42.bindTooltip(
+                `<div>
+                     Line 16-29 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1c2e4950888218758f19d57b9d53a530 = L.polyline(
+                [[42.826, -71.442], [42.528, -71.298]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_e848caf9093afbcaa937a1c2e74a2c1e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_413843bd3fe6a47c11ae94ba2a1d6226 = $(`<div id="html_413843bd3fe6a47c11ae94ba2a1d6226" style="width: 100.0%; height: 100.0%;"><b>16</b> (#17) ⇄ <b>17</b> (#18)<br>回路: 1 | 类型: 线路<br>距离(大圆): 35.2 km</div>`)[0];
+                popup_e848caf9093afbcaa937a1c2e74a2c1e.setContent(html_413843bd3fe6a47c11ae94ba2a1d6226);
+            
+        
+
+        poly_line_1c2e4950888218758f19d57b9d53a530.bindPopup(popup_e848caf9093afbcaa937a1c2e74a2c1e)
+        ;
+
+        
+    
+    
+            poly_line_1c2e4950888218758f19d57b9d53a530.bindTooltip(
+                `<div>
+                     Line 17-18 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_4e912db21d8a2ee6a879dfca65fbefeb = L.polyline(
+                [[42.826, -71.442], [43.114, -70.589]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_eb9566ce9e11a57161be8d98f667c0de = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6f3ac3b6acd90a2730d48ced66f5d567 = $(`<div id="html_6f3ac3b6acd90a2730d48ced66f5d567" style="width: 100.0%; height: 100.0%;"><b>16</b> (#17) ⇄ <b>18</b> (#19)<br>回路: 1 | 类型: 线路<br>距离(大圆): 76.4 km</div>`)[0];
+                popup_eb9566ce9e11a57161be8d98f667c0de.setContent(html_6f3ac3b6acd90a2730d48ced66f5d567);
+            
+        
+
+        poly_line_4e912db21d8a2ee6a879dfca65fbefeb.bindPopup(popup_eb9566ce9e11a57161be8d98f667c0de)
+        ;
+
+        
+    
+    
+            poly_line_4e912db21d8a2ee6a879dfca65fbefeb.bindTooltip(
+                `<div>
+                     Line 17-19 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_6247fce216ad7d5f799662dfbc4e261a = L.polyline(
+                [[42.826, -71.442], [43.864, -69.833]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_85d30cd9afe934c9e7cad3085bb0bdf0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6cefe88675a9781079f796c1a9bad546 = $(`<div id="html_6cefe88675a9781079f796c1a9bad546" style="width: 100.0%; height: 100.0%;"><b>16</b> (#17) ⇄ <b>19</b> (#20)<br>回路: 1 | 类型: 线路<br>距离(大圆): 173.9 km</div>`)[0];
+                popup_85d30cd9afe934c9e7cad3085bb0bdf0.setContent(html_6cefe88675a9781079f796c1a9bad546);
+            
+        
+
+        poly_line_6247fce216ad7d5f799662dfbc4e261a.bindPopup(popup_85d30cd9afe934c9e7cad3085bb0bdf0)
+        ;
+
+        
+    
+    
+            poly_line_6247fce216ad7d5f799662dfbc4e261a.bindTooltip(
+                `<div>
+                     Line 17-20 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e62cc65631c32e0d6b52547f35b14ed5 = L.polyline(
+                [[43.114, -70.589], [43.864, -69.833]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_bb6199af6d48d08e2bc22de4eeefd380 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e344b76354314b80236cb6a2e878fc1f = $(`<div id="html_e344b76354314b80236cb6a2e878fc1f" style="width: 100.0%; height: 100.0%;"><b>18</b> (#19) ⇄ <b>19</b> (#20)<br>回路: 1 | 类型: 线路<br>距离(大圆): 103.3 km</div>`)[0];
+                popup_bb6199af6d48d08e2bc22de4eeefd380.setContent(html_e344b76354314b80236cb6a2e878fc1f);
+            
+        
+
+        poly_line_e62cc65631c32e0d6b52547f35b14ed5.bindPopup(popup_bb6199af6d48d08e2bc22de4eeefd380)
+        ;
+
+        
+    
+    
+            poly_line_e62cc65631c32e0d6b52547f35b14ed5.bindTooltip(
+                `<div>
+                     Line 19-20 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ca1f524748a1922e592b309f75f05bbb = L.polyline(
+                [[42.482, -72.726], [42.178, -72.582]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_b541b0ca94ae6f1954c8c6ec7c36d2b5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7780c3f6932aad9c068ee74ac8b0d398 = $(`<div id="html_7780c3f6932aad9c068ee74ac8b0d398" style="width: 100.0%; height: 100.0%;"><b>28</b> (#29) ⇄ <b>29</b> (#30)<br>回路: 1 | 类型: 线路<br>距离(大圆): 35.8 km</div>`)[0];
+                popup_b541b0ca94ae6f1954c8c6ec7c36d2b5.setContent(html_7780c3f6932aad9c068ee74ac8b0d398);
+            
+        
+
+        poly_line_ca1f524748a1922e592b309f75f05bbb.bindPopup(popup_b541b0ca94ae6f1954c8c6ec7c36d2b5)
+        ;
+
+        
+    
+    
+            poly_line_ca1f524748a1922e592b309f75f05bbb.bindTooltip(
+                `<div>
+                     Line 29-30 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2ad10d089fce3982d6bbad136493f08f = L.polyline(
+                [[42.482, -72.726], [42.494, -73.923]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_3d1daa84c3a649e8b86d970b10442779 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b6684c46b7e58f20a8cfa1e3c2785d09 = $(`<div id="html_b6684c46b7e58f20a8cfa1e3c2785d09" style="width: 100.0%; height: 100.0%;"><b>28</b> (#29) ⇄ <b>36</b> (#37)<br>回路: 1 | 类型: 线路<br>距离(大圆): 98.2 km</div>`)[0];
+                popup_3d1daa84c3a649e8b86d970b10442779.setContent(html_b6684c46b7e58f20a8cfa1e3c2785d09);
+            
+        
+
+        poly_line_2ad10d089fce3982d6bbad136493f08f.bindPopup(popup_3d1daa84c3a649e8b86d970b10442779)
+        ;
+
+        
+    
+    
+            poly_line_2ad10d089fce3982d6bbad136493f08f.bindTooltip(
+                `<div>
+                     Line 29-37 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_cefee77913a480efb42c4985e62256c6 = L.polyline(
+                [[42.178, -72.582], [41.839, -72.581]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_16153bd028887b8490c06309063eb3d1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7672fcc1e39fd10d68929e3267ff8416 = $(`<div id="html_7672fcc1e39fd10d68929e3267ff8416" style="width: 100.0%; height: 100.0%;"><b>29</b> (#30) ⇄ <b>30</b> (#31)<br>回路: 1 | 类型: 线路<br>距离(大圆): 37.7 km</div>`)[0];
+                popup_16153bd028887b8490c06309063eb3d1.setContent(html_7672fcc1e39fd10d68929e3267ff8416);
+            
+        
+
+        poly_line_cefee77913a480efb42c4985e62256c6.bindPopup(popup_16153bd028887b8490c06309063eb3d1)
+        ;
+
+        
+    
+    
+            poly_line_cefee77913a480efb42c4985e62256c6.bindTooltip(
+                `<div>
+                     Line 30-31 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_16f835653686701a1290b182982cf1b4 = L.polyline(
+                [[41.839, -72.581], [41.619, -72.772]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_c9a0e1b0c7de0e72602e3f355c3157b7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_699f29d9042e25810e49c7c64bd85611 = $(`<div id="html_699f29d9042e25810e49c7c64bd85611" style="width: 100.0%; height: 100.0%;"><b>30</b> (#31) ⇄ <b>31</b> (#32)<br>回路: 1 | 类型: 线路<br>距离(大圆): 29.1 km</div>`)[0];
+                popup_c9a0e1b0c7de0e72602e3f355c3157b7.setContent(html_699f29d9042e25810e49c7c64bd85611);
+            
+        
+
+        poly_line_16f835653686701a1290b182982cf1b4.bindPopup(popup_c9a0e1b0c7de0e72602e3f355c3157b7)
+        ;
+
+        
+    
+    
+            poly_line_16f835653686701a1290b182982cf1b4.bindTooltip(
+                `<div>
+                     Line 31-32 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_df2ee7ddf3d88e645ef2224b0627337a = L.polyline(
+                [[41.619, -72.772], [41.371, -72.556]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_f21f7433a32cac595a14de0d1a7d5acc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d4f16c3acfb3fc5b9466d9e6cc0ae2d2 = $(`<div id="html_d4f16c3acfb3fc5b9466d9e6cc0ae2d2" style="width: 100.0%; height: 100.0%;"><b>31</b> (#32) ⇄ <b>32</b> (#33)<br>回路: 1 | 类型: 线路<br>距离(大圆): 32.9 km</div>`)[0];
+                popup_f21f7433a32cac595a14de0d1a7d5acc.setContent(html_d4f16c3acfb3fc5b9466d9e6cc0ae2d2);
+            
+        
+
+        poly_line_df2ee7ddf3d88e645ef2224b0627337a.bindPopup(popup_f21f7433a32cac595a14de0d1a7d5acc)
+        ;
+
+        
+    
+    
+            poly_line_df2ee7ddf3d88e645ef2224b0627337a.bindTooltip(
+                `<div>
+                     Line 32-33 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ca6257bff9f62f3abf5c5c39a59fb246 = L.polyline(
+                [[41.619, -72.772], [41.563, -73.187]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_6543f9dbe2059fcc70d54e301c25e914 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_06c9a74af5e2d2bd94a0c70b23d02e1f = $(`<div id="html_06c9a74af5e2d2bd94a0c70b23d02e1f" style="width: 100.0%; height: 100.0%;"><b>31</b> (#32) ⇄ <b>34</b> (#35)<br>回路: 1 | 类型: 线路<br>距离(大圆): 35.1 km</div>`)[0];
+                popup_6543f9dbe2059fcc70d54e301c25e914.setContent(html_06c9a74af5e2d2bd94a0c70b23d02e1f);
+            
+        
+
+        poly_line_ca6257bff9f62f3abf5c5c39a59fb246.bindPopup(popup_6543f9dbe2059fcc70d54e301c25e914)
+        ;
+
+        
+    
+    
+            poly_line_ca6257bff9f62f3abf5c5c39a59fb246.bindTooltip(
+                `<div>
+                     Line 32-35 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_cd93904fffaca4a57fe8eafd39cc3c82 = L.polyline(
+                [[41.371, -72.556], [41.304, -72.987]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_18cd92d9d3cf8ec249c459a0bdedd0e9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bb053127a7e9215ed87ff09b37b13775 = $(`<div id="html_bb053127a7e9215ed87ff09b37b13775" style="width: 100.0%; height: 100.0%;"><b>32</b> (#33) ⇄ <b>33</b> (#34)<br>回路: 1 | 类型: 线路<br>距离(大圆): 36.7 km</div>`)[0];
+                popup_18cd92d9d3cf8ec249c459a0bdedd0e9.setContent(html_bb053127a7e9215ed87ff09b37b13775);
+            
+        
+
+        poly_line_cd93904fffaca4a57fe8eafd39cc3c82.bindPopup(popup_18cd92d9d3cf8ec249c459a0bdedd0e9)
+        ;
+
+        
+    
+    
+            poly_line_cd93904fffaca4a57fe8eafd39cc3c82.bindTooltip(
+                `<div>
+                     Line 33-34 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d02065e1835331907d9075bbda08f787 = L.polyline(
+                [[41.304, -72.987], [41.563, -73.187]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_c2c0ea74824218d9282d4b150eb69633 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8253b163f23a874691361cdc96235d3a = $(`<div id="html_8253b163f23a874691361cdc96235d3a" style="width: 100.0%; height: 100.0%;"><b>33</b> (#34) ⇄ <b>34</b> (#35)<br>回路: 1 | 类型: 线路<br>距离(大圆): 33.3 km</div>`)[0];
+                popup_c2c0ea74824218d9282d4b150eb69633.setContent(html_8253b163f23a874691361cdc96235d3a);
+            
+        
+
+        poly_line_d02065e1835331907d9075bbda08f787.bindPopup(popup_c2c0ea74824218d9282d4b150eb69633)
+        ;
+
+        
+    
+    
+            poly_line_d02065e1835331907d9075bbda08f787.bindTooltip(
+                `<div>
+                     Line 34-35 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_043e3d0e210581fafdcaade0ebdd2b85 = L.polyline(
+                [[41.563, -73.187], [41.58, -73.641]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_0a034718a84fca79ab2f8adac6f19c80 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4f50ce66147307a1fa3633025296315a = $(`<div id="html_4f50ce66147307a1fa3633025296315a" style="width: 100.0%; height: 100.0%;"><b>34</b> (#35) ⇄ <b>72</b> (#73)<br>回路: 1 | 类型: 线路<br>距离(大圆): 37.8 km</div>`)[0];
+                popup_0a034718a84fca79ab2f8adac6f19c80.setContent(html_4f50ce66147307a1fa3633025296315a);
+            
+        
+
+        poly_line_043e3d0e210581fafdcaade0ebdd2b85.bindPopup(popup_0a034718a84fca79ab2f8adac6f19c80)
+        ;
+
+        
+    
+    
+            poly_line_043e3d0e210581fafdcaade0ebdd2b85.bindTooltip(
+                `<div>
+                     Line 35-73 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1c2db302a47d4c21669e8071dfa8fe8d = L.polyline(
+                [[42.494, -73.923], [42.336, -74.88]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_e8f2e122ea33dcba64b1a9be347dd140 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_855b48db43dc5d780cf386d2a1249d22 = $(`<div id="html_855b48db43dc5d780cf386d2a1249d22" style="width: 100.0%; height: 100.0%;"><b>36</b> (#37) ⇄ <b>37</b> (#38)<br>回路: 1 | 类型: 线路<br>距离(大圆): 80.5 km</div>`)[0];
+                popup_e8f2e122ea33dcba64b1a9be347dd140.setContent(html_855b48db43dc5d780cf386d2a1249d22);
+            
+        
+
+        poly_line_1c2db302a47d4c21669e8071dfa8fe8d.bindPopup(popup_e8f2e122ea33dcba64b1a9be347dd140)
+        ;
+
+        
+    
+    
+            poly_line_1c2db302a47d4c21669e8071dfa8fe8d.bindTooltip(
+                `<div>
+                     Line 37-38 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_fa4f4726af1b27196ab47134c975b03c = L.polyline(
+                [[42.494, -73.923], [42.042, -74.001]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_dc61153726bee394832ab97823b2255a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_83eb77f23588254836762f0e455df309 = $(`<div id="html_83eb77f23588254836762f0e455df309" style="width: 100.0%; height: 100.0%;"><b>36</b> (#37) ⇄ <b>38</b> (#39)<br>回路: 1 | 类型: 线路<br>距离(大圆): 50.7 km</div>`)[0];
+                popup_dc61153726bee394832ab97823b2255a.setContent(html_83eb77f23588254836762f0e455df309);
+            
+        
+
+        poly_line_fa4f4726af1b27196ab47134c975b03c.bindPopup(popup_dc61153726bee394832ab97823b2255a)
+        ;
+
+        
+    
+    
+            poly_line_fa4f4726af1b27196ab47134c975b03c.bindTooltip(
+                `<div>
+                     Line 37-39 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_dd92fb53e3a49607ec5f0a288df72a0d = L.polyline(
+                [[42.494, -73.923], [42.646, -74.066]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_0b973ebbe7325a49e38d4e7f1e07e53d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b47bbc0f8089803041c587973dd90d72 = $(`<div id="html_b47bbc0f8089803041c587973dd90d72" style="width: 100.0%; height: 100.0%;"><b>36</b> (#37) ⇄ <b>39</b> (#40)<br>回路: 1 | 类型: 线路<br>距离(大圆): 20.6 km</div>`)[0];
+                popup_0b973ebbe7325a49e38d4e7f1e07e53d.setContent(html_b47bbc0f8089803041c587973dd90d72);
+            
+        
+
+        poly_line_dd92fb53e3a49607ec5f0a288df72a0d.bindPopup(popup_0b973ebbe7325a49e38d4e7f1e07e53d)
+        ;
+
+        
+    
+    
+            poly_line_dd92fb53e3a49607ec5f0a288df72a0d.bindTooltip(
+                `<div>
+                     Line 37-40 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9129c1c11b820fc267fcb54f2b7db562 = L.polyline(
+                [[42.494, -73.923], [42.894, -75.24]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_69254d7f8090a76589d99a63185b49b4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b9ef49119c61d544376b63952a49ec17 = $(`<div id="html_b9ef49119c61d544376b63952a49ec17" style="width: 100.0%; height: 100.0%;"><b>36</b> (#37) ⇄ <b>42</b> (#43)<br>回路: 1 | 类型: 线路<br>距离(大圆): 116.5 km</div>`)[0];
+                popup_69254d7f8090a76589d99a63185b49b4.setContent(html_b9ef49119c61d544376b63952a49ec17);
+            
+        
+
+        poly_line_9129c1c11b820fc267fcb54f2b7db562.bindPopup(popup_69254d7f8090a76589d99a63185b49b4)
+        ;
+
+        
+    
+    
+            poly_line_9129c1c11b820fc267fcb54f2b7db562.bindTooltip(
+                `<div>
+                     Line 37-43 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_0c5ae1619f4970aa463f6602161598a6 = L.polyline(
+                [[42.336, -74.88], [42.009, -75.397]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_9f6a7d41ec97d4b68c39bddb5f3195dd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4e35f4f38559bf70fda870025975ad0d = $(`<div id="html_4e35f4f38559bf70fda870025975ad0d" style="width: 100.0%; height: 100.0%;"><b>37</b> (#38) ⇄ <b>68</b> (#69)<br>回路: 1 | 类型: 线路<br>距离(大圆): 56.0 km</div>`)[0];
+                popup_9f6a7d41ec97d4b68c39bddb5f3195dd.setContent(html_4e35f4f38559bf70fda870025975ad0d);
+            
+        
+
+        poly_line_0c5ae1619f4970aa463f6602161598a6.bindPopup(popup_9f6a7d41ec97d4b68c39bddb5f3195dd)
+        ;
+
+        
+    
+    
+            poly_line_0c5ae1619f4970aa463f6602161598a6.bindTooltip(
+                `<div>
+                     Line 38-69 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_6618eb3430bbf0a7fe9b1621916b1992 = L.polyline(
+                [[42.042, -74.001], [41.58, -73.641]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_2c1c3e5800f743d3dd878765df7bb26d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5a1f96dad727143978c5d60230c28344 = $(`<div id="html_5a1f96dad727143978c5d60230c28344" style="width: 100.0%; height: 100.0%;"><b>38</b> (#39) ⇄ <b>72</b> (#73)<br>回路: 1 | 类型: 线路<br>距离(大圆): 59.4 km</div>`)[0];
+                popup_2c1c3e5800f743d3dd878765df7bb26d.setContent(html_5a1f96dad727143978c5d60230c28344);
+            
+        
+
+        poly_line_6618eb3430bbf0a7fe9b1621916b1992.bindPopup(popup_2c1c3e5800f743d3dd878765df7bb26d)
+        ;
+
+        
+    
+    
+            poly_line_6618eb3430bbf0a7fe9b1621916b1992.bindTooltip(
+                `<div>
+                     Line 39-73 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_b8d66767ad50561ba33acd360f3d2933 = L.polyline(
+                [[42.042, -74.001], [41.58, -73.641]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_9e9a8ab8da7de74cb012fc1c491d91b7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8cb344b9f86fcf21002a2799c9e72498 = $(`<div id="html_8cb344b9f86fcf21002a2799c9e72498" style="width: 100.0%; height: 100.0%;"><b>38</b> (#39) ⇄ <b>72</b> (#73)<br>回路: 2 | 类型: 线路<br>距离(大圆): 59.4 km</div>`)[0];
+                popup_9e9a8ab8da7de74cb012fc1c491d91b7.setContent(html_8cb344b9f86fcf21002a2799c9e72498);
+            
+        
+
+        poly_line_b8d66767ad50561ba33acd360f3d2933.bindPopup(popup_9e9a8ab8da7de74cb012fc1c491d91b7)
+        ;
+
+        
+    
+    
+            poly_line_b8d66767ad50561ba33acd360f3d2933.bindTooltip(
+                `<div>
+                     Line 39-73 (2)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e5e771faa19504377ab6291191867885 = L.polyline(
+                [[42.646, -74.066], [43.013, -75.136]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_a99213bd442df4c455921b2d75f3510f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9f9cd088cf7d15dbf4dca1b4c968baab = $(`<div id="html_9f9cd088cf7d15dbf4dca1b4c968baab" style="width: 100.0%; height: 100.0%;"><b>39</b> (#40) ⇄ <b>43</b> (#44)<br>回路: 1 | 类型: 线路<br>距离(大圆): 96.3 km</div>`)[0];
+                popup_a99213bd442df4c455921b2d75f3510f.setContent(html_9f9cd088cf7d15dbf4dca1b4c968baab);
+            
+        
+
+        poly_line_e5e771faa19504377ab6291191867885.bindPopup(popup_a99213bd442df4c455921b2d75f3510f)
+        ;
+
+        
+    
+    
+            poly_line_e5e771faa19504377ab6291191867885.bindTooltip(
+                `<div>
+                     Line 40-44 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_46aa8989a1cfee2c04b0018c627e7b1f = L.polyline(
+                [[43.086, -73.78], [42.702, -73.628]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_e8574558f96495a391456f49b5f2da03 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c7e3f22c1bf8817109adf9b41f05077f = $(`<div id="html_c7e3f22c1bf8817109adf9b41f05077f" style="width: 100.0%; height: 100.0%;"><b>40</b> (#41) ⇄ <b>41</b> (#42)<br>回路: 1 | 类型: 线路<br>距离(大圆): 44.5 km</div>`)[0];
+                popup_e8574558f96495a391456f49b5f2da03.setContent(html_c7e3f22c1bf8817109adf9b41f05077f);
+            
+        
+
+        poly_line_46aa8989a1cfee2c04b0018c627e7b1f.bindPopup(popup_e8574558f96495a391456f49b5f2da03)
+        ;
+
+        
+    
+    
+            poly_line_46aa8989a1cfee2c04b0018c627e7b1f.bindTooltip(
+                `<div>
+                     Line 41-42 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_81a10c56ead1591bfd0083a12ce6bd5c = L.polyline(
+                [[43.086, -73.78], [43.131, -75.24]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_a4dfe537fb8b80f00f1f906c03cd0d22 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6e278ca0a93c14201cd581dcb20c6792 = $(`<div id="html_6e278ca0a93c14201cd581dcb20c6792" style="width: 100.0%; height: 100.0%;"><b>40</b> (#41) ⇄ <b>44</b> (#45)<br>回路: 1 | 类型: 线路<br>距离(大圆): 118.6 km</div>`)[0];
+                popup_a4dfe537fb8b80f00f1f906c03cd0d22.setContent(html_6e278ca0a93c14201cd581dcb20c6792);
+            
+        
+
+        poly_line_81a10c56ead1591bfd0083a12ce6bd5c.bindPopup(popup_a4dfe537fb8b80f00f1f906c03cd0d22)
+        ;
+
+        
+    
+    
+            poly_line_81a10c56ead1591bfd0083a12ce6bd5c.bindTooltip(
+                `<div>
+                     Line 41-45 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_fd7e832ca8f9c97049a7315ab8a3cd33 = L.polyline(
+                [[42.894, -75.24], [43.013, -75.136]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_84964ed224b3e9db5cd2cf9db430318c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2513c481b09a019bc4f653af14052ea1 = $(`<div id="html_2513c481b09a019bc4f653af14052ea1" style="width: 100.0%; height: 100.0%;"><b>42</b> (#43) ⇄ <b>43</b> (#44)<br>回路: 1 | 类型: 线路<br>距离(大圆): 15.7 km</div>`)[0];
+                popup_84964ed224b3e9db5cd2cf9db430318c.setContent(html_2513c481b09a019bc4f653af14052ea1);
+            
+        
+
+        poly_line_fd7e832ca8f9c97049a7315ab8a3cd33.bindPopup(popup_84964ed224b3e9db5cd2cf9db430318c)
+        ;
+
+        
+    
+    
+            poly_line_fd7e832ca8f9c97049a7315ab8a3cd33.bindTooltip(
+                `<div>
+                     Line 43-44 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_21f49ac49237327d35b46954d192fe77 = L.polyline(
+                [[42.894, -75.24], [43.306, -76.333]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_d29e37cd2cca5c51abc2991132521808 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cf7631bf3ad264c3cf2252cae0dc5727 = $(`<div id="html_cf7631bf3ad264c3cf2252cae0dc5727" style="width: 100.0%; height: 100.0%;"><b>42</b> (#43) ⇄ <b>49</b> (#50)<br>回路: 1 | 类型: 线路<br>距离(大圆): 99.9 km</div>`)[0];
+                popup_d29e37cd2cca5c51abc2991132521808.setContent(html_cf7631bf3ad264c3cf2252cae0dc5727);
+            
+        
+
+        poly_line_21f49ac49237327d35b46954d192fe77.bindPopup(popup_d29e37cd2cca5c51abc2991132521808)
+        ;
+
+        
+    
+    
+            poly_line_21f49ac49237327d35b46954d192fe77.bindTooltip(
+                `<div>
+                     Line 43-50 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_672ad42e173450dacdb4090922a269b9 = L.polyline(
+                [[42.894, -75.24], [43.306, -76.333]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_a72a61ad4f2863d005b874176ef57208 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_55fa1fdce862d26d8a5985bb3ed7d1a2 = $(`<div id="html_55fa1fdce862d26d8a5985bb3ed7d1a2" style="width: 100.0%; height: 100.0%;"><b>42</b> (#43) ⇄ <b>49</b> (#50)<br>回路: 2 | 类型: 线路<br>距离(大圆): 99.9 km</div>`)[0];
+                popup_a72a61ad4f2863d005b874176ef57208.setContent(html_55fa1fdce862d26d8a5985bb3ed7d1a2);
+            
+        
+
+        poly_line_672ad42e173450dacdb4090922a269b9.bindPopup(popup_a72a61ad4f2863d005b874176ef57208)
+        ;
+
+        
+    
+    
+            poly_line_672ad42e173450dacdb4090922a269b9.bindTooltip(
+                `<div>
+                     Line 43-50 (2)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_b94a1b67eb6666aa00ef0853ab818994 = L.polyline(
+                [[43.013, -75.136], [43.131, -75.24]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_20599284c85387c520e6daafad55f3e8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f4104bcbbb13f6f6983b06e95911f750 = $(`<div id="html_f4104bcbbb13f6f6983b06e95911f750" style="width: 100.0%; height: 100.0%;"><b>43</b> (#44) ⇄ <b>44</b> (#45)<br>回路: 1 | 类型: 线路<br>距离(大圆): 15.6 km</div>`)[0];
+                popup_20599284c85387c520e6daafad55f3e8.setContent(html_f4104bcbbb13f6f6983b06e95911f750);
+            
+        
+
+        poly_line_b94a1b67eb6666aa00ef0853ab818994.bindPopup(popup_20599284c85387c520e6daafad55f3e8)
+        ;
+
+        
+    
+    
+            poly_line_b94a1b67eb6666aa00ef0853ab818994.bindTooltip(
+                `<div>
+                     Line 44-45 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_87bd936ba84565eab7d59006efcd1a4c = L.polyline(
+                [[43.013, -75.136], [44.846, -74.821]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_90e4a88a53e595bff83e2ff34066d723 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_464d84b68e402ac89de34bcf3fd275ff = $(`<div id="html_464d84b68e402ac89de34bcf3fd275ff" style="width: 100.0%; height: 100.0%;"><b>43</b> (#44) ⇄ <b>47</b> (#48)<br>回路: 1 | 类型: 线路<br>距离(大圆): 205.4 km</div>`)[0];
+                popup_90e4a88a53e595bff83e2ff34066d723.setContent(html_464d84b68e402ac89de34bcf3fd275ff);
+            
+        
+
+        poly_line_87bd936ba84565eab7d59006efcd1a4c.bindPopup(popup_90e4a88a53e595bff83e2ff34066d723)
+        ;
+
+        
+    
+    
+            poly_line_87bd936ba84565eab7d59006efcd1a4c.bindTooltip(
+                `<div>
+                     Line 44-48 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_aafc7c375bb3383a4f82575492c3c632 = L.polyline(
+                [[43.131, -75.24], [44.428, -75.051]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_2fdf2435fc572826a17f440e90435e85 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9d69fb3c7142f9a883004c595dc20483 = $(`<div id="html_9d69fb3c7142f9a883004c595dc20483" style="width: 100.0%; height: 100.0%;"><b>44</b> (#45) ⇄ <b>45</b> (#46)<br>回路: 1 | 类型: 线路<br>距离(大圆): 145.0 km</div>`)[0];
+                popup_2fdf2435fc572826a17f440e90435e85.setContent(html_9d69fb3c7142f9a883004c595dc20483);
+            
+        
+
+        poly_line_aafc7c375bb3383a4f82575492c3c632.bindPopup(popup_2fdf2435fc572826a17f440e90435e85)
+        ;
+
+        
+    
+    
+            poly_line_aafc7c375bb3383a4f82575492c3c632.bindTooltip(
+                `<div>
+                     Line 45-46 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_898f8f5cf389e5264757ad784a5e6f0b = L.polyline(
+                [[43.131, -75.24], [42.939, -76.261]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_639e02a3f39ca136b6850507d14334c2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6a34eff0317c5435fdc9c980f5cb4f27 = $(`<div id="html_6a34eff0317c5435fdc9c980f5cb4f27" style="width: 100.0%; height: 100.0%;"><b>44</b> (#45) ⇄ <b>50</b> (#51)<br>回路: 1 | 类型: 线路<br>距离(大圆): 85.7 km</div>`)[0];
+                popup_639e02a3f39ca136b6850507d14334c2.setContent(html_6a34eff0317c5435fdc9c980f5cb4f27);
+            
+        
+
+        poly_line_898f8f5cf389e5264757ad784a5e6f0b.bindPopup(popup_639e02a3f39ca136b6850507d14334c2)
+        ;
+
+        
+    
+    
+            poly_line_898f8f5cf389e5264757ad784a5e6f0b.bindTooltip(
+                `<div>
+                     Line 45-51 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_eaf7f6e2810686c893eeadd4ff009107 = L.polyline(
+                [[43.131, -75.24], [42.33, -75.789]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_803892ad04255a2bd57bbf6a39821175 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a9162b759aa4c3bffe263393458e3904 = $(`<div id="html_a9162b759aa4c3bffe263393458e3904" style="width: 100.0%; height: 100.0%;"><b>44</b> (#45) ⇄ <b>70</b> (#71)<br>回路: 1 | 类型: 线路<br>距离(大圆): 99.7 km</div>`)[0];
+                popup_803892ad04255a2bd57bbf6a39821175.setContent(html_a9162b759aa4c3bffe263393458e3904);
+            
+        
+
+        poly_line_eaf7f6e2810686c893eeadd4ff009107.bindPopup(popup_803892ad04255a2bd57bbf6a39821175)
+        ;
+
+        
+    
+    
+            poly_line_eaf7f6e2810686c893eeadd4ff009107.bindTooltip(
+                `<div>
+                     Line 45-71 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_dd1223acc35813387f3b807382bd3db4 = L.polyline(
+                [[44.428, -75.051], [44.654, -75.211]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_d5bfff69c4c7cdd4281becf095192ad2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_be0601d7b6b1ff9a97f791ebd877ccfc = $(`<div id="html_be0601d7b6b1ff9a97f791ebd877ccfc" style="width: 100.0%; height: 100.0%;"><b>45</b> (#46) ⇄ <b>46</b> (#47)<br>回路: 1 | 类型: 线路<br>距离(大圆): 28.1 km</div>`)[0];
+                popup_d5bfff69c4c7cdd4281becf095192ad2.setContent(html_be0601d7b6b1ff9a97f791ebd877ccfc);
+            
+        
+
+        poly_line_dd1223acc35813387f3b807382bd3db4.bindPopup(popup_d5bfff69c4c7cdd4281becf095192ad2)
+        ;
+
+        
+    
+    
+            poly_line_dd1223acc35813387f3b807382bd3db4.bindTooltip(
+                `<div>
+                     Line 46-47 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9bea3fecb634aa3d31bfacd4da2e2b6f = L.polyline(
+                [[44.428, -75.051], [44.699, -74.134]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_02d12e1e882e7074301ff916a473b6ad = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6fdc50ac0dd7b2ab77613330e4e0e713 = $(`<div id="html_6fdc50ac0dd7b2ab77613330e4e0e713" style="width: 100.0%; height: 100.0%;"><b>45</b> (#46) ⇄ <b>48</b> (#49)<br>回路: 1 | 类型: 线路<br>距离(大圆): 78.6 km</div>`)[0];
+                popup_02d12e1e882e7074301ff916a473b6ad.setContent(html_6fdc50ac0dd7b2ab77613330e4e0e713);
+            
+        
+
+        poly_line_9bea3fecb634aa3d31bfacd4da2e2b6f.bindPopup(popup_02d12e1e882e7074301ff916a473b6ad)
+        ;
+
+        
+    
+    
+            poly_line_9bea3fecb634aa3d31bfacd4da2e2b6f.bindTooltip(
+                `<div>
+                     Line 46-49 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_60c2662efb12eb1e5d6317c5d3e13e28 = L.polyline(
+                [[44.654, -75.211], [44.846, -74.821]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_2d02ce853abd077dc17ffb66beca9ba5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_261434137941e48f0a821e829beb7302 = $(`<div id="html_261434137941e48f0a821e829beb7302" style="width: 100.0%; height: 100.0%;"><b>46</b> (#47) ⇄ <b>47</b> (#48)<br>回路: 1 | 类型: 线路<br>距离(大圆): 37.5 km</div>`)[0];
+                popup_2d02ce853abd077dc17ffb66beca9ba5.setContent(html_261434137941e48f0a821e829beb7302);
+            
+        
+
+        poly_line_60c2662efb12eb1e5d6317c5d3e13e28.bindPopup(popup_2d02ce853abd077dc17ffb66beca9ba5)
+        ;
+
+        
+    
+    
+            poly_line_60c2662efb12eb1e5d6317c5d3e13e28.bindTooltip(
+                `<div>
+                     Line 47-48 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_15464c56ee7bf4abc3c4b4f960e2acf5 = L.polyline(
+                [[43.306, -76.333], [42.939, -76.261]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_60540e8fa82b1c93bd8a5ae8c6009629 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c48b2bff2bb92dece91bd16159963ab9 = $(`<div id="html_c48b2bff2bb92dece91bd16159963ab9" style="width: 100.0%; height: 100.0%;"><b>49</b> (#50) ⇄ <b>50</b> (#51)<br>回路: 1 | 类型: 线路<br>距离(大圆): 41.2 km</div>`)[0];
+                popup_60540e8fa82b1c93bd8a5ae8c6009629.setContent(html_c48b2bff2bb92dece91bd16159963ab9);
+            
+        
+
+        poly_line_15464c56ee7bf4abc3c4b4f960e2acf5.bindPopup(popup_60540e8fa82b1c93bd8a5ae8c6009629)
+        ;
+
+        
+    
+    
+            poly_line_15464c56ee7bf4abc3c4b4f960e2acf5.bindTooltip(
+                `<div>
+                     Line 50-51 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c811b3ae69191ffd7132355e0c950944 = L.polyline(
+                [[43.306, -76.333], [43.312, -77.482]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_c4d22d47ce68cde5ee0ec92211ca471e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8c5bfdaa770555a2a752438d6fa8ea43 = $(`<div id="html_8c5bfdaa770555a2a752438d6fa8ea43" style="width: 100.0%; height: 100.0%;"><b>49</b> (#50) ⇄ <b>51</b> (#52)<br>回路: 1 | 类型: 线路<br>距离(大圆): 93.0 km</div>`)[0];
+                popup_c4d22d47ce68cde5ee0ec92211ca471e.setContent(html_8c5bfdaa770555a2a752438d6fa8ea43);
+            
+        
+
+        poly_line_c811b3ae69191ffd7132355e0c950944.bindPopup(popup_c4d22d47ce68cde5ee0ec92211ca471e)
+        ;
+
+        
+    
+    
+            poly_line_c811b3ae69191ffd7132355e0c950944.bindTooltip(
+                `<div>
+                     Line 50-52 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a47d223102dddc3602bbc5bcced7b043 = L.polyline(
+                [[42.939, -76.261], [42.889, -77.777]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_a54c79e973b91dcbe7cca04eebad3219 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ee49084f59246f8ada30315356c52187 = $(`<div id="html_ee49084f59246f8ada30315356c52187" style="width: 100.0%; height: 100.0%;"><b>50</b> (#51) ⇄ <b>52</b> (#53)<br>回路: 1 | 类型: 线路<br>距离(大圆): 123.6 km</div>`)[0];
+                popup_a54c79e973b91dcbe7cca04eebad3219.setContent(html_ee49084f59246f8ada30315356c52187);
+            
+        
+
+        poly_line_a47d223102dddc3602bbc5bcced7b043.bindPopup(popup_a54c79e973b91dcbe7cca04eebad3219)
+        ;
+
+        
+    
+    
+            poly_line_a47d223102dddc3602bbc5bcced7b043.bindTooltip(
+                `<div>
+                     Line 51-53 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_cb72214b5053a266ab942bf429b27615 = L.polyline(
+                [[42.939, -76.261], [42.635, -76.093]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_9b50cc50d0a3a0767673fbbef4cf3ff4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3010fbdfc8c5422960119238a29f18a9 = $(`<div id="html_3010fbdfc8c5422960119238a29f18a9" style="width: 100.0%; height: 100.0%;"><b>50</b> (#51) ⇄ <b>71</b> (#72)<br>回路: 1 | 类型: 线路<br>距离(大圆): 36.5 km</div>`)[0];
+                popup_9b50cc50d0a3a0767673fbbef4cf3ff4.setContent(html_3010fbdfc8c5422960119238a29f18a9);
+            
+        
+
+        poly_line_cb72214b5053a266ab942bf429b27615.bindPopup(popup_9b50cc50d0a3a0767673fbbef4cf3ff4)
+        ;
+
+        
+    
+    
+            poly_line_cb72214b5053a266ab942bf429b27615.bindTooltip(
+                `<div>
+                     Line 51-72 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_21c1cee6c6def318e775412de7a85ec0 = L.polyline(
+                [[43.312, -77.482], [42.889, -77.777]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_b7d579139c5c120d990b22dc438b4669 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_09694eb1af8cb4f44394263fd40d1407 = $(`<div id="html_09694eb1af8cb4f44394263fd40d1407" style="width: 100.0%; height: 100.0%;"><b>51</b> (#52) ⇄ <b>52</b> (#53)<br>回路: 1 | 类型: 线路<br>距离(大圆): 52.8 km</div>`)[0];
+                popup_b7d579139c5c120d990b22dc438b4669.setContent(html_09694eb1af8cb4f44394263fd40d1407);
+            
+        
+
+        poly_line_21c1cee6c6def318e775412de7a85ec0.bindPopup(popup_b7d579139c5c120d990b22dc438b4669)
+        ;
+
+        
+    
+    
+            poly_line_21c1cee6c6def318e775412de7a85ec0.bindTooltip(
+                `<div>
+                     Line 52-53 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_04255cd9eb324a4a643e6c1c14ecea38 = L.polyline(
+                [[42.889, -77.777], [42.996, -78.591]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_a110249c2b4e4a2ac62b9f2be7e58468 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_91e8d76cb90a7114ad1eea18dc1bc46b = $(`<div id="html_91e8d76cb90a7114ad1eea18dc1bc46b" style="width: 100.0%; height: 100.0%;"><b>52</b> (#53) ⇄ <b>54</b> (#55)<br>回路: 1 | 类型: 线路<br>距离(大圆): 67.3 km</div>`)[0];
+                popup_a110249c2b4e4a2ac62b9f2be7e58468.setContent(html_91e8d76cb90a7114ad1eea18dc1bc46b);
+            
+        
+
+        poly_line_04255cd9eb324a4a643e6c1c14ecea38.bindPopup(popup_a110249c2b4e4a2ac62b9f2be7e58468)
+        ;
+
+        
+    
+    
+            poly_line_04255cd9eb324a4a643e6c1c14ecea38.bindTooltip(
+                `<div>
+                     Line 53-55 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_728bde36614f9febade31e5764f86eab = L.polyline(
+                [[42.889, -77.777], [42.629, -76.978]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_d0aa677f6b21ec79408a0e087045086c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b9a7f8e06091189892e0ad11c0224188 = $(`<div id="html_b9a7f8e06091189892e0ad11c0224188" style="width: 100.0%; height: 100.0%;"><b>52</b> (#53) ⇄ <b>64</b> (#65)<br>回路: 1 | 类型: 线路<br>距离(大圆): 71.4 km</div>`)[0];
+                popup_d0aa677f6b21ec79408a0e087045086c.setContent(html_b9a7f8e06091189892e0ad11c0224188);
+            
+        
+
+        poly_line_728bde36614f9febade31e5764f86eab.bindPopup(popup_d0aa677f6b21ec79408a0e087045086c)
+        ;
+
+        
+    
+    
+            poly_line_728bde36614f9febade31e5764f86eab.bindTooltip(
+                `<div>
+                     Line 53-65 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_b476021577564fdbb2c2709d0374f160 = L.polyline(
+                [[43.125, -78.352], [43.312, -78.743]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_863bfd6e84b2e56c62b568b49e85e921 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_915f2411e836d4a0ddd69f5074b3149c = $(`<div id="html_915f2411e836d4a0ddd69f5074b3149c" style="width: 100.0%; height: 100.0%;"><b>53</b> (#54) ⇄ <b>55</b> (#56)<br>回路: 1 | 类型: 线路<br>距离(大圆): 37.9 km</div>`)[0];
+                popup_863bfd6e84b2e56c62b568b49e85e921.setContent(html_915f2411e836d4a0ddd69f5074b3149c);
+            
+        
+
+        poly_line_b476021577564fdbb2c2709d0374f160.bindPopup(popup_863bfd6e84b2e56c62b568b49e85e921)
+        ;
+
+        
+    
+    
+            poly_line_b476021577564fdbb2c2709d0374f160.bindTooltip(
+                `<div>
+                     Line 54-56 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_26d1f20f68f5cb0a4b664002edf15f7b = L.polyline(
+                [[43.125, -78.352], [42.708, -78.255]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_80c2f47d9ebcca78f93442309c7e71e4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d40075a5c34cb064a16ee5309224cc4f = $(`<div id="html_d40075a5c34cb064a16ee5309224cc4f" style="width: 100.0%; height: 100.0%;"><b>53</b> (#54) ⇄ <b>61</b> (#62)<br>回路: 1 | 类型: 线路<br>距离(大圆): 47.0 km</div>`)[0];
+                popup_80c2f47d9ebcca78f93442309c7e71e4.setContent(html_d40075a5c34cb064a16ee5309224cc4f);
+            
+        
+
+        poly_line_26d1f20f68f5cb0a4b664002edf15f7b.bindPopup(popup_80c2f47d9ebcca78f93442309c7e71e4)
+        ;
+
+        
+    
+    
+            poly_line_26d1f20f68f5cb0a4b664002edf15f7b.bindTooltip(
+                `<div>
+                     Line 54-62 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_09ddb382a4dd86ec81579eba755bc832 = L.polyline(
+                [[43.125, -78.352], [43.266, -79.349]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_5ead857bdba77dcd3db88c75ee419034 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a678482069b92d780c2a216c2b5c3ea7 = $(`<div id="html_a678482069b92d780c2a216c2b5c3ea7" style="width: 100.0%; height: 100.0%;"><b>53</b> (#54) ⇄ <b>101</b> (#102)<br>回路: 1 | 类型: 线路<br>距离(大圆): 82.3 km</div>`)[0];
+                popup_5ead857bdba77dcd3db88c75ee419034.setContent(html_a678482069b92d780c2a216c2b5c3ea7);
+            
+        
+
+        poly_line_09ddb382a4dd86ec81579eba755bc832.bindPopup(popup_5ead857bdba77dcd3db88c75ee419034)
+        ;
+
+        
+    
+    
+            poly_line_09ddb382a4dd86ec81579eba755bc832.bindTooltip(
+                `<div>
+                     Line 54-102 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_525deac70d0643c40f3fbfde16e15eac = L.polyline(
+                [[43.125, -78.352], [43.069, -79.317]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_506a25fb9fe47a52580fdcc2a7194239 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_33f77ecfed58a0a7058582ef8c39130b = $(`<div id="html_33f77ecfed58a0a7058582ef8c39130b" style="width: 100.0%; height: 100.0%;"><b>53</b> (#54) ⇄ <b>102</b> (#103)<br>回路: 1 | 类型: 线路<br>距离(大圆): 78.6 km</div>`)[0];
+                popup_506a25fb9fe47a52580fdcc2a7194239.setContent(html_33f77ecfed58a0a7058582ef8c39130b);
+            
+        
+
+        poly_line_525deac70d0643c40f3fbfde16e15eac.bindPopup(popup_506a25fb9fe47a52580fdcc2a7194239)
+        ;
+
+        
+    
+    
+            poly_line_525deac70d0643c40f3fbfde16e15eac.bindTooltip(
+                `<div>
+                     Line 54-103 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_08df334b8b717188a9da2b8f49caad9f = L.polyline(
+                [[42.996, -78.591], [42.911, -79.125]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_d207ff525f4b3b2c2907263c884f7882 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_81f3cbf1ff3cd26ecf82ddf2266be4df = $(`<div id="html_81f3cbf1ff3cd26ecf82ddf2266be4df" style="width: 100.0%; height: 100.0%;"><b>54</b> (#55) ⇄ <b>56</b> (#57)<br>回路: 1 | 类型: 线路<br>距离(大圆): 44.5 km</div>`)[0];
+                popup_d207ff525f4b3b2c2907263c884f7882.setContent(html_81f3cbf1ff3cd26ecf82ddf2266be4df);
+            
+        
+
+        poly_line_08df334b8b717188a9da2b8f49caad9f.bindPopup(popup_d207ff525f4b3b2c2907263c884f7882)
+        ;
+
+        
+    
+    
+            poly_line_08df334b8b717188a9da2b8f49caad9f.bindTooltip(
+                `<div>
+                     Line 55-57 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_14dc3f2fb3dffdfe59d20506bf039858 = L.polyline(
+                [[42.996, -78.591], [42.561, -78.797]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_e9b6e3a52c47ca8985c1280ec304ee4d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8f33f70b629b29ff5fe462b6b9a26ee5 = $(`<div id="html_8f33f70b629b29ff5fe462b6b9a26ee5" style="width: 100.0%; height: 100.0%;"><b>54</b> (#55) ⇄ <b>58</b> (#59)<br>回路: 1 | 类型: 线路<br>距离(大圆): 51.2 km</div>`)[0];
+                popup_e9b6e3a52c47ca8985c1280ec304ee4d.setContent(html_8f33f70b629b29ff5fe462b6b9a26ee5);
+            
+        
+
+        poly_line_14dc3f2fb3dffdfe59d20506bf039858.bindPopup(popup_e9b6e3a52c47ca8985c1280ec304ee4d)
+        ;
+
+        
+    
+    
+            poly_line_14dc3f2fb3dffdfe59d20506bf039858.bindTooltip(
+                `<div>
+                     Line 55-59 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a0cfae34e8b2bbdcd8d13d6783022cab = L.polyline(
+                [[43.312, -78.743], [42.714, -79.133]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_97cfc96fc062e05b25cbe0d571407822 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cba83fd08daf93e44bee453b1e6225c9 = $(`<div id="html_cba83fd08daf93e44bee453b1e6225c9" style="width: 100.0%; height: 100.0%;"><b>55</b> (#56) ⇄ <b>57</b> (#58)<br>回路: 1 | 类型: 线路<br>距离(大圆): 73.7 km</div>`)[0];
+                popup_97cfc96fc062e05b25cbe0d571407822.setContent(html_cba83fd08daf93e44bee453b1e6225c9);
+            
+        
+
+        poly_line_a0cfae34e8b2bbdcd8d13d6783022cab.bindPopup(popup_97cfc96fc062e05b25cbe0d571407822)
+        ;
+
+        
+    
+    
+            poly_line_a0cfae34e8b2bbdcd8d13d6783022cab.bindTooltip(
+                `<div>
+                     Line 56-58 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_8c6d2dd731ed9292431852bf86501c32 = L.polyline(
+                [[42.911, -79.125], [42.561, -78.797]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_63ec15e47860a6a68429476d78d58328 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c4ecd1eb8865cf06b6d895ef1a6b8adc = $(`<div id="html_c4ecd1eb8865cf06b6d895ef1a6b8adc" style="width: 100.0%; height: 100.0%;"><b>56</b> (#57) ⇄ <b>58</b> (#59)<br>回路: 1 | 类型: 线路<br>距离(大圆): 47.2 km</div>`)[0];
+                popup_63ec15e47860a6a68429476d78d58328.setContent(html_c4ecd1eb8865cf06b6d895ef1a6b8adc);
+            
+        
+
+        poly_line_8c6d2dd731ed9292431852bf86501c32.bindPopup(popup_63ec15e47860a6a68429476d78d58328)
+        ;
+
+        
+    
+    
+            poly_line_8c6d2dd731ed9292431852bf86501c32.bindTooltip(
+                `<div>
+                     Line 57-59 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_06aa6c4270c4ea612e750d294c772343 = L.polyline(
+                [[42.714, -79.133], [42.33, -79.315]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_0e9a0ab8cc5dbdfbbee7d7ad6a82661b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ae84277de1cb5a75b78cf4587169e1b8 = $(`<div id="html_ae84277de1cb5a75b78cf4587169e1b8" style="width: 100.0%; height: 100.0%;"><b>57</b> (#58) ⇄ <b>59</b> (#60)<br>回路: 1 | 类型: 线路<br>距离(大圆): 45.2 km</div>`)[0];
+                popup_0e9a0ab8cc5dbdfbbee7d7ad6a82661b.setContent(html_ae84277de1cb5a75b78cf4587169e1b8);
+            
+        
+
+        poly_line_06aa6c4270c4ea612e750d294c772343.bindPopup(popup_0e9a0ab8cc5dbdfbbee7d7ad6a82661b)
+        ;
+
+        
+    
+    
+            poly_line_06aa6c4270c4ea612e750d294c772343.bindTooltip(
+                `<div>
+                     Line 58-60 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_6fbaac97195d27ef6adaadd518a5f446 = L.polyline(
+                [[42.714, -79.133], [42.708, -78.255]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_c3a39ab0528c279cbd077854efc8b4dd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0969b79bba08e2b79ec1a9884442420d = $(`<div id="html_0969b79bba08e2b79ec1a9884442420d" style="width: 100.0%; height: 100.0%;"><b>57</b> (#58) ⇄ <b>61</b> (#62)<br>回路: 1 | 类型: 线路<br>距离(大圆): 71.7 km</div>`)[0];
+                popup_c3a39ab0528c279cbd077854efc8b4dd.setContent(html_0969b79bba08e2b79ec1a9884442420d);
+            
+        
+
+        poly_line_6fbaac97195d27ef6adaadd518a5f446.bindPopup(popup_c3a39ab0528c279cbd077854efc8b4dd)
+        ;
+
+        
+    
+    
+            poly_line_6fbaac97195d27ef6adaadd518a5f446.bindTooltip(
+                `<div>
+                     Line 58-62 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d8b15b8bb9d2e2932ae0a87d70d80bb6 = L.polyline(
+                [[42.561, -78.797], [42.234, -78.828]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_8940f7ade96c2e8b2ab423337aaaa76b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5d0aaa70173fcbfa98107afcfbc60085 = $(`<div id="html_5d0aaa70173fcbfa98107afcfbc60085" style="width: 100.0%; height: 100.0%;"><b>58</b> (#59) ⇄ <b>60</b> (#61)<br>回路: 1 | 类型: 线路<br>距离(大圆): 36.4 km</div>`)[0];
+                popup_8940f7ade96c2e8b2ab423337aaaa76b.setContent(html_5d0aaa70173fcbfa98107afcfbc60085);
+            
+        
+
+        poly_line_d8b15b8bb9d2e2932ae0a87d70d80bb6.bindPopup(popup_8940f7ade96c2e8b2ab423337aaaa76b)
+        ;
+
+        
+    
+    
+            poly_line_d8b15b8bb9d2e2932ae0a87d70d80bb6.bindTooltip(
+                `<div>
+                     Line 59-61 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c4488b04e17dc92a42eeb39fbb66940a = L.polyline(
+                [[42.33, -79.315], [41.952, -79.283]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_a96b269a8a25e7c511d5861e53a7afe6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5ad6544b4f4672f2b0ddd8e4fceecba6 = $(`<div id="html_5ad6544b4f4672f2b0ddd8e4fceecba6" style="width: 100.0%; height: 100.0%;"><b>59</b> (#60) ⇄ <b>139</b> (#140)<br>回路: 1 | 类型: 线路<br>距离(大圆): 42.1 km</div>`)[0];
+                popup_a96b269a8a25e7c511d5861e53a7afe6.setContent(html_5ad6544b4f4672f2b0ddd8e4fceecba6);
+            
+        
+
+        poly_line_c4488b04e17dc92a42eeb39fbb66940a.bindPopup(popup_a96b269a8a25e7c511d5861e53a7afe6)
+        ;
+
+        
+    
+    
+            poly_line_c4488b04e17dc92a42eeb39fbb66940a.bindTooltip(
+                `<div>
+                     Line 60-140 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_8e92d45f596403d116332ed14cb70eaf = L.polyline(
+                [[42.708, -78.255], [42.42, -77.824]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_9ee100235970e313360afd65fa4855b9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9fdbbda8574971303eb7263fb35b1373 = $(`<div id="html_9fdbbda8574971303eb7263fb35b1373" style="width: 100.0%; height: 100.0%;"><b>61</b> (#62) ⇄ <b>62</b> (#63)<br>回路: 1 | 类型: 线路<br>距离(大圆): 47.7 km</div>`)[0];
+                popup_9ee100235970e313360afd65fa4855b9.setContent(html_9fdbbda8574971303eb7263fb35b1373);
+            
+        
+
+        poly_line_8e92d45f596403d116332ed14cb70eaf.bindPopup(popup_9ee100235970e313360afd65fa4855b9)
+        ;
+
+        
+    
+    
+            poly_line_8e92d45f596403d116332ed14cb70eaf.bindTooltip(
+                `<div>
+                     Line 62-63 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_219a76957148c0235154dd79a6f3f3e4 = L.polyline(
+                [[42.42, -77.824], [42.409, -77.592]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_e8f5501da4034d747fa1328b3c9d7764 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3dcd1fd970c1ecc950de50de23f57a05 = $(`<div id="html_3dcd1fd970c1ecc950de50de23f57a05" style="width: 100.0%; height: 100.0%;"><b>62</b> (#63) ⇄ <b>63</b> (#64)<br>回路: 1 | 类型: 线路<br>距离(大圆): 19.1 km</div>`)[0];
+                popup_e8f5501da4034d747fa1328b3c9d7764.setContent(html_3dcd1fd970c1ecc950de50de23f57a05);
+            
+        
+
+        poly_line_219a76957148c0235154dd79a6f3f3e4.bindPopup(popup_e8f5501da4034d747fa1328b3c9d7764)
+        ;
+
+        
+    
+    
+            poly_line_219a76957148c0235154dd79a6f3f3e4.bindTooltip(
+                `<div>
+                     Line 63-64 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7bc58f462089aba1b1d2f847966db4b9 = L.polyline(
+                [[42.42, -77.824], [41.952, -77.041]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_29f8a76033ff008e6b3bac6820f7df98 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1841d3ad206cd0c4691d40bf0680bb7f = $(`<div id="html_1841d3ad206cd0c4691d40bf0680bb7f" style="width: 100.0%; height: 100.0%;"><b>62</b> (#63) ⇄ <b>66</b> (#67)<br>回路: 1 | 类型: 线路<br>距离(大圆): 82.9 km</div>`)[0];
+                popup_29f8a76033ff008e6b3bac6820f7df98.setContent(html_1841d3ad206cd0c4691d40bf0680bb7f);
+            
+        
+
+        poly_line_7bc58f462089aba1b1d2f847966db4b9.bindPopup(popup_29f8a76033ff008e6b3bac6820f7df98)
+        ;
+
+        
+    
+    
+            poly_line_7bc58f462089aba1b1d2f847966db4b9.bindTooltip(
+                `<div>
+                     Line 63-67 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_af7f39bacfc5d71c01eb0500a17d9dec = L.polyline(
+                [[42.409, -77.592], [42.629, -76.978]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_4f0f9dbe89522d0584dfcda504a4985a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fa3618e99b1c8040cbcbea09efc03baf = $(`<div id="html_fa3618e99b1c8040cbcbea09efc03baf" style="width: 100.0%; height: 100.0%;"><b>63</b> (#64) ⇄ <b>64</b> (#65)<br>回路: 1 | 类型: 线路<br>距离(大圆): 56.0 km</div>`)[0];
+                popup_4f0f9dbe89522d0584dfcda504a4985a.setContent(html_fa3618e99b1c8040cbcbea09efc03baf);
+            
+        
+
+        poly_line_af7f39bacfc5d71c01eb0500a17d9dec.bindPopup(popup_4f0f9dbe89522d0584dfcda504a4985a)
+        ;
+
+        
+    
+    
+            poly_line_af7f39bacfc5d71c01eb0500a17d9dec.bindTooltip(
+                `<div>
+                     Line 64-65 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_765b5fef499684f1071e31bdb8a12aea = L.polyline(
+                [[42.409, -77.592], [42.15, -76.714]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_74c7bd95e56abebf501a231cb43a1505 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aae521946d4e3069dcf3186582135312 = $(`<div id="html_aae521946d4e3069dcf3186582135312" style="width: 100.0%; height: 100.0%;"><b>63</b> (#64) ⇄ <b>67</b> (#68)<br>回路: 1 | 类型: 线路<br>距离(大圆): 77.8 km</div>`)[0];
+                popup_74c7bd95e56abebf501a231cb43a1505.setContent(html_aae521946d4e3069dcf3186582135312);
+            
+        
+
+        poly_line_765b5fef499684f1071e31bdb8a12aea.bindPopup(popup_74c7bd95e56abebf501a231cb43a1505)
+        ;
+
+        
+    
+    
+            poly_line_765b5fef499684f1071e31bdb8a12aea.bindTooltip(
+                `<div>
+                     Line 64-68 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_05a97c0cdfbcc4a1e813288dfb43407e = L.polyline(
+                [[41.862, -76.203], [41.952, -77.041]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_6a0ebc6e167731a1fcad6f45a449585a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3760f8e08b960d2ca91733fed473d940 = $(`<div id="html_3760f8e08b960d2ca91733fed473d940" style="width: 100.0%; height: 100.0%;"><b>65</b> (#66) ⇄ <b>66</b> (#67)<br>回路: 1 | 类型: 线路<br>距离(大圆): 70.1 km</div>`)[0];
+                popup_6a0ebc6e167731a1fcad6f45a449585a.setContent(html_3760f8e08b960d2ca91733fed473d940);
+            
+        
+
+        poly_line_05a97c0cdfbcc4a1e813288dfb43407e.bindPopup(popup_6a0ebc6e167731a1fcad6f45a449585a)
+        ;
+
+        
+    
+    
+            poly_line_05a97c0cdfbcc4a1e813288dfb43407e.bindTooltip(
+                `<div>
+                     Line 66-67 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a5c4c9a0f7a7ee34007a4a4c2e05c827 = L.polyline(
+                [[41.862, -76.203], [42.009, -75.397]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_9846978c26f8b00e2f71be35f8b8352a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c148769fce561396e819d0afe4798512 = $(`<div id="html_c148769fce561396e819d0afe4798512" style="width: 100.0%; height: 100.0%;"><b>65</b> (#66) ⇄ <b>68</b> (#69)<br>回路: 1 | 类型: 线路<br>距离(大圆): 68.6 km</div>`)[0];
+                popup_9846978c26f8b00e2f71be35f8b8352a.setContent(html_c148769fce561396e819d0afe4798512);
+            
+        
+
+        poly_line_a5c4c9a0f7a7ee34007a4a4c2e05c827.bindPopup(popup_9846978c26f8b00e2f71be35f8b8352a)
+        ;
+
+        
+    
+    
+            poly_line_a5c4c9a0f7a7ee34007a4a4c2e05c827.bindTooltip(
+                `<div>
+                     Line 66-69 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2766aa839478b111380979e1c9475510 = L.polyline(
+                [[41.862, -76.203], [41.072, -78.826]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_c67fbc2f0c3dd1ef2ae60c7708da153a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_010949b44762630e8f2ac88acce49b20 = $(`<div id="html_010949b44762630e8f2ac88acce49b20" style="width: 100.0%; height: 100.0%;"><b>65</b> (#66) ⇄ <b>133</b> (#134)<br>回路: 1 | 类型: 线路<br>距离(大圆): 235.5 km</div>`)[0];
+                popup_c67fbc2f0c3dd1ef2ae60c7708da153a.setContent(html_010949b44762630e8f2ac88acce49b20);
+            
+        
+
+        poly_line_2766aa839478b111380979e1c9475510.bindPopup(popup_c67fbc2f0c3dd1ef2ae60c7708da153a)
+        ;
+
+        
+    
+    
+            poly_line_2766aa839478b111380979e1c9475510.bindTooltip(
+                `<div>
+                     Line 66-134 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_0ab50966d37c856931dbb4d9ee482405 = L.polyline(
+                [[41.952, -77.041], [42.15, -76.714]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_1999908f6fd8b03c518263ef25e89043 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2adbfe06fb026bb69ac1575b476999b5 = $(`<div id="html_2adbfe06fb026bb69ac1575b476999b5" style="width: 100.0%; height: 100.0%;"><b>66</b> (#67) ⇄ <b>67</b> (#68)<br>回路: 1 | 类型: 线路<br>距离(大圆): 34.8 km</div>`)[0];
+                popup_1999908f6fd8b03c518263ef25e89043.setContent(html_2adbfe06fb026bb69ac1575b476999b5);
+            
+        
+
+        poly_line_0ab50966d37c856931dbb4d9ee482405.bindPopup(popup_1999908f6fd8b03c518263ef25e89043)
+        ;
+
+        
+    
+    
+            poly_line_0ab50966d37c856931dbb4d9ee482405.bindTooltip(
+                `<div>
+                     Line 67-68 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_62d111b883967049526994ee50793383 = L.polyline(
+                [[41.952, -77.041], [42.014, -75.988]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_1f073c780b30d2142f14d2f5f070176d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_820d0fe190605d0663b65f70c3545722 = $(`<div id="html_820d0fe190605d0663b65f70c3545722" style="width: 100.0%; height: 100.0%;"><b>66</b> (#67) ⇄ <b>69</b> (#70)<br>回路: 1 | 类型: 线路<br>距离(大圆): 87.3 km</div>`)[0];
+                popup_1f073c780b30d2142f14d2f5f070176d.setContent(html_820d0fe190605d0663b65f70c3545722);
+            
+        
+
+        poly_line_62d111b883967049526994ee50793383.bindPopup(popup_1f073c780b30d2142f14d2f5f070176d)
+        ;
+
+        
+    
+    
+            poly_line_62d111b883967049526994ee50793383.bindTooltip(
+                `<div>
+                     Line 67-70 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_8f775f1b44352ce48c96e2d352a044cf = L.polyline(
+                [[41.952, -77.041], [41.715, -76.266]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_dd31e70e43e483413b402c642c155d3b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a1c6ecf9a985bc630ca7ea5176ef63e1 = $(`<div id="html_a1c6ecf9a985bc630ca7ea5176ef63e1" style="width: 100.0%; height: 100.0%;"><b>66</b> (#67) ⇄ <b>137</b> (#138)<br>回路: 1 | 类型: 线路<br>距离(大圆): 69.4 km</div>`)[0];
+                popup_dd31e70e43e483413b402c642c155d3b.setContent(html_a1c6ecf9a985bc630ca7ea5176ef63e1);
+            
+        
+
+        poly_line_8f775f1b44352ce48c96e2d352a044cf.bindPopup(popup_dd31e70e43e483413b402c642c155d3b)
+        ;
+
+        
+    
+    
+            poly_line_8f775f1b44352ce48c96e2d352a044cf.bindTooltip(
+                `<div>
+                     Line 67-138 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_fe0cb7a83580cf9de6625a0b1e5297b8 = L.polyline(
+                [[42.15, -76.714], [42.33, -75.789]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_757c329ddcd1446bfa031bf1b3dc362e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_610fd053150f0c4726660095f61d5879 = $(`<div id="html_610fd053150f0c4726660095f61d5879" style="width: 100.0%; height: 100.0%;"><b>67</b> (#68) ⇄ <b>70</b> (#71)<br>回路: 1 | 类型: 线路<br>距离(大圆): 78.7 km</div>`)[0];
+                popup_757c329ddcd1446bfa031bf1b3dc362e.setContent(html_610fd053150f0c4726660095f61d5879);
+            
+        
+
+        poly_line_fe0cb7a83580cf9de6625a0b1e5297b8.bindPopup(popup_757c329ddcd1446bfa031bf1b3dc362e)
+        ;
+
+        
+    
+    
+            poly_line_fe0cb7a83580cf9de6625a0b1e5297b8.bindTooltip(
+                `<div>
+                     Line 68-71 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c048982a81e0682821a7575e4df173de = L.polyline(
+                [[42.009, -75.397], [42.33, -75.789]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_937591dddb0440eec5e8711f076ccd11 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_efb624d7075b79b39e3d3ed3598c3e74 = $(`<div id="html_efb624d7075b79b39e3d3ed3598c3e74" style="width: 100.0%; height: 100.0%;"><b>68</b> (#69) ⇄ <b>70</b> (#71)<br>回路: 1 | 类型: 线路<br>距离(大圆): 48.1 km</div>`)[0];
+                popup_937591dddb0440eec5e8711f076ccd11.setContent(html_efb624d7075b79b39e3d3ed3598c3e74);
+            
+        
+
+        poly_line_c048982a81e0682821a7575e4df173de.bindPopup(popup_937591dddb0440eec5e8711f076ccd11)
+        ;
+
+        
+    
+    
+            poly_line_c048982a81e0682821a7575e4df173de.bindTooltip(
+                `<div>
+                     Line 69-71 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_816befb846c80fbc6ac66b805821eba3 = L.polyline(
+                [[42.014, -75.988], [42.33, -75.789]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_172859ece1d6b1231014727c9587c856 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aa46ae38dfa1d2764c2d867f02f2fd52 = $(`<div id="html_aa46ae38dfa1d2764c2d867f02f2fd52" style="width: 100.0%; height: 100.0%;"><b>69</b> (#70) ⇄ <b>70</b> (#71)<br>回路: 1 | 类型: 线路<br>距离(大圆): 38.8 km</div>`)[0];
+                popup_172859ece1d6b1231014727c9587c856.setContent(html_aa46ae38dfa1d2764c2d867f02f2fd52);
+            
+        
+
+        poly_line_816befb846c80fbc6ac66b805821eba3.bindPopup(popup_172859ece1d6b1231014727c9587c856)
+        ;
+
+        
+    
+    
+            poly_line_816befb846c80fbc6ac66b805821eba3.bindTooltip(
+                `<div>
+                     Line 70-71 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2311b8cacf6ba60a15d490562471c778 = L.polyline(
+                [[42.33, -75.789], [42.635, -76.093]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_4292802d43e941ae7d5e67203b34bc4d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4889ec6a8d4fc4868a339402b8c2c821 = $(`<div id="html_4889ec6a8d4fc4868a339402b8c2c821" style="width: 100.0%; height: 100.0%;"><b>70</b> (#71) ⇄ <b>71</b> (#72)<br>回路: 1 | 类型: 线路<br>距离(大圆): 42.1 km</div>`)[0];
+                popup_4292802d43e941ae7d5e67203b34bc4d.setContent(html_4889ec6a8d4fc4868a339402b8c2c821);
+            
+        
+
+        poly_line_2311b8cacf6ba60a15d490562471c778.bindPopup(popup_4292802d43e941ae7d5e67203b34bc4d)
+        ;
+
+        
+    
+    
+            poly_line_2311b8cacf6ba60a15d490562471c778.bindTooltip(
+                `<div>
+                     Line 71-72 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_72032b3358d56268a59ef0ccf329dc8c = L.polyline(
+                [[41.58, -73.641], [41.304, -73.769]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_b0fe75d32cf6cc976014e08dd3f5e3b9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7c4b65633b13e2fc0cc5a16d75b63621 = $(`<div id="html_7c4b65633b13e2fc0cc5a16d75b63621" style="width: 100.0%; height: 100.0%;"><b>72</b> (#73) ⇄ <b>73</b> (#74)<br>回路: 1 | 类型: 线路<br>距离(大圆): 32.5 km</div>`)[0];
+                popup_b0fe75d32cf6cc976014e08dd3f5e3b9.setContent(html_7c4b65633b13e2fc0cc5a16d75b63621);
+            
+        
+
+        poly_line_72032b3358d56268a59ef0ccf329dc8c.bindPopup(popup_b0fe75d32cf6cc976014e08dd3f5e3b9)
+        ;
+
+        
+    
+    
+            poly_line_72032b3358d56268a59ef0ccf329dc8c.bindTooltip(
+                `<div>
+                     Line 73-74 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_700ce0d40f040194791e9294486310fb = L.polyline(
+                [[41.58, -73.641], [41.304, -73.769]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_47a46aee4aa439866528f95d00900726 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6ab24e9b0e9ae96cb165ae59587978b3 = $(`<div id="html_6ab24e9b0e9ae96cb165ae59587978b3" style="width: 100.0%; height: 100.0%;"><b>72</b> (#73) ⇄ <b>73</b> (#74)<br>回路: 2 | 类型: 线路<br>距离(大圆): 32.5 km</div>`)[0];
+                popup_47a46aee4aa439866528f95d00900726.setContent(html_6ab24e9b0e9ae96cb165ae59587978b3);
+            
+        
+
+        poly_line_700ce0d40f040194791e9294486310fb.bindPopup(popup_47a46aee4aa439866528f95d00900726)
+        ;
+
+        
+    
+    
+            poly_line_700ce0d40f040194791e9294486310fb.bindTooltip(
+                `<div>
+                     Line 73-74 (2)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_924c3dd76d5bc3e29439bada888f64a7 = L.polyline(
+                [[41.304, -73.769], [41.36, -74.12]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_f81685e4580aa555c8de4d249f559a19 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_28e544c65a3440523b837986f04dba1d = $(`<div id="html_28e544c65a3440523b837986f04dba1d" style="width: 100.0%; height: 100.0%;"><b>73</b> (#74) ⇄ <b>76</b> (#77)<br>回路: 1 | 类型: 线路<br>距离(大圆): 30.0 km</div>`)[0];
+                popup_f81685e4580aa555c8de4d249f559a19.setContent(html_28e544c65a3440523b837986f04dba1d);
+            
+        
+
+        poly_line_924c3dd76d5bc3e29439bada888f64a7.bindPopup(popup_f81685e4580aa555c8de4d249f559a19)
+        ;
+
+        
+    
+    
+            poly_line_924c3dd76d5bc3e29439bada888f64a7.bindTooltip(
+                `<div>
+                     Line 74-77 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_5cf4cc04a2bef5ff6771365d8feadc87 = L.polyline(
+                [[41.304, -73.769], [40.773, -73.424]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_ad8ca4541950738999cacdff9d58c8a7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cb718cd0285d12b8223c0073c3d06a85 = $(`<div id="html_cb718cd0285d12b8223c0073c3d06a85" style="width: 100.0%; height: 100.0%;"><b>73</b> (#74) ⇄ <b>77</b> (#78)<br>回路: 1 | 类型: 线路<br>距离(大圆): 65.8 km</div>`)[0];
+                popup_ad8ca4541950738999cacdff9d58c8a7.setContent(html_cb718cd0285d12b8223c0073c3d06a85);
+            
+        
+
+        poly_line_5cf4cc04a2bef5ff6771365d8feadc87.bindPopup(popup_ad8ca4541950738999cacdff9d58c8a7)
+        ;
+
+        
+    
+    
+            poly_line_5cf4cc04a2bef5ff6771365d8feadc87.bindTooltip(
+                `<div>
+                     Line 74-78 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ba50b2f90ddf371b609c93a091ad2d7a = L.polyline(
+                [[41.304, -73.769], [40.773, -73.424]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_d3554c03bef14694e921bbb1cf413ca0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5a2a586a09a4ccf0294b43114e0d5d72 = $(`<div id="html_5a2a586a09a4ccf0294b43114e0d5d72" style="width: 100.0%; height: 100.0%;"><b>73</b> (#74) ⇄ <b>77</b> (#78)<br>回路: 2 | 类型: 线路<br>距离(大圆): 65.8 km</div>`)[0];
+                popup_d3554c03bef14694e921bbb1cf413ca0.setContent(html_5a2a586a09a4ccf0294b43114e0d5d72);
+            
+        
+
+        poly_line_ba50b2f90ddf371b609c93a091ad2d7a.bindPopup(popup_d3554c03bef14694e921bbb1cf413ca0)
+        ;
+
+        
+    
+    
+            poly_line_ba50b2f90ddf371b609c93a091ad2d7a.bindTooltip(
+                `<div>
+                     Line 74-78 (2)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_3f0e67a4abb2e86e3ca04ac1643c7e30 = L.polyline(
+                [[41.078, -74.861], [40.627, -74.709]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_40f5e7edd893b144838e74d8b9ad4398 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2faf77fbb89630d2c94b1d3125945c60 = $(`<div id="html_2faf77fbb89630d2c94b1d3125945c60" style="width: 100.0%; height: 100.0%;"><b>74</b> (#75) ⇄ <b>123</b> (#124)<br>回路: 1 | 类型: 线路<br>距离(大圆): 51.8 km</div>`)[0];
+                popup_40f5e7edd893b144838e74d8b9ad4398.setContent(html_2faf77fbb89630d2c94b1d3125945c60);
+            
+        
+
+        poly_line_3f0e67a4abb2e86e3ca04ac1643c7e30.bindPopup(popup_40f5e7edd893b144838e74d8b9ad4398)
+        ;
+
+        
+    
+    
+            poly_line_3f0e67a4abb2e86e3ca04ac1643c7e30.bindTooltip(
+                `<div>
+                     Line 75-124 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2b70cdafbb910080b0c4d5dbbffdd00f = L.polyline(
+                [[41.174, -74.311], [41.36, -74.12]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_eab8818cb22d808fbdcd1729b9b5d084 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8bb130cae7003d3e5a116d2d712c5191 = $(`<div id="html_8bb130cae7003d3e5a116d2d712c5191" style="width: 100.0%; height: 100.0%;"><b>75</b> (#76) ⇄ <b>76</b> (#77)<br>回路: 1 | 类型: 线路<br>距离(大圆): 26.1 km</div>`)[0];
+                popup_eab8818cb22d808fbdcd1729b9b5d084.setContent(html_8bb130cae7003d3e5a116d2d712c5191);
+            
+        
+
+        poly_line_2b70cdafbb910080b0c4d5dbbffdd00f.bindPopup(popup_eab8818cb22d808fbdcd1729b9b5d084)
+        ;
+
+        
+    
+    
+            poly_line_2b70cdafbb910080b0c4d5dbbffdd00f.bindTooltip(
+                `<div>
+                     Line 76-77 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1d9b37da33d9671252e9f19d759d8394 = L.polyline(
+                [[40.773, -73.424], [40.379, -73.264]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_c77cbd374e258f7db1419add1bccc855 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2889b8e46308f29ced61fe96b9fd3683 = $(`<div id="html_2889b8e46308f29ced61fe96b9fd3683" style="width: 100.0%; height: 100.0%;"><b>77</b> (#78) ⇄ <b>78</b> (#79)<br>回路: 1 | 类型: 线路<br>距离(大圆): 45.8 km</div>`)[0];
+                popup_c77cbd374e258f7db1419add1bccc855.setContent(html_2889b8e46308f29ced61fe96b9fd3683);
+            
+        
+
+        poly_line_1d9b37da33d9671252e9f19d759d8394.bindPopup(popup_c77cbd374e258f7db1419add1bccc855)
+        ;
+
+        
+    
+    
+            poly_line_1d9b37da33d9671252e9f19d759d8394.bindTooltip(
+                `<div>
+                     Line 78-79 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_3c805e0af1466d503bc6d3c552d1e5ab = L.polyline(
+                [[40.773, -73.424], [40.852, -73.145]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_77434e8cea8098b487f4f8f5b8725bcb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c96eb6d84b99ff5476279ee3f7f4d489 = $(`<div id="html_c96eb6d84b99ff5476279ee3f7f4d489" style="width: 100.0%; height: 100.0%;"><b>77</b> (#78) ⇄ <b>79</b> (#80)<br>回路: 1 | 类型: 线路<br>距离(大圆): 25.1 km</div>`)[0];
+                popup_77434e8cea8098b487f4f8f5b8725bcb.setContent(html_c96eb6d84b99ff5476279ee3f7f4d489);
+            
+        
+
+        poly_line_3c805e0af1466d503bc6d3c552d1e5ab.bindPopup(popup_77434e8cea8098b487f4f8f5b8725bcb)
+        ;
+
+        
+    
+    
+            poly_line_3c805e0af1466d503bc6d3c552d1e5ab.bindTooltip(
+                `<div>
+                     Line 78-80 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_bb0a84c119e86b466530329bddc662cc = L.polyline(
+                [[40.773, -73.424], [40.491, -73.775]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_2a27200ce77f92970cd51ab89365c95c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2ffe43ec8763d58a0bf906708bce10da = $(`<div id="html_2ffe43ec8763d58a0bf906708bce10da" style="width: 100.0%; height: 100.0%;"><b>77</b> (#78) ⇄ <b>80</b> (#81)<br>回路: 1 | 类型: 线路<br>距离(大圆): 43.1 km</div>`)[0];
+                popup_2a27200ce77f92970cd51ab89365c95c.setContent(html_2ffe43ec8763d58a0bf906708bce10da);
+            
+        
+
+        poly_line_bb0a84c119e86b466530329bddc662cc.bindPopup(popup_2a27200ce77f92970cd51ab89365c95c)
+        ;
+
+        
+    
+    
+            poly_line_bb0a84c119e86b466530329bddc662cc.bindTooltip(
+                `<div>
+                     Line 78-81 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_837213eb391dde453ebd8da35b04d792 = L.polyline(
+                [[40.773, -73.424], [40.745, -73.783]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_8fb2be4d12a983c5485e6985c5e552fb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e5f0e72d751debc926740f97e43ae6be = $(`<div id="html_e5f0e72d751debc926740f97e43ae6be" style="width: 100.0%; height: 100.0%;"><b>77</b> (#78) ⇄ <b>81</b> (#82)<br>回路: 1 | 类型: 线路<br>距离(大圆): 30.4 km</div>`)[0];
+                popup_8fb2be4d12a983c5485e6985c5e552fb.setContent(html_e5f0e72d751debc926740f97e43ae6be);
+            
+        
+
+        poly_line_837213eb391dde453ebd8da35b04d792.bindPopup(popup_8fb2be4d12a983c5485e6985c5e552fb)
+        ;
+
+        
+    
+    
+            poly_line_837213eb391dde453ebd8da35b04d792.bindTooltip(
+                `<div>
+                     Line 78-82 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_3ad39d22410c15f18264f248db72985c = L.polyline(
+                [[40.491, -73.775], [40.486, -74.301]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_cb79b34bc7571ea513db1ef444e79c2f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9d26470d2772fc6256017465da652410 = $(`<div id="html_9d26470d2772fc6256017465da652410" style="width: 100.0%; height: 100.0%;"><b>80</b> (#81) ⇄ <b>124</b> (#125)<br>回路: 1 | 类型: 线路<br>距离(大圆): 44.5 km</div>`)[0];
+                popup_cb79b34bc7571ea513db1ef444e79c2f.setContent(html_9d26470d2772fc6256017465da652410);
+            
+        
+
+        poly_line_3ad39d22410c15f18264f248db72985c.bindPopup(popup_cb79b34bc7571ea513db1ef444e79c2f)
+        ;
+
+        
+    
+    
+            poly_line_3ad39d22410c15f18264f248db72985c.bindTooltip(
+                `<div>
+                     Line 81-125 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_96d642d7c946e7fd38ba310cd7f0de57 = L.polyline(
+                [[42.11, -82.905], [42.206, -81.565]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_30d1f7627554cf449464071ba63feb21 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0065d56e6ce3a88950f0805390f5bcd7 = $(`<div id="html_0065d56e6ce3a88950f0805390f5bcd7" style="width: 100.0%; height: 100.0%;"><b>82</b> (#83) ⇄ <b>111</b> (#112)<br>回路: 1 | 类型: 线路<br>距离(大圆): 111.0 km</div>`)[0];
+                popup_30d1f7627554cf449464071ba63feb21.setContent(html_0065d56e6ce3a88950f0805390f5bcd7);
+            
+        
+
+        poly_line_96d642d7c946e7fd38ba310cd7f0de57.bindPopup(popup_30d1f7627554cf449464071ba63feb21)
+        ;
+
+        
+    
+    
+            poly_line_96d642d7c946e7fd38ba310cd7f0de57.bindTooltip(
+                `<div>
+                     Line 83-112 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e3415ecaf2f9101e174d3d65bcb21cd3 = L.polyline(
+                [[42.11, -82.905], [42.003, -82.123]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_bc317ee7679334119940c019d3b015b5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_45d1fd80af0e03714683b216e4825fa6 = $(`<div id="html_45d1fd80af0e03714683b216e4825fa6" style="width: 100.0%; height: 100.0%;"><b>82</b> (#83) ⇄ <b>112</b> (#113)<br>回路: 1 | 类型: 线路<br>距离(大圆): 65.6 km</div>`)[0];
+                popup_bc317ee7679334119940c019d3b015b5.setContent(html_45d1fd80af0e03714683b216e4825fa6);
+            
+        
+
+        poly_line_e3415ecaf2f9101e174d3d65bcb21cd3.bindPopup(popup_bc317ee7679334119940c019d3b015b5)
+        ;
+
+        
+    
+    
+            poly_line_e3415ecaf2f9101e174d3d65bcb21cd3.bindTooltip(
+                `<div>
+                     Line 83-113 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_cb89cac7609a01e261807053f1deb45b = L.polyline(
+                [[41.975, -83.24], [42.324, -82.921]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_100ae9c9fda8f933b03d671573f2bbaa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cb04e8337d78347e906c276b4f9b6fb7 = $(`<div id="html_cb04e8337d78347e906c276b4f9b6fb7" style="width: 100.0%; height: 100.0%;"><b>83</b> (#84) ⇄ <b>115</b> (#116)<br>回路: 1 | 类型: 线路<br>距离(大圆): 46.9 km</div>`)[0];
+                popup_100ae9c9fda8f933b03d671573f2bbaa.setContent(html_cb04e8337d78347e906c276b4f9b6fb7);
+            
+        
+
+        poly_line_cb89cac7609a01e261807053f1deb45b.bindPopup(popup_100ae9c9fda8f933b03d671573f2bbaa)
+        ;
+
+        
+    
+    
+            poly_line_cb89cac7609a01e261807053f1deb45b.bindTooltip(
+                `<div>
+                     Line 84-116 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_31b1ea7d1f1000c6cee0fd613d423af2 = L.polyline(
+                [[42.544, -82.443], [42.81, -81.917]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_1817f53a913e2cb9817860a8f68a1317 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4a466ab1f5fe9101dd4aac1c2bb10330 = $(`<div id="html_4a466ab1f5fe9101dd4aac1c2bb10330" style="width: 100.0%; height: 100.0%;"><b>84</b> (#85) ⇄ <b>87</b> (#88)<br>回路: 1 | 类型: 线路<br>距离(大圆): 52.2 km</div>`)[0];
+                popup_1817f53a913e2cb9817860a8f68a1317.setContent(html_4a466ab1f5fe9101dd4aac1c2bb10330);
+            
+        
+
+        poly_line_31b1ea7d1f1000c6cee0fd613d423af2.bindPopup(popup_1817f53a913e2cb9817860a8f68a1317)
+        ;
+
+        
+    
+    
+            poly_line_31b1ea7d1f1000c6cee0fd613d423af2.bindTooltip(
+                `<div>
+                     Line 85-88 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_60934fbef9d2cd8e6270aa06fe081da1 = L.polyline(
+                [[42.544, -82.443], [42.81, -81.917]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_15ea0b216e8ab21339c3c5d0fe570792 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5cac08ecf02bca59058c6a1d8a4e5bbe = $(`<div id="html_5cac08ecf02bca59058c6a1d8a4e5bbe" style="width: 100.0%; height: 100.0%;"><b>84</b> (#85) ⇄ <b>87</b> (#88)<br>回路: 2 | 类型: 线路<br>距离(大圆): 52.2 km</div>`)[0];
+                popup_15ea0b216e8ab21339c3c5d0fe570792.setContent(html_5cac08ecf02bca59058c6a1d8a4e5bbe);
+            
+        
+
+        poly_line_60934fbef9d2cd8e6270aa06fe081da1.bindPopup(popup_15ea0b216e8ab21339c3c5d0fe570792)
+        ;
+
+        
+    
+    
+            poly_line_60934fbef9d2cd8e6270aa06fe081da1.bindTooltip(
+                `<div>
+                     Line 85-88 (2)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_807d8f4010188f7a0032efe826b8f10f = L.polyline(
+                [[42.544, -82.443], [42.731, -81.486]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_c21525bc1c78e2f9b01852adc6f9d80c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_29f25618c76b157eb32bf47c58808588 = $(`<div id="html_29f25618c76b157eb32bf47c58808588" style="width: 100.0%; height: 100.0%;"><b>84</b> (#85) ⇄ <b>104</b> (#105)<br>回路: 1 | 类型: 线路<br>距离(大圆): 81.0 km</div>`)[0];
+                popup_c21525bc1c78e2f9b01852adc6f9d80c.setContent(html_29f25618c76b157eb32bf47c58808588);
+            
+        
+
+        poly_line_807d8f4010188f7a0032efe826b8f10f.bindPopup(popup_c21525bc1c78e2f9b01852adc6f9d80c)
+        ;
+
+        
+    
+    
+            poly_line_807d8f4010188f7a0032efe826b8f10f.bindTooltip(
+                `<div>
+                     Line 85-105 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c77a6b92ba6b9c06154ff3fbc91bc39e = L.polyline(
+                [[42.544, -82.443], [42.731, -81.486]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_ca01267fb7633a41a9adf11549a687e2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1b53918f1c3e1efffdf452f545aabeb7 = $(`<div id="html_1b53918f1c3e1efffdf452f545aabeb7" style="width: 100.0%; height: 100.0%;"><b>84</b> (#85) ⇄ <b>104</b> (#105)<br>回路: 2 | 类型: 线路<br>距离(大圆): 81.0 km</div>`)[0];
+                popup_ca01267fb7633a41a9adf11549a687e2.setContent(html_1b53918f1c3e1efffdf452f545aabeb7);
+            
+        
+
+        poly_line_c77a6b92ba6b9c06154ff3fbc91bc39e.bindPopup(popup_ca01267fb7633a41a9adf11549a687e2)
+        ;
+
+        
+    
+    
+            poly_line_c77a6b92ba6b9c06154ff3fbc91bc39e.bindTooltip(
+                `<div>
+                     Line 85-105 (2)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d216e1dae6d266563b260810ba8fb71c = L.polyline(
+                [[42.544, -82.443], [42.206, -81.565]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_b5309e5ae7c076804d3a33fd9521695a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1740888e71088a4fbc3a604e53fa0018 = $(`<div id="html_1740888e71088a4fbc3a604e53fa0018" style="width: 100.0%; height: 100.0%;"><b>84</b> (#85) ⇄ <b>111</b> (#112)<br>回路: 1 | 类型: 线路<br>距离(大圆): 81.3 km</div>`)[0];
+                popup_b5309e5ae7c076804d3a33fd9521695a.setContent(html_1740888e71088a4fbc3a604e53fa0018);
+            
+        
+
+        poly_line_d216e1dae6d266563b260810ba8fb71c.bindPopup(popup_b5309e5ae7c076804d3a33fd9521695a)
+        ;
+
+        
+    
+    
+            poly_line_d216e1dae6d266563b260810ba8fb71c.bindTooltip(
+                `<div>
+                     Line 85-112 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7f1138286b9a9796083e4bb5cfd35a9a = L.polyline(
+                [[42.544, -82.443], [42.206, -81.565]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_1252140ac119356c2279db82a925f72d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7cd9229bcf1ea30df0ac1d3f5ae797c5 = $(`<div id="html_7cd9229bcf1ea30df0ac1d3f5ae797c5" style="width: 100.0%; height: 100.0%;"><b>84</b> (#85) ⇄ <b>111</b> (#112)<br>回路: 2 | 类型: 线路<br>距离(大圆): 81.3 km</div>`)[0];
+                popup_1252140ac119356c2279db82a925f72d.setContent(html_7cd9229bcf1ea30df0ac1d3f5ae797c5);
+            
+        
+
+        poly_line_7f1138286b9a9796083e4bb5cfd35a9a.bindPopup(popup_1252140ac119356c2279db82a925f72d)
+        ;
+
+        
+    
+    
+            poly_line_7f1138286b9a9796083e4bb5cfd35a9a.bindTooltip(
+                `<div>
+                     Line 85-112 (2)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a77f286c13cbbbdb1a46e57273d524f4 = L.polyline(
+                [[42.437, -82.61], [42.629, -82.77]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_23e93a99281262f40af4309c5ed0a1cd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_65fe374ac558e32a05aafee5da4b55fd = $(`<div id="html_65fe374ac558e32a05aafee5da4b55fd" style="width: 100.0%; height: 100.0%;"><b>86</b> (#87) ⇄ <b>114</b> (#115)<br>回路: 1 | 类型: 线路<br>距离(大圆): 25.1 km</div>`)[0];
+                popup_23e93a99281262f40af4309c5ed0a1cd.setContent(html_65fe374ac558e32a05aafee5da4b55fd);
+            
+        
+
+        poly_line_a77f286c13cbbbdb1a46e57273d524f4.bindPopup(popup_23e93a99281262f40af4309c5ed0a1cd)
+        ;
+
+        
+    
+    
+            poly_line_a77f286c13cbbbdb1a46e57273d524f4.bindTooltip(
+                `<div>
+                     Line 87-115 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_6058524621b474a9601948dd5298347a = L.polyline(
+                [[42.81, -81.917], [42.911, -82.205]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_b42f143100f302b3fdd597c12697fc30 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_21e7bcc819d1da047caf2285a061ea10 = $(`<div id="html_21e7bcc819d1da047caf2285a061ea10" style="width: 100.0%; height: 100.0%;"><b>87</b> (#88) ⇄ <b>88</b> (#89)<br>回路: 1 | 类型: 线路<br>距离(大圆): 26.0 km</div>`)[0];
+                popup_b42f143100f302b3fdd597c12697fc30.setContent(html_21e7bcc819d1da047caf2285a061ea10);
+            
+        
+
+        poly_line_6058524621b474a9601948dd5298347a.bindPopup(popup_b42f143100f302b3fdd597c12697fc30)
+        ;
+
+        
+    
+    
+            poly_line_6058524621b474a9601948dd5298347a.bindTooltip(
+                `<div>
+                     Line 88-89 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d3fe4158b2997bfdc1d6ab7c1556f16f = L.polyline(
+                [[42.81, -81.917], [42.731, -81.486]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_e055a280380dfb5593144184430ec5c1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_97362a137f6f08b6c4c0deeab11292e5 = $(`<div id="html_97362a137f6f08b6c4c0deeab11292e5" style="width: 100.0%; height: 100.0%;"><b>87</b> (#88) ⇄ <b>104</b> (#105)<br>回路: 1 | 类型: 线路<br>距离(大圆): 36.3 km</div>`)[0];
+                popup_e055a280380dfb5593144184430ec5c1.setContent(html_97362a137f6f08b6c4c0deeab11292e5);
+            
+        
+
+        poly_line_d3fe4158b2997bfdc1d6ab7c1556f16f.bindPopup(popup_e055a280380dfb5593144184430ec5c1)
+        ;
+
+        
+    
+    
+            poly_line_d3fe4158b2997bfdc1d6ab7c1556f16f.bindTooltip(
+                `<div>
+                     Line 88-105 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a2259e3af303170917b3586a4a12be8c = L.polyline(
+                [[42.81, -81.917], [42.731, -81.486]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_f5583182dddd2d1101de1f5614460d3a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b2a5f3ee4498ed8a70cbf25978d56e5a = $(`<div id="html_b2a5f3ee4498ed8a70cbf25978d56e5a" style="width: 100.0%; height: 100.0%;"><b>87</b> (#88) ⇄ <b>104</b> (#105)<br>回路: 2 | 类型: 线路<br>距离(大圆): 36.3 km</div>`)[0];
+                popup_f5583182dddd2d1101de1f5614460d3a.setContent(html_b2a5f3ee4498ed8a70cbf25978d56e5a);
+            
+        
+
+        poly_line_a2259e3af303170917b3586a4a12be8c.bindPopup(popup_f5583182dddd2d1101de1f5614460d3a)
+        ;
+
+        
+    
+    
+            poly_line_a2259e3af303170917b3586a4a12be8c.bindTooltip(
+                `<div>
+                     Line 88-105 (2)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7e4452bd1b362fd2f2ae165b5d16fa79 = L.polyline(
+                [[42.911, -82.205], [43.255, -82.468]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_565460e34acb5759433fbacdd57202c1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_451d7ae824312679004848ff0d31a11b = $(`<div id="html_451d7ae824312679004848ff0d31a11b" style="width: 100.0%; height: 100.0%;"><b>88</b> (#89) ⇄ <b>89</b> (#90)<br>回路: 1 | 类型: 线路<br>距离(大圆): 43.8 km</div>`)[0];
+                popup_565460e34acb5759433fbacdd57202c1.setContent(html_451d7ae824312679004848ff0d31a11b);
+            
+        
+
+        poly_line_7e4452bd1b362fd2f2ae165b5d16fa79.bindPopup(popup_565460e34acb5759433fbacdd57202c1)
+        ;
+
+        
+    
+    
+            poly_line_7e4452bd1b362fd2f2ae165b5d16fa79.bindTooltip(
+                `<div>
+                     Line 89-90 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_5f67bdaba5ade5cc039c05e800dcbce2 = L.polyline(
+                [[42.911, -82.205], [42.731, -81.486]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_a8a7e1d9373ff5ec87f7cb8d9b7881e5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e69290663ba4ca23c45a9ba1ffd6497a = $(`<div id="html_e69290663ba4ca23c45a9ba1ffd6497a" style="width: 100.0%; height: 100.0%;"><b>88</b> (#89) ⇄ <b>104</b> (#105)<br>回路: 1 | 类型: 线路<br>距离(大圆): 62.0 km</div>`)[0];
+                popup_a8a7e1d9373ff5ec87f7cb8d9b7881e5.setContent(html_e69290663ba4ca23c45a9ba1ffd6497a);
+            
+        
+
+        poly_line_5f67bdaba5ade5cc039c05e800dcbce2.bindPopup(popup_a8a7e1d9373ff5ec87f7cb8d9b7881e5)
+        ;
+
+        
+    
+    
+            poly_line_5f67bdaba5ade5cc039c05e800dcbce2.bindTooltip(
+                `<div>
+                     Line 89-105 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_734372a382509abf290de3aa8ec1c3ac = L.polyline(
+                [[42.911, -82.205], [42.003, -82.123]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_b0d88ebb2d8b7d8ed2d1d2f677dc1370 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_feef9c5af3f3bd3cda6d490ad9e2c953 = $(`<div id="html_feef9c5af3f3bd3cda6d490ad9e2c953" style="width: 100.0%; height: 100.0%;"><b>88</b> (#89) ⇄ <b>112</b> (#113)<br>回路: 1 | 类型: 线路<br>距离(大圆): 101.2 km</div>`)[0];
+                popup_b0d88ebb2d8b7d8ed2d1d2f677dc1370.setContent(html_feef9c5af3f3bd3cda6d490ad9e2c953);
+            
+        
+
+        poly_line_734372a382509abf290de3aa8ec1c3ac.bindPopup(popup_b0d88ebb2d8b7d8ed2d1d2f677dc1370)
+        ;
+
+        
+    
+    
+            poly_line_734372a382509abf290de3aa8ec1c3ac.bindTooltip(
+                `<div>
+                     Line 89-113 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d0b0d60a5f8879a05bb84e56e6a25564 = L.polyline(
+                [[43.255, -82.468], [42.911, -82.763]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_14c455cf72c80a6c3805149ff1b0d8ee = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8237efc94d9e57e6eb13ba33342d7c4d = $(`<div id="html_8237efc94d9e57e6eb13ba33342d7c4d" style="width: 100.0%; height: 100.0%;"><b>89</b> (#90) ⇄ <b>113</b> (#114)<br>回路: 1 | 类型: 线路<br>距离(大圆): 45.1 km</div>`)[0];
+                popup_14c455cf72c80a6c3805149ff1b0d8ee.setContent(html_8237efc94d9e57e6eb13ba33342d7c4d);
+            
+        
+
+        poly_line_d0b0d60a5f8879a05bb84e56e6a25564.bindPopup(popup_14c455cf72c80a6c3805149ff1b0d8ee)
+        ;
+
+        
+    
+    
+            poly_line_d0b0d60a5f8879a05bb84e56e6a25564.bindTooltip(
+                `<div>
+                     Line 90-114 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2b3b820bd966369dfa0d6c5412b2acb8 = L.polyline(
+                [[43.876, -79.406], [46.482, -81.095]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_9a4529afc1ef9c69d6d31843b712d79b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e2a1eb3fab288541db0ab0565c2b64fc = $(`<div id="html_e2a1eb3fab288541db0ab0565c2b64fc" style="width: 100.0%; height: 100.0%;"><b>90</b> (#91) ⇄ <b>91</b> (#92)<br>回路: 1 | 类型: 线路<br>距离(大圆): 318.6 km</div>`)[0];
+                popup_9a4529afc1ef9c69d6d31843b712d79b.setContent(html_e2a1eb3fab288541db0ab0565c2b64fc);
+            
+        
+
+        poly_line_2b3b820bd966369dfa0d6c5412b2acb8.bindPopup(popup_9a4529afc1ef9c69d6d31843b712d79b)
+        ;
+
+        
+    
+    
+            poly_line_2b3b820bd966369dfa0d6c5412b2acb8.bindTooltip(
+                `<div>
+                     Line 91-92 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f0533e923753eee188c4a5611f5f6c3f = L.polyline(
+                [[43.876, -79.406], [44.733, -79.639]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_4a305e70d23f67219fbfeb7d8eb3f03c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5acf9f15d684d482d11b93157b9491ec = $(`<div id="html_5acf9f15d684d482d11b93157b9491ec" style="width: 100.0%; height: 100.0%;"><b>90</b> (#91) ⇄ <b>92</b> (#93)<br>回路: 1 | 类型: 线路<br>距离(大圆): 97.1 km</div>`)[0];
+                popup_4a305e70d23f67219fbfeb7d8eb3f03c.setContent(html_5acf9f15d684d482d11b93157b9491ec);
+            
+        
+
+        poly_line_f0533e923753eee188c4a5611f5f6c3f.bindPopup(popup_4a305e70d23f67219fbfeb7d8eb3f03c)
+        ;
+
+        
+    
+    
+            poly_line_f0533e923753eee188c4a5611f5f6c3f.bindTooltip(
+                `<div>
+                     Line 91-93 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_eacb6b539462cc3a09c848e4c571be9f = L.polyline(
+                [[43.876, -79.406], [46.087, -78.102]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_6ba156dcce6e91f88750e8479393308d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_30651a6df711748286048efc432dddbe = $(`<div id="html_30651a6df711748286048efc432dddbe" style="width: 100.0%; height: 100.0%;"><b>90</b> (#91) ⇄ <b>94</b> (#95)<br>回路: 1 | 类型: 线路<br>距离(大圆): 266.4 km</div>`)[0];
+                popup_6ba156dcce6e91f88750e8479393308d.setContent(html_30651a6df711748286048efc432dddbe);
+            
+        
+
+        poly_line_eacb6b539462cc3a09c848e4c571be9f.bindPopup(popup_6ba156dcce6e91f88750e8479393308d)
+        ;
+
+        
+    
+    
+            poly_line_eacb6b539462cc3a09c848e4c571be9f.bindTooltip(
+                `<div>
+                     Line 91-95 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d8604b4a587178b3502faeb832c11cab = L.polyline(
+                [[43.876, -79.406], [44.637, -75.953]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_8e65802c1f278f47dc9166e29e88ca83 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3c32695de7d9b9d97e66cc6cbd149aaa = $(`<div id="html_3c32695de7d9b9d97e66cc6cbd149aaa" style="width: 100.0%; height: 100.0%;"><b>90</b> (#91) ⇄ <b>97</b> (#98)<br>回路: 1 | 类型: 线路<br>距离(大圆): 287.7 km</div>`)[0];
+                popup_8e65802c1f278f47dc9166e29e88ca83.setContent(html_3c32695de7d9b9d97e66cc6cbd149aaa);
+            
+        
+
+        poly_line_d8604b4a587178b3502faeb832c11cab.bindPopup(popup_8e65802c1f278f47dc9166e29e88ca83)
+        ;
+
+        
+    
+    
+            poly_line_d8604b4a587178b3502faeb832c11cab.bindTooltip(
+                `<div>
+                     Line 91-98 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7fa4ac1c6312cc35b3d7f64850b702e1 = L.polyline(
+                [[43.876, -79.406], [43.103, -79.644]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_3f097f1f9844459515161b73f4dc837e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5c1fe4c560e58473550383648bce1995 = $(`<div id="html_5c1fe4c560e58473550383648bce1995" style="width: 100.0%; height: 100.0%;"><b>90</b> (#91) ⇄ <b>109</b> (#110)<br>回路: 1 | 类型: 线路<br>距离(大圆): 88.1 km</div>`)[0];
+                popup_3f097f1f9844459515161b73f4dc837e.setContent(html_5c1fe4c560e58473550383648bce1995);
+            
+        
+
+        poly_line_7fa4ac1c6312cc35b3d7f64850b702e1.bindPopup(popup_3f097f1f9844459515161b73f4dc837e)
+        ;
+
+        
+    
+    
+            poly_line_7fa4ac1c6312cc35b3d7f64850b702e1.bindTooltip(
+                `<div>
+                     Line 91-110 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_223eae0636239ae8ecaa595df29a348a = L.polyline(
+                [[46.482, -81.095], [46.199, -81.349]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_eba1b26c40992de1521102cb6487de0d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7591cd956934bd5a5fb56fe5cf479f7f = $(`<div id="html_7591cd956934bd5a5fb56fe5cf479f7f" style="width: 100.0%; height: 100.0%;"><b>91</b> (#92) ⇄ <b>96</b> (#97)<br>回路: 1 | 类型: 线路<br>距离(大圆): 37.0 km</div>`)[0];
+                popup_eba1b26c40992de1521102cb6487de0d.setContent(html_7591cd956934bd5a5fb56fe5cf479f7f);
+            
+        
+
+        poly_line_223eae0636239ae8ecaa595df29a348a.bindPopup(popup_eba1b26c40992de1521102cb6487de0d)
+        ;
+
+        
+    
+    
+            poly_line_223eae0636239ae8ecaa595df29a348a.bindTooltip(
+                `<div>
+                     Line 92-97 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d6fd9a02d041bfd222ab67a8a185bb87 = L.polyline(
+                [[44.733, -79.639], [44.0, -80.101]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_5a14b6ca5582bd1b5d0310f75154432b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_13981ec237324450f4e1baf8ab7f1376 = $(`<div id="html_13981ec237324450f4e1baf8ab7f1376" style="width: 100.0%; height: 100.0%;"><b>92</b> (#93) ⇄ <b>93</b> (#94)<br>回路: 1 | 类型: 线路<br>距离(大圆): 89.4 km</div>`)[0];
+                popup_5a14b6ca5582bd1b5d0310f75154432b.setContent(html_13981ec237324450f4e1baf8ab7f1376);
+            
+        
+
+        poly_line_d6fd9a02d041bfd222ab67a8a185bb87.bindPopup(popup_5a14b6ca5582bd1b5d0310f75154432b)
+        ;
+
+        
+    
+    
+            poly_line_d6fd9a02d041bfd222ab67a8a185bb87.bindTooltip(
+                `<div>
+                     Line 93-94 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_82acc4bdccc070700fbae534167dd213 = L.polyline(
+                [[44.733, -79.639], [46.087, -78.102]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_e7eac2ebe5d72210df219da14162090b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bb8bc8d80526f498a59d606468495025 = $(`<div id="html_bb8bc8d80526f498a59d606468495025" style="width: 100.0%; height: 100.0%;"><b>92</b> (#93) ⇄ <b>94</b> (#95)<br>回路: 1 | 类型: 线路<br>距离(大圆): 192.5 km</div>`)[0];
+                popup_e7eac2ebe5d72210df219da14162090b.setContent(html_bb8bc8d80526f498a59d606468495025);
+            
+        
+
+        poly_line_82acc4bdccc070700fbae534167dd213.bindPopup(popup_e7eac2ebe5d72210df219da14162090b)
+        ;
+
+        
+    
+    
+            poly_line_82acc4bdccc070700fbae534167dd213.bindTooltip(
+                `<div>
+                     Line 93-95 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_87f811c99a662c46b88d38fb7784245a = L.polyline(
+                [[44.0, -80.101], [43.52, -80.754]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_5ac126ce2437c122185818a49f3ef5c1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9dc16e3c503f6c391f24d1301e37cc4e = $(`<div id="html_9dc16e3c503f6c391f24d1301e37cc4e" style="width: 100.0%; height: 100.0%;"><b>93</b> (#94) ⇄ <b>110</b> (#111)<br>回路: 1 | 类型: 线路<br>距离(大圆): 74.8 km</div>`)[0];
+                popup_5ac126ce2437c122185818a49f3ef5c1.setContent(html_9dc16e3c503f6c391f24d1301e37cc4e);
+            
+        
+
+        poly_line_87f811c99a662c46b88d38fb7784245a.bindPopup(popup_5ac126ce2437c122185818a49f3ef5c1)
+        ;
+
+        
+    
+    
+            poly_line_87f811c99a662c46b88d38fb7784245a.bindTooltip(
+                `<div>
+                     Line 94-111 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_b67102323edeb5d3b3914cf96eeebf13 = L.polyline(
+                [[46.087, -78.102], [46.194, -79.523]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_975f830fcbe4f5cd453fb4da618f770f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4f10fbfc4e2b1218ad9eb283985e1f70 = $(`<div id="html_4f10fbfc4e2b1218ad9eb283985e1f70" style="width: 100.0%; height: 100.0%;"><b>94</b> (#95) ⇄ <b>95</b> (#96)<br>回路: 1 | 类型: 线路<br>距离(大圆): 110.1 km</div>`)[0];
+                popup_975f830fcbe4f5cd453fb4da618f770f.setContent(html_4f10fbfc4e2b1218ad9eb283985e1f70);
+            
+        
+
+        poly_line_b67102323edeb5d3b3914cf96eeebf13.bindPopup(popup_975f830fcbe4f5cd453fb4da618f770f)
+        ;
+
+        
+    
+    
+            poly_line_b67102323edeb5d3b3914cf96eeebf13.bindTooltip(
+                `<div>
+                     Line 95-96 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_79f697a2341d437facdfb7cf9bdc6c1d = L.polyline(
+                [[46.194, -79.523], [46.199, -81.349]],
+                {"bubblingMouseEvents": true, "color": "#7b3294", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#7b3294", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_45e217bdb8e7a8928007f0a62fe71b6c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e0cf9eb3fc241d1ef3bdc00b43c9056e = $(`<div id="html_e0cf9eb3fc241d1ef3bdc00b43c9056e" style="width: 100.0%; height: 100.0%;"><b>95</b> (#96) ⇄ <b>96</b> (#97)<br>回路: 1 | 类型: 线路<br>距离(大圆): 140.5 km</div>`)[0];
+                popup_45e217bdb8e7a8928007f0a62fe71b6c.setContent(html_e0cf9eb3fc241d1ef3bdc00b43c9056e);
+            
+        
+
+        poly_line_79f697a2341d437facdfb7cf9bdc6c1d.bindPopup(popup_45e217bdb8e7a8928007f0a62fe71b6c)
+        ;
+
+        
+    
+    
+            poly_line_79f697a2341d437facdfb7cf9bdc6c1d.bindTooltip(
+                `<div>
+                     Line 96-97 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_086401e878cd49533cffcc2297a5e6ce = L.polyline(
+                [[44.637, -75.953], [44.976, -75.372]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_b91e08987f10a9b440c3fcd376d9bed1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_87ace1eda2387f842701f0311788885e = $(`<div id="html_87ace1eda2387f842701f0311788885e" style="width: 100.0%; height: 100.0%;"><b>97</b> (#98) ⇄ <b>98</b> (#99)<br>回路: 1 | 类型: 线路<br>距离(大圆): 59.3 km</div>`)[0];
+                popup_b91e08987f10a9b440c3fcd376d9bed1.setContent(html_87ace1eda2387f842701f0311788885e);
+            
+        
+
+        poly_line_086401e878cd49533cffcc2297a5e6ce.bindPopup(popup_b91e08987f10a9b440c3fcd376d9bed1)
+        ;
+
+        
+    
+    
+            poly_line_086401e878cd49533cffcc2297a5e6ce.bindTooltip(
+                `<div>
+                     Line 98-99 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_faedca1b338bd4d6b7b8479a15aba7b6 = L.polyline(
+                [[44.976, -75.372], [45.066, -74.853]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_2d650785efceab4dc9565cfaaade625f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d0c5db2d52e2b05ce9070cc1da84ddef = $(`<div id="html_d0c5db2d52e2b05ce9070cc1da84ddef" style="width: 100.0%; height: 100.0%;"><b>98</b> (#99) ⇄ <b>99</b> (#100)<br>回路: 1 | 类型: 线路<br>距离(大圆): 42.0 km</div>`)[0];
+                popup_2d650785efceab4dc9565cfaaade625f.setContent(html_d0c5db2d52e2b05ce9070cc1da84ddef);
+            
+        
+
+        poly_line_faedca1b338bd4d6b7b8479a15aba7b6.bindPopup(popup_2d650785efceab4dc9565cfaaade625f)
+        ;
+
+        
+    
+    
+            poly_line_faedca1b338bd4d6b7b8479a15aba7b6.bindTooltip(
+                `<div>
+                     Line 99-100 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d9b2ae88bb7317caf0eeeb535e89b653 = L.polyline(
+                [[42.917, -79.843], [43.148, -80.019]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_8398a9d524ece1cadff1299ab16eaa17 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9ffa0327c7e3a0b916abdc2b39f50c25 = $(`<div id="html_9ffa0327c7e3a0b916abdc2b39f50c25" style="width: 100.0%; height: 100.0%;"><b>100</b> (#101) ⇄ <b>103</b> (#104)<br>回路: 1 | 类型: 线路<br>距离(大圆): 29.4 km</div>`)[0];
+                popup_8398a9d524ece1cadff1299ab16eaa17.setContent(html_9ffa0327c7e3a0b916abdc2b39f50c25);
+            
+        
+
+        poly_line_d9b2ae88bb7317caf0eeeb535e89b653.bindPopup(popup_8398a9d524ece1cadff1299ab16eaa17)
+        ;
+
+        
+    
+    
+            poly_line_d9b2ae88bb7317caf0eeeb535e89b653.bindTooltip(
+                `<div>
+                     Line 101-104 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_05ad3e6ce17bec93a03b19b26514b0e6 = L.polyline(
+                [[42.917, -79.843], [42.731, -81.486]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_f8e4da62bbef01882deb2af42242a770 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9e3242c2642736a5cd7d382a907d567e = $(`<div id="html_9e3242c2642736a5cd7d382a907d567e" style="width: 100.0%; height: 100.0%;"><b>100</b> (#101) ⇄ <b>104</b> (#105)<br>回路: 1 | 类型: 线路<br>距离(大圆): 135.6 km</div>`)[0];
+                popup_f8e4da62bbef01882deb2af42242a770.setContent(html_9e3242c2642736a5cd7d382a907d567e);
+            
+        
+
+        poly_line_05ad3e6ce17bec93a03b19b26514b0e6.bindPopup(popup_f8e4da62bbef01882deb2af42242a770)
+        ;
+
+        
+    
+    
+            poly_line_05ad3e6ce17bec93a03b19b26514b0e6.bindTooltip(
+                `<div>
+                     Line 101-105 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9599ec591714160f364c5ea3c512c5e8 = L.polyline(
+                [[42.917, -79.843], [42.99, -80.793]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_ab64a66050185a490d907e7b76d11768 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2e4c15e17a874b71c778aa1e112b1811 = $(`<div id="html_2e4c15e17a874b71c778aa1e112b1811" style="width: 100.0%; height: 100.0%;"><b>100</b> (#101) ⇄ <b>106</b> (#107)<br>回路: 1 | 类型: 线路<br>距离(大圆): 77.7 km</div>`)[0];
+                popup_ab64a66050185a490d907e7b76d11768.setContent(html_2e4c15e17a874b71c778aa1e112b1811);
+            
+        
+
+        poly_line_9599ec591714160f364c5ea3c512c5e8.bindPopup(popup_ab64a66050185a490d907e7b76d11768)
+        ;
+
+        
+    
+    
+            poly_line_9599ec591714160f364c5ea3c512c5e8.bindTooltip(
+                `<div>
+                     Line 101-107 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f0711a0fa320965de3498e924e5aebf2 = L.polyline(
+                [[42.917, -79.843], [43.706, -79.781]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_77ea38e2660833a030109690f528ea34 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3df96f5c88c36b38040e8e5edc9b1e58 = $(`<div id="html_3df96f5c88c36b38040e8e5edc9b1e58" style="width: 100.0%; height: 100.0%;"><b>100</b> (#101) ⇄ <b>107</b> (#108)<br>回路: 1 | 类型: 线路<br>距离(大圆): 87.9 km</div>`)[0];
+                popup_77ea38e2660833a030109690f528ea34.setContent(html_3df96f5c88c36b38040e8e5edc9b1e58);
+            
+        
+
+        poly_line_f0711a0fa320965de3498e924e5aebf2.bindPopup(popup_77ea38e2660833a030109690f528ea34)
+        ;
+
+        
+    
+    
+            poly_line_f0711a0fa320965de3498e924e5aebf2.bindTooltip(
+                `<div>
+                     Line 101-108 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_3cedd1cc1b6a993982c9a10f7750472c = L.polyline(
+                [[42.917, -79.843], [43.34, -79.94]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_cf632cbd748bef6d307ec146dc7febf9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b49ea35dadc9dc11afa090383953581f = $(`<div id="html_b49ea35dadc9dc11afa090383953581f" style="width: 100.0%; height: 100.0%;"><b>100</b> (#101) ⇄ <b>108</b> (#109)<br>回路: 1 | 类型: 线路<br>距离(大圆): 47.7 km</div>`)[0];
+                popup_cf632cbd748bef6d307ec146dc7febf9.setContent(html_b49ea35dadc9dc11afa090383953581f);
+            
+        
+
+        poly_line_3cedd1cc1b6a993982c9a10f7750472c.bindPopup(popup_cf632cbd748bef6d307ec146dc7febf9)
+        ;
+
+        
+    
+    
+            poly_line_3cedd1cc1b6a993982c9a10f7750472c.bindTooltip(
+                `<div>
+                     Line 101-109 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1de425610ff4d0c3bf810d8b3a69e56e = L.polyline(
+                [[42.917, -79.843], [43.103, -79.644]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_1eae27339cdac61bf856c4b931f71d2a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ee0a425dea80bb8d9bc1b7398c343126 = $(`<div id="html_ee0a425dea80bb8d9bc1b7398c343126" style="width: 100.0%; height: 100.0%;"><b>100</b> (#101) ⇄ <b>109</b> (#110)<br>回路: 1 | 类型: 线路<br>距离(大圆): 26.3 km</div>`)[0];
+                popup_1eae27339cdac61bf856c4b931f71d2a.setContent(html_ee0a425dea80bb8d9bc1b7398c343126);
+            
+        
+
+        poly_line_1de425610ff4d0c3bf810d8b3a69e56e.bindPopup(popup_1eae27339cdac61bf856c4b931f71d2a)
+        ;
+
+        
+    
+    
+            poly_line_1de425610ff4d0c3bf810d8b3a69e56e.bindTooltip(
+                `<div>
+                     Line 101-110 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_116bdbaa70387b72f315e236a261fa2c = L.polyline(
+                [[43.148, -80.019], [43.137, -80.921]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_9b6aec3724ed0f69f69f9afa0d41b071 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0e6f83cd7c46e18fae0851d68a2bd7ad = $(`<div id="html_0e6f83cd7c46e18fae0851d68a2bd7ad" style="width: 100.0%; height: 100.0%;"><b>103</b> (#104) ⇄ <b>105</b> (#106)<br>回路: 1 | 类型: 线路<br>距离(大圆): 73.2 km</div>`)[0];
+                popup_9b6aec3724ed0f69f69f9afa0d41b071.setContent(html_0e6f83cd7c46e18fae0851d68a2bd7ad);
+            
+        
+
+        poly_line_116bdbaa70387b72f315e236a261fa2c.bindPopup(popup_9b6aec3724ed0f69f69f9afa0d41b071)
+        ;
+
+        
+    
+    
+            poly_line_116bdbaa70387b72f315e236a261fa2c.bindTooltip(
+                `<div>
+                     Line 104-106 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_44db5a34eb038c9ae4ab5c66d77c8e93 = L.polyline(
+                [[43.148, -80.019], [43.103, -79.644]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_66720994a19d729455c3e9e3bd342ff0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3bc0f8513d8071eefe438055b84f9151 = $(`<div id="html_3bc0f8513d8071eefe438055b84f9151" style="width: 100.0%; height: 100.0%;"><b>103</b> (#104) ⇄ <b>109</b> (#110)<br>回路: 1 | 类型: 线路<br>距离(大圆): 30.8 km</div>`)[0];
+                popup_66720994a19d729455c3e9e3bd342ff0.setContent(html_3bc0f8513d8071eefe438055b84f9151);
+            
+        
+
+        poly_line_44db5a34eb038c9ae4ab5c66d77c8e93.bindPopup(popup_66720994a19d729455c3e9e3bd342ff0)
+        ;
+
+        
+    
+    
+            poly_line_44db5a34eb038c9ae4ab5c66d77c8e93.bindTooltip(
+                `<div>
+                     Line 104-110 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_73ddd2d94d8cc82842fdf199ccca6f54 = L.polyline(
+                [[42.731, -81.486], [43.137, -80.921]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_500b0e4d04d6e71604bb9bfb9aa5318d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8ccebe2b306b88431b939286fcf9bfc7 = $(`<div id="html_8ccebe2b306b88431b939286fcf9bfc7" style="width: 100.0%; height: 100.0%;"><b>104</b> (#105) ⇄ <b>105</b> (#106)<br>回路: 1 | 类型: 线路<br>距离(大圆): 64.4 km</div>`)[0];
+                popup_500b0e4d04d6e71604bb9bfb9aa5318d.setContent(html_8ccebe2b306b88431b939286fcf9bfc7);
+            
+        
+
+        poly_line_73ddd2d94d8cc82842fdf199ccca6f54.bindPopup(popup_500b0e4d04d6e71604bb9bfb9aa5318d)
+        ;
+
+        
+    
+    
+            poly_line_73ddd2d94d8cc82842fdf199ccca6f54.bindTooltip(
+                `<div>
+                     Line 105-106 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_64573e245c15bcc95bb112a1adc3b866 = L.polyline(
+                [[42.731, -81.486], [42.99, -80.793]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_b8ee0cbe290da712bfa65d7e2bf48006 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cd8ce67698c76044771c600015618878 = $(`<div id="html_cd8ce67698c76044771c600015618878" style="width: 100.0%; height: 100.0%;"><b>104</b> (#105) ⇄ <b>106</b> (#107)<br>回路: 1 | 类型: 线路<br>距离(大圆): 63.4 km</div>`)[0];
+                popup_b8ee0cbe290da712bfa65d7e2bf48006.setContent(html_cd8ce67698c76044771c600015618878);
+            
+        
+
+        poly_line_64573e245c15bcc95bb112a1adc3b866.bindPopup(popup_b8ee0cbe290da712bfa65d7e2bf48006)
+        ;
+
+        
+    
+    
+            poly_line_64573e245c15bcc95bb112a1adc3b866.bindTooltip(
+                `<div>
+                     Line 105-107 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9bc79ab6851845e66318d05dd1da7d5b = L.polyline(
+                [[42.731, -81.486], [43.52, -80.754]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_ff09b28e2d1bbe8d2f742c180e3becd2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_66e41391f3e686ce17cbfb3d9533f228 = $(`<div id="html_66e41391f3e686ce17cbfb3d9533f228" style="width: 100.0%; height: 100.0%;"><b>104</b> (#105) ⇄ <b>110</b> (#111)<br>回路: 1 | 类型: 线路<br>距离(大圆): 106.0 km</div>`)[0];
+                popup_ff09b28e2d1bbe8d2f742c180e3becd2.setContent(html_66e41391f3e686ce17cbfb3d9533f228);
+            
+        
+
+        poly_line_9bc79ab6851845e66318d05dd1da7d5b.bindPopup(popup_ff09b28e2d1bbe8d2f742c180e3becd2)
+        ;
+
+        
+    
+    
+            poly_line_9bc79ab6851845e66318d05dd1da7d5b.bindTooltip(
+                `<div>
+                     Line 105-111 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f1918082eebca9776208decd70ba5f05 = L.polyline(
+                [[42.731, -81.486], [42.206, -81.565]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_d46133f123721a47c8490174f38e9847 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c0bf5fbc4158800e822652390f05be72 = $(`<div id="html_c0bf5fbc4158800e822652390f05be72" style="width: 100.0%; height: 100.0%;"><b>104</b> (#105) ⇄ <b>111</b> (#112)<br>回路: 1 | 类型: 线路<br>距离(大圆): 58.7 km</div>`)[0];
+                popup_d46133f123721a47c8490174f38e9847.setContent(html_c0bf5fbc4158800e822652390f05be72);
+            
+        
+
+        poly_line_f1918082eebca9776208decd70ba5f05.bindPopup(popup_d46133f123721a47c8490174f38e9847)
+        ;
+
+        
+    
+    
+            poly_line_f1918082eebca9776208decd70ba5f05.bindTooltip(
+                `<div>
+                     Line 105-112 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9a292d2c4826309ce9581fe2d81be804 = L.polyline(
+                [[42.731, -81.486], [42.003, -82.123]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_dc89651e23b5d8c33a4fd82e5ca59ebe = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6492a6ca8cc2b93abed4ffc31aeba59c = $(`<div id="html_6492a6ca8cc2b93abed4ffc31aeba59c" style="width: 100.0%; height: 100.0%;"><b>104</b> (#105) ⇄ <b>112</b> (#113)<br>回路: 1 | 类型: 线路<br>距离(大圆): 96.4 km</div>`)[0];
+                popup_dc89651e23b5d8c33a4fd82e5ca59ebe.setContent(html_6492a6ca8cc2b93abed4ffc31aeba59c);
+            
+        
+
+        poly_line_9a292d2c4826309ce9581fe2d81be804.bindPopup(popup_dc89651e23b5d8c33a4fd82e5ca59ebe)
+        ;
+
+        
+    
+    
+            poly_line_9a292d2c4826309ce9581fe2d81be804.bindTooltip(
+                `<div>
+                     Line 105-113 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_b99450e2299907bcca6cf4252463bbd6 = L.polyline(
+                [[42.99, -80.793], [43.103, -79.644]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_220b265a01e9ef9d02476fec1a22c3cb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0ac0b8ecd685372e6d8cb5be90d8ea11 = $(`<div id="html_0ac0b8ecd685372e6d8cb5be90d8ea11" style="width: 100.0%; height: 100.0%;"><b>106</b> (#107) ⇄ <b>109</b> (#110)<br>回路: 1 | 类型: 线路<br>距离(大圆): 94.2 km</div>`)[0];
+                popup_220b265a01e9ef9d02476fec1a22c3cb.setContent(html_0ac0b8ecd685372e6d8cb5be90d8ea11);
+            
+        
+
+        poly_line_b99450e2299907bcca6cf4252463bbd6.bindPopup(popup_220b265a01e9ef9d02476fec1a22c3cb)
+        ;
+
+        
+    
+    
+            poly_line_b99450e2299907bcca6cf4252463bbd6.bindTooltip(
+                `<div>
+                     Line 107-110 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_16bccfdf5b51c7533c0b23497d396135 = L.polyline(
+                [[43.706, -79.781], [43.103, -79.644]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_ef9cba3019f85a83aa4bdc74ef4ff925 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_eb32d080518f67e5931d045f1f31e027 = $(`<div id="html_eb32d080518f67e5931d045f1f31e027" style="width: 100.0%; height: 100.0%;"><b>107</b> (#108) ⇄ <b>109</b> (#110)<br>回路: 1 | 类型: 线路<br>距离(大圆): 68.0 km</div>`)[0];
+                popup_ef9cba3019f85a83aa4bdc74ef4ff925.setContent(html_eb32d080518f67e5931d045f1f31e027);
+            
+        
+
+        poly_line_16bccfdf5b51c7533c0b23497d396135.bindPopup(popup_ef9cba3019f85a83aa4bdc74ef4ff925)
+        ;
+
+        
+    
+    
+            poly_line_16bccfdf5b51c7533c0b23497d396135.bindTooltip(
+                `<div>
+                     Line 108-110 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7ff94533380322b1a2b0376b41122df8 = L.polyline(
+                [[43.706, -79.781], [43.52, -80.754]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_fab2d1b2526b35023ba4209ae8eeccc9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4083dc8ecba5caa1b98636a96111048e = $(`<div id="html_4083dc8ecba5caa1b98636a96111048e" style="width: 100.0%; height: 100.0%;"><b>107</b> (#108) ⇄ <b>110</b> (#111)<br>回路: 1 | 类型: 线路<br>距离(大圆): 81.0 km</div>`)[0];
+                popup_fab2d1b2526b35023ba4209ae8eeccc9.setContent(html_4083dc8ecba5caa1b98636a96111048e);
+            
+        
+
+        poly_line_7ff94533380322b1a2b0376b41122df8.bindPopup(popup_fab2d1b2526b35023ba4209ae8eeccc9)
+        ;
+
+        
+    
+    
+            poly_line_7ff94533380322b1a2b0376b41122df8.bindTooltip(
+                `<div>
+                     Line 108-111 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_b88edc5b01fe9a3d279c39e1f0f8c059 = L.polyline(
+                [[43.34, -79.94], [43.103, -79.644]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_ddd4d7406bec14cb973f134d7639b539 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e8cf24fe30efb80f35ba38d7eeea4e59 = $(`<div id="html_e8cf24fe30efb80f35ba38d7eeea4e59" style="width: 100.0%; height: 100.0%;"><b>108</b> (#109) ⇄ <b>109</b> (#110)<br>回路: 1 | 类型: 线路<br>距离(大圆): 35.6 km</div>`)[0];
+                popup_ddd4d7406bec14cb973f134d7639b539.setContent(html_e8cf24fe30efb80f35ba38d7eeea4e59);
+            
+        
+
+        poly_line_b88edc5b01fe9a3d279c39e1f0f8c059.bindPopup(popup_ddd4d7406bec14cb973f134d7639b539)
+        ;
+
+        
+    
+    
+            poly_line_b88edc5b01fe9a3d279c39e1f0f8c059.bindTooltip(
+                `<div>
+                     Line 109-110 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_25f981b41d27ca955ba7c6a1634a5de4 = L.polyline(
+                [[43.34, -79.94], [43.52, -80.754]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_adb1a3ea1ce11ca7feef4d972254f162 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3130870b6a54fc08234abcd07074adaf = $(`<div id="html_3130870b6a54fc08234abcd07074adaf" style="width: 100.0%; height: 100.0%;"><b>108</b> (#109) ⇄ <b>110</b> (#111)<br>回路: 1 | 类型: 线路<br>距离(大圆): 68.7 km</div>`)[0];
+                popup_adb1a3ea1ce11ca7feef4d972254f162.setContent(html_3130870b6a54fc08234abcd07074adaf);
+            
+        
+
+        poly_line_25f981b41d27ca955ba7c6a1634a5de4.bindPopup(popup_adb1a3ea1ce11ca7feef4d972254f162)
+        ;
+
+        
+    
+    
+            poly_line_25f981b41d27ca955ba7c6a1634a5de4.bindTooltip(
+                `<div>
+                     Line 109-111 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d6b3157a7784278b32a7fba8edb7b50e = L.polyline(
+                [[42.206, -81.565], [42.003, -82.123]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_25324c49025c2d7c2fac540ae6727307 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cbf78ad3db887f68a262c5ad59cd62f9 = $(`<div id="html_cbf78ad3db887f68a262c5ad59cd62f9" style="width: 100.0%; height: 100.0%;"><b>111</b> (#112) ⇄ <b>112</b> (#113)<br>回路: 1 | 类型: 线路<br>距离(大圆): 51.3 km</div>`)[0];
+                popup_25324c49025c2d7c2fac540ae6727307.setContent(html_cbf78ad3db887f68a262c5ad59cd62f9);
+            
+        
+
+        poly_line_d6b3157a7784278b32a7fba8edb7b50e.bindPopup(popup_25324c49025c2d7c2fac540ae6727307)
+        ;
+
+        
+    
+    
+            poly_line_d6b3157a7784278b32a7fba8edb7b50e.bindTooltip(
+                `<div>
+                     Line 112-113 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_8600e3c9c5dfc004418f0a0389faad21 = L.polyline(
+                [[42.911, -82.763], [42.573, -83.488]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_99db593c6d3c21bb07318485572f08b8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_54489ff2d87cd6dce9043792ac7b3d81 = $(`<div id="html_54489ff2d87cd6dce9043792ac7b3d81" style="width: 100.0%; height: 100.0%;"><b>113</b> (#114) ⇄ <b>116</b> (#117)<br>回路: 1 | 类型: 线路<br>距离(大圆): 70.1 km</div>`)[0];
+                popup_99db593c6d3c21bb07318485572f08b8.setContent(html_54489ff2d87cd6dce9043792ac7b3d81);
+            
+        
+
+        poly_line_8600e3c9c5dfc004418f0a0389faad21.bindPopup(popup_99db593c6d3c21bb07318485572f08b8)
+        ;
+
+        
+    
+    
+            poly_line_8600e3c9c5dfc004418f0a0389faad21.bindTooltip(
+                `<div>
+                     Line 114-117 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_48d0b71a0ee94e691cd1c031fa22f21a = L.polyline(
+                [[42.911, -82.763], [43.109, -83.633]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_f0c2aa9bd34ab2a1e920b98da7054f3e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d672c8cca4a2e3c01da62e9308ba7a9f = $(`<div id="html_d672c8cca4a2e3c01da62e9308ba7a9f" style="width: 100.0%; height: 100.0%;"><b>113</b> (#114) ⇄ <b>118</b> (#119)<br>回路: 1 | 类型: 线路<br>距离(大圆): 74.1 km</div>`)[0];
+                popup_f0c2aa9bd34ab2a1e920b98da7054f3e.setContent(html_d672c8cca4a2e3c01da62e9308ba7a9f);
+            
+        
+
+        poly_line_48d0b71a0ee94e691cd1c031fa22f21a.bindPopup(popup_f0c2aa9bd34ab2a1e920b98da7054f3e)
+        ;
+
+        
+    
+    
+            poly_line_48d0b71a0ee94e691cd1c031fa22f21a.bindTooltip(
+                `<div>
+                     Line 114-119 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_095644f4fe0ad8956ea62bcc1baf99cb = L.polyline(
+                [[42.911, -82.763], [42.494, -83.145]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_127a6b888e5dfec3b8b865ec20d69c2d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a487b115ba20573e67277d9ba0eb796b = $(`<div id="html_a487b115ba20573e67277d9ba0eb796b" style="width: 100.0%; height: 100.0%;"><b>113</b> (#114) ⇄ <b>120</b> (#121)<br>回路: 1 | 类型: 线路<br>距离(大圆): 55.9 km</div>`)[0];
+                popup_127a6b888e5dfec3b8b865ec20d69c2d.setContent(html_a487b115ba20573e67277d9ba0eb796b);
+            
+        
+
+        poly_line_095644f4fe0ad8956ea62bcc1baf99cb.bindPopup(popup_127a6b888e5dfec3b8b865ec20d69c2d)
+        ;
+
+        
+    
+    
+            poly_line_095644f4fe0ad8956ea62bcc1baf99cb.bindTooltip(
+                `<div>
+                     Line 114-121 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_658e7109ecaa1d852b6337ec50196da2 = L.polyline(
+                [[42.629, -82.77], [42.324, -82.921]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_dc31fe01f9f6d32084edfeacbf9a5028 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1f40e63bdfe3f5d1b9f7803a617dea5d = $(`<div id="html_1f40e63bdfe3f5d1b9f7803a617dea5d" style="width: 100.0%; height: 100.0%;"><b>114</b> (#115) ⇄ <b>115</b> (#116)<br>回路: 1 | 类型: 线路<br>距离(大圆): 36.1 km</div>`)[0];
+                popup_dc31fe01f9f6d32084edfeacbf9a5028.setContent(html_1f40e63bdfe3f5d1b9f7803a617dea5d);
+            
+        
+
+        poly_line_658e7109ecaa1d852b6337ec50196da2.bindPopup(popup_dc31fe01f9f6d32084edfeacbf9a5028)
+        ;
+
+        
+    
+    
+            poly_line_658e7109ecaa1d852b6337ec50196da2.bindTooltip(
+                `<div>
+                     Line 115-116 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_6943f22c5840eb0a77c44eeb63d079a0 = L.polyline(
+                [[42.629, -82.77], [42.573, -83.488]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_bbf1388844a3070030c9d3370915a5ce = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e641e263476910c3abf66e1d3270b4be = $(`<div id="html_e641e263476910c3abf66e1d3270b4be" style="width: 100.0%; height: 100.0%;"><b>114</b> (#115) ⇄ <b>116</b> (#117)<br>回路: 1 | 类型: 线路<br>距离(大圆): 59.1 km</div>`)[0];
+                popup_bbf1388844a3070030c9d3370915a5ce.setContent(html_e641e263476910c3abf66e1d3270b4be);
+            
+        
+
+        poly_line_6943f22c5840eb0a77c44eeb63d079a0.bindPopup(popup_bbf1388844a3070030c9d3370915a5ce)
+        ;
+
+        
+    
+    
+            poly_line_6943f22c5840eb0a77c44eeb63d079a0.bindTooltip(
+                `<div>
+                     Line 115-117 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_37987d8efd4c0f2b325e6e77f99df51a = L.polyline(
+                [[42.629, -82.77], [42.127, -83.495]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_e340e21553578992267379c33d4c7405 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4205ac45e2891120ec8168fd5cd43a1c = $(`<div id="html_4205ac45e2891120ec8168fd5cd43a1c" style="width: 100.0%; height: 100.0%;"><b>114</b> (#115) ⇄ <b>117</b> (#118)<br>回路: 1 | 类型: 线路<br>距离(大圆): 81.6 km</div>`)[0];
+                popup_e340e21553578992267379c33d4c7405.setContent(html_4205ac45e2891120ec8168fd5cd43a1c);
+            
+        
+
+        poly_line_37987d8efd4c0f2b325e6e77f99df51a.bindPopup(popup_e340e21553578992267379c33d4c7405)
+        ;
+
+        
+    
+    
+            poly_line_37987d8efd4c0f2b325e6e77f99df51a.bindTooltip(
+                `<div>
+                     Line 115-118 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f1708e1fd61c95b1773facaecf2c6e11 = L.polyline(
+                [[42.629, -82.77], [43.109, -83.633]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_76d2f0b7334e719654bdbe28a0e45547 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_adbde79c385c3a2d1be29f5fe5557e66 = $(`<div id="html_adbde79c385c3a2d1be29f5fe5557e66" style="width: 100.0%; height: 100.0%;"><b>114</b> (#115) ⇄ <b>118</b> (#119)<br>回路: 1 | 类型: 线路<br>距离(大圆): 88.3 km</div>`)[0];
+                popup_76d2f0b7334e719654bdbe28a0e45547.setContent(html_adbde79c385c3a2d1be29f5fe5557e66);
+            
+        
+
+        poly_line_f1708e1fd61c95b1773facaecf2c6e11.bindPopup(popup_76d2f0b7334e719654bdbe28a0e45547)
+        ;
+
+        
+    
+    
+            poly_line_f1708e1fd61c95b1773facaecf2c6e11.bindTooltip(
+                `<div>
+                     Line 115-119 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_6964d6f530767f02a9954b31532ac3f6 = L.polyline(
+                [[42.629, -82.77], [42.494, -83.145]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_fb0b01566430b26bdcb687c0e1fa4313 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_40df27df0593e16bd6d26ca32026bc7b = $(`<div id="html_40df27df0593e16bd6d26ca32026bc7b" style="width: 100.0%; height: 100.0%;"><b>114</b> (#115) ⇄ <b>120</b> (#121)<br>回路: 1 | 类型: 线路<br>距离(大圆): 34.2 km</div>`)[0];
+                popup_fb0b01566430b26bdcb687c0e1fa4313.setContent(html_40df27df0593e16bd6d26ca32026bc7b);
+            
+        
+
+        poly_line_6964d6f530767f02a9954b31532ac3f6.bindPopup(popup_fb0b01566430b26bdcb687c0e1fa4313)
+        ;
+
+        
+    
+    
+            poly_line_6964d6f530767f02a9954b31532ac3f6.bindTooltip(
+                `<div>
+                     Line 115-121 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_b42cd84cb729186196e8bce1a738fb3a = L.polyline(
+                [[42.629, -82.77], [40.785, -79.408]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_3682fe717294aaa100b836994309a7f9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a20d500ff00de32387609e9ecbd8045d = $(`<div id="html_a20d500ff00de32387609e9ecbd8045d" style="width: 100.0%; height: 100.0%;"><b>114</b> (#115) ⇄ <b>134</b> (#135)<br>回路: 1 | 类型: 线路<br>距离(大圆): 346.3 km</div>`)[0];
+                popup_3682fe717294aaa100b836994309a7f9.setContent(html_a20d500ff00de32387609e9ecbd8045d);
+            
+        
+
+        poly_line_b42cd84cb729186196e8bce1a738fb3a.bindPopup(popup_3682fe717294aaa100b836994309a7f9)
+        ;
+
+        
+    
+    
+            poly_line_b42cd84cb729186196e8bce1a738fb3a.bindTooltip(
+                `<div>
+                     Line 115-135 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9528e509595440001aa8695a0c52e91a = L.polyline(
+                [[42.629, -82.77], [38.94, -82.212]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_cf4fb6c4199dadacad73587358d582d6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ff0db4391dcdd86aec123238c1688cfa = $(`<div id="html_ff0db4391dcdd86aec123238c1688cfa" style="width: 100.0%; height: 100.0%;"><b>114</b> (#115) ⇄ <b>138</b> (#139)<br>回路: 1 | 类型: 线路<br>距离(大圆): 412.9 km</div>`)[0];
+                popup_cf4fb6c4199dadacad73587358d582d6.setContent(html_ff0db4391dcdd86aec123238c1688cfa);
+            
+        
+
+        poly_line_9528e509595440001aa8695a0c52e91a.bindPopup(popup_cf4fb6c4199dadacad73587358d582d6)
+        ;
+
+        
+    
+    
+            poly_line_9528e509595440001aa8695a0c52e91a.bindTooltip(
+                `<div>
+                     Line 115-139 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1a5c9b8db48be269dfe5eec21755b9ed = L.polyline(
+                [[42.324, -82.921], [42.573, -83.488]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_912f6139626457cf10932360870b5390 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9eb154fb2ad14f31ce5b8f96a9cd8431 = $(`<div id="html_9eb154fb2ad14f31ce5b8f96a9cd8431" style="width: 100.0%; height: 100.0%;"><b>115</b> (#116) ⇄ <b>116</b> (#117)<br>回路: 1 | 类型: 线路<br>距离(大圆): 54.1 km</div>`)[0];
+                popup_912f6139626457cf10932360870b5390.setContent(html_9eb154fb2ad14f31ce5b8f96a9cd8431);
+            
+        
+
+        poly_line_1a5c9b8db48be269dfe5eec21755b9ed.bindPopup(popup_912f6139626457cf10932360870b5390)
+        ;
+
+        
+    
+    
+            poly_line_1a5c9b8db48be269dfe5eec21755b9ed.bindTooltip(
+                `<div>
+                     Line 116-117 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_39fc33cc186927e48437d12adda40be9 = L.polyline(
+                [[42.324, -82.921], [42.127, -83.495]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_bed0c61bbbaef9cff1e6a50a4d2d3a78 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_be327535a62c7a3dfa45e18d7ba5d5ce = $(`<div id="html_be327535a62c7a3dfa45e18d7ba5d5ce" style="width: 100.0%; height: 100.0%;"><b>115</b> (#116) ⇄ <b>117</b> (#118)<br>回路: 1 | 类型: 线路<br>距离(大圆): 52.1 km</div>`)[0];
+                popup_bed0c61bbbaef9cff1e6a50a4d2d3a78.setContent(html_be327535a62c7a3dfa45e18d7ba5d5ce);
+            
+        
+
+        poly_line_39fc33cc186927e48437d12adda40be9.bindPopup(popup_bed0c61bbbaef9cff1e6a50a4d2d3a78)
+        ;
+
+        
+    
+    
+            poly_line_39fc33cc186927e48437d12adda40be9.bindTooltip(
+                `<div>
+                     Line 116-118 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_120cd34391bbf51b9f2c51ac63988e13 = L.polyline(
+                [[42.324, -82.921], [43.199, -85.755]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_a98dd8228fa2821e09dcb82662ee461f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c2831de9ec24c122f7affb40bb9fd399 = $(`<div id="html_c2831de9ec24c122f7affb40bb9fd399" style="width: 100.0%; height: 100.0%;"><b>115</b> (#116) ⇄ <b>119</b> (#120)<br>回路: 1 | 类型: 线路<br>距离(大圆): 251.0 km</div>`)[0];
+                popup_a98dd8228fa2821e09dcb82662ee461f.setContent(html_c2831de9ec24c122f7affb40bb9fd399);
+            
+        
+
+        poly_line_120cd34391bbf51b9f2c51ac63988e13.bindPopup(popup_a98dd8228fa2821e09dcb82662ee461f)
+        ;
+
+        
+    
+    
+            poly_line_120cd34391bbf51b9f2c51ac63988e13.bindTooltip(
+                `<div>
+                     Line 116-120 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_97af993c2f7697d741337bb5fd9d70ce = L.polyline(
+                [[42.324, -82.921], [42.494, -83.145]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_9ed491eb856fb6ee9c078b43ebf188f8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9027e114fb14ccc54ab492caf4fbc5bf = $(`<div id="html_9027e114fb14ccc54ab492caf4fbc5bf" style="width: 100.0%; height: 100.0%;"><b>115</b> (#116) ⇄ <b>120</b> (#121)<br>回路: 1 | 类型: 线路<br>距离(大圆): 26.4 km</div>`)[0];
+                popup_9ed491eb856fb6ee9c078b43ebf188f8.setContent(html_9027e114fb14ccc54ab492caf4fbc5bf);
+            
+        
+
+        poly_line_97af993c2f7697d741337bb5fd9d70ce.bindPopup(popup_9ed491eb856fb6ee9c078b43ebf188f8)
+        ;
+
+        
+    
+    
+            poly_line_97af993c2f7697d741337bb5fd9d70ce.bindTooltip(
+                `<div>
+                     Line 116-121 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_6affbe657d60a129902d9740264fd599 = L.polyline(
+                [[42.324, -82.921], [42.319, -83.201]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_a47d8fcc046c388e76fdd2c80e3b4ad4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1dadd624369d5778de65fed09782195d = $(`<div id="html_1dadd624369d5778de65fed09782195d" style="width: 100.0%; height: 100.0%;"><b>115</b> (#116) ⇄ <b>121</b> (#122)<br>回路: 1 | 类型: 线路<br>距离(大圆): 23.0 km</div>`)[0];
+                popup_a47d8fcc046c388e76fdd2c80e3b4ad4.setContent(html_1dadd624369d5778de65fed09782195d);
+            
+        
+
+        poly_line_6affbe657d60a129902d9740264fd599.bindPopup(popup_a47d8fcc046c388e76fdd2c80e3b4ad4)
+        ;
+
+        
+    
+    
+            poly_line_6affbe657d60a129902d9740264fd599.bindTooltip(
+                `<div>
+                     Line 116-122 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_283055b1630be691698cb345850147b7 = L.polyline(
+                [[42.573, -83.488], [42.127, -83.495]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_1c0b3f6f8ce6150449bf564ad2f7fe09 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_998b23088cec8e8fb6e3c09892ee8043 = $(`<div id="html_998b23088cec8e8fb6e3c09892ee8043" style="width: 100.0%; height: 100.0%;"><b>116</b> (#117) ⇄ <b>117</b> (#118)<br>回路: 1 | 类型: 线路<br>距离(大圆): 49.6 km</div>`)[0];
+                popup_1c0b3f6f8ce6150449bf564ad2f7fe09.setContent(html_998b23088cec8e8fb6e3c09892ee8043);
+            
+        
+
+        poly_line_283055b1630be691698cb345850147b7.bindPopup(popup_1c0b3f6f8ce6150449bf564ad2f7fe09)
+        ;
+
+        
+    
+    
+            poly_line_283055b1630be691698cb345850147b7.bindTooltip(
+                `<div>
+                     Line 117-118 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7ce9c5a11f7a96cfffb41b4fd457588c = L.polyline(
+                [[42.573, -83.488], [43.109, -83.633]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_915697b1a6069e14b8cba8d145711e86 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7094e48353bbff30a9bd10ee16369b49 = $(`<div id="html_7094e48353bbff30a9bd10ee16369b49" style="width: 100.0%; height: 100.0%;"><b>116</b> (#117) ⇄ <b>118</b> (#119)<br>回路: 1 | 类型: 线路<br>距离(大圆): 60.8 km</div>`)[0];
+                popup_915697b1a6069e14b8cba8d145711e86.setContent(html_7094e48353bbff30a9bd10ee16369b49);
+            
+        
+
+        poly_line_7ce9c5a11f7a96cfffb41b4fd457588c.bindPopup(popup_915697b1a6069e14b8cba8d145711e86)
+        ;
+
+        
+    
+    
+            poly_line_7ce9c5a11f7a96cfffb41b4fd457588c.bindTooltip(
+                `<div>
+                     Line 117-119 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_8ed3848957cf7ec5418820e47d668fd0 = L.polyline(
+                [[42.573, -83.488], [43.199, -85.755]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_363bb344ad1b0d1aa5b1001fef5ac5b7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3d6a2c44d89f535e7d2e368a03ac0665 = $(`<div id="html_3d6a2c44d89f535e7d2e368a03ac0665" style="width: 100.0%; height: 100.0%;"><b>116</b> (#117) ⇄ <b>119</b> (#120)<br>回路: 1 | 类型: 线路<br>距离(大圆): 197.4 km</div>`)[0];
+                popup_363bb344ad1b0d1aa5b1001fef5ac5b7.setContent(html_3d6a2c44d89f535e7d2e368a03ac0665);
+            
+        
+
+        poly_line_8ed3848957cf7ec5418820e47d668fd0.bindPopup(popup_363bb344ad1b0d1aa5b1001fef5ac5b7)
+        ;
+
+        
+    
+    
+            poly_line_8ed3848957cf7ec5418820e47d668fd0.bindTooltip(
+                `<div>
+                     Line 117-120 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_b1772e5d5ad364dc0eee7ac9b7dbaf6e = L.polyline(
+                [[42.573, -83.488], [42.494, -83.145]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_ce6d6c4965b8cb1d022139138fcd6bb4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3b239baa8fc16084929af976c1c2199d = $(`<div id="html_3b239baa8fc16084929af976c1c2199d" style="width: 100.0%; height: 100.0%;"><b>116</b> (#117) ⇄ <b>120</b> (#121)<br>回路: 1 | 类型: 线路<br>距离(大圆): 29.4 km</div>`)[0];
+                popup_ce6d6c4965b8cb1d022139138fcd6bb4.setContent(html_3b239baa8fc16084929af976c1c2199d);
+            
+        
+
+        poly_line_b1772e5d5ad364dc0eee7ac9b7dbaf6e.bindPopup(popup_ce6d6c4965b8cb1d022139138fcd6bb4)
+        ;
+
+        
+    
+    
+            poly_line_b1772e5d5ad364dc0eee7ac9b7dbaf6e.bindTooltip(
+                `<div>
+                     Line 117-121 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ce95731023504830d0130a7658d68c4d = L.polyline(
+                [[42.573, -83.488], [42.319, -83.201]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_5c4d6e95149ad6f0ae335ac108873ab5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5b5ce9b5cfcd694a00172d57af078548 = $(`<div id="html_5b5ce9b5cfcd694a00172d57af078548" style="width: 100.0%; height: 100.0%;"><b>116</b> (#117) ⇄ <b>121</b> (#122)<br>回路: 1 | 类型: 线路<br>距离(大圆): 36.8 km</div>`)[0];
+                popup_5c4d6e95149ad6f0ae335ac108873ab5.setContent(html_5b5ce9b5cfcd694a00172d57af078548);
+            
+        
+
+        poly_line_ce95731023504830d0130a7658d68c4d.bindPopup(popup_5c4d6e95149ad6f0ae335ac108873ab5)
+        ;
+
+        
+    
+    
+            poly_line_ce95731023504830d0130a7658d68c4d.bindTooltip(
+                `<div>
+                     Line 117-122 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a0838faefc0f22a3f43c1750e7561015 = L.polyline(
+                [[42.127, -83.495], [43.199, -85.755]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_b31e43574f10998b8c2a3ff0b6979e65 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6145118cdcded1a5ce966612416c90a6 = $(`<div id="html_6145118cdcded1a5ce966612416c90a6" style="width: 100.0%; height: 100.0%;"><b>117</b> (#118) ⇄ <b>119</b> (#120)<br>回路: 1 | 类型: 线路<br>距离(大圆): 219.9 km</div>`)[0];
+                popup_b31e43574f10998b8c2a3ff0b6979e65.setContent(html_6145118cdcded1a5ce966612416c90a6);
+            
+        
+
+        poly_line_a0838faefc0f22a3f43c1750e7561015.bindPopup(popup_b31e43574f10998b8c2a3ff0b6979e65)
+        ;
+
+        
+    
+    
+            poly_line_a0838faefc0f22a3f43c1750e7561015.bindTooltip(
+                `<div>
+                     Line 118-120 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a3c0e563766c3185845fe1a13c89e88c = L.polyline(
+                [[42.127, -83.495], [42.494, -83.145]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_f7e6cdf213f3539c93f1756050e578bd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a60ba7c66dca26867b1050224cb3678a = $(`<div id="html_a60ba7c66dca26867b1050224cb3678a" style="width: 100.0%; height: 100.0%;"><b>117</b> (#118) ⇄ <b>120</b> (#121)<br>回路: 1 | 类型: 线路<br>距离(大圆): 49.9 km</div>`)[0];
+                popup_f7e6cdf213f3539c93f1756050e578bd.setContent(html_a60ba7c66dca26867b1050224cb3678a);
+            
+        
+
+        poly_line_a3c0e563766c3185845fe1a13c89e88c.bindPopup(popup_f7e6cdf213f3539c93f1756050e578bd)
+        ;
+
+        
+    
+    
+            poly_line_a3c0e563766c3185845fe1a13c89e88c.bindTooltip(
+                `<div>
+                     Line 118-121 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ca9515949267a925b3c891bac6dd391a = L.polyline(
+                [[42.127, -83.495], [42.319, -83.201]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_b7c5e799cbb7cc470866395cadb35a4b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_506c95ca187335af4b7fc9a491edad22 = $(`<div id="html_506c95ca187335af4b7fc9a491edad22" style="width: 100.0%; height: 100.0%;"><b>117</b> (#118) ⇄ <b>121</b> (#122)<br>回路: 1 | 类型: 线路<br>距离(大圆): 32.3 km</div>`)[0];
+                popup_b7c5e799cbb7cc470866395cadb35a4b.setContent(html_506c95ca187335af4b7fc9a491edad22);
+            
+        
+
+        poly_line_ca9515949267a925b3c891bac6dd391a.bindPopup(popup_b7c5e799cbb7cc470866395cadb35a4b)
+        ;
+
+        
+    
+    
+            poly_line_ca9515949267a925b3c891bac6dd391a.bindTooltip(
+                `<div>
+                     Line 118-122 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_bf6b747078d2b6dcc4caae78d8e0e6d4 = L.polyline(
+                [[42.127, -83.495], [41.619, -83.502]],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_a991559774935df2f5465688828a32b6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e4c5659bfd39834b722936d4e6e26f72 = $(`<div id="html_e4c5659bfd39834b722936d4e6e26f72" style="width: 100.0%; height: 100.0%;"><b>117</b> (#118) ⇄ <b>122</b> (#123)<br>回路: 1 | 类型: 线路<br>距离(大圆): 56.5 km</div>`)[0];
+                popup_a991559774935df2f5465688828a32b6.setContent(html_e4c5659bfd39834b722936d4e6e26f72);
+            
+        
+
+        poly_line_bf6b747078d2b6dcc4caae78d8e0e6d4.bindPopup(popup_a991559774935df2f5465688828a32b6)
+        ;
+
+        
+    
+    
+            poly_line_bf6b747078d2b6dcc4caae78d8e0e6d4.bindTooltip(
+                `<div>
+                     Line 118-123 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1edd78ca36fcfcade783e2afb0207ec9 = L.polyline(
+                [[43.109, -83.633], [43.199, -85.755]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_d287cf3698046a22e33f7ea016586f51 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2282eeb64399412942634baf76a3c5c4 = $(`<div id="html_2282eeb64399412942634baf76a3c5c4" style="width: 100.0%; height: 100.0%;"><b>118</b> (#119) ⇄ <b>119</b> (#120)<br>回路: 1 | 类型: 线路<br>距离(大圆): 172.4 km</div>`)[0];
+                popup_d287cf3698046a22e33f7ea016586f51.setContent(html_2282eeb64399412942634baf76a3c5c4);
+            
+        
+
+        poly_line_1edd78ca36fcfcade783e2afb0207ec9.bindPopup(popup_d287cf3698046a22e33f7ea016586f51)
+        ;
+
+        
+    
+    
+            poly_line_1edd78ca36fcfcade783e2afb0207ec9.bindTooltip(
+                `<div>
+                     Line 119-120 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c08167e5e696b61ac9e2dcb5d3d13960 = L.polyline(
+                [[43.109, -83.633], [42.494, -83.145]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_42eec16bbd31aedba0cecaa78a796ebb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e7f6a45954683c7928831d56f34a58d8 = $(`<div id="html_e7f6a45954683c7928831d56f34a58d8" style="width: 100.0%; height: 100.0%;"><b>118</b> (#119) ⇄ <b>120</b> (#121)<br>回路: 1 | 类型: 线路<br>距离(大圆): 79.1 km</div>`)[0];
+                popup_42eec16bbd31aedba0cecaa78a796ebb.setContent(html_e7f6a45954683c7928831d56f34a58d8);
+            
+        
+
+        poly_line_c08167e5e696b61ac9e2dcb5d3d13960.bindPopup(popup_42eec16bbd31aedba0cecaa78a796ebb)
+        ;
+
+        
+    
+    
+            poly_line_c08167e5e696b61ac9e2dcb5d3d13960.bindTooltip(
+                `<div>
+                     Line 119-121 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_5076fa305d402b803ffa8e54f918562a = L.polyline(
+                [[42.494, -83.145], [42.319, -83.201]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_c2cb10f85df8c9d3762a626acc6b71d6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fe70fb534d46a16493be4bdec88ca2e2 = $(`<div id="html_fe70fb534d46a16493be4bdec88ca2e2" style="width: 100.0%; height: 100.0%;"><b>120</b> (#121) ⇄ <b>121</b> (#122)<br>回路: 1 | 类型: 线路<br>距离(大圆): 20.0 km</div>`)[0];
+                popup_c2cb10f85df8c9d3762a626acc6b71d6.setContent(html_fe70fb534d46a16493be4bdec88ca2e2);
+            
+        
+
+        poly_line_5076fa305d402b803ffa8e54f918562a.bindPopup(popup_c2cb10f85df8c9d3762a626acc6b71d6)
+        ;
+
+        
+    
+    
+            poly_line_5076fa305d402b803ffa8e54f918562a.bindTooltip(
+                `<div>
+                     Line 121-122 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e95648fe5bdf78cdd8f9b88bce22a289 = L.polyline(
+                [[42.319, -83.201], [40.785, -79.408]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_3248560a7743c82f0004e64a925921ed = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4ad25815c8e940bc15e91534b92c2c3f = $(`<div id="html_4ad25815c8e940bc15e91534b92c2c3f" style="width: 100.0%; height: 100.0%;"><b>121</b> (#122) ⇄ <b>134</b> (#135)<br>回路: 1 | 类型: 线路<br>距离(大圆): 358.7 km</div>`)[0];
+                popup_3248560a7743c82f0004e64a925921ed.setContent(html_4ad25815c8e940bc15e91534b92c2c3f);
+            
+        
+
+        poly_line_e95648fe5bdf78cdd8f9b88bce22a289.bindPopup(popup_3248560a7743c82f0004e64a925921ed)
+        ;
+
+        
+    
+    
+            poly_line_e95648fe5bdf78cdd8f9b88bce22a289.bindTooltip(
+                `<div>
+                     Line 122-135 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_50bc05c825d4c81a7f9e616e2e77f723 = L.polyline(
+                [[42.319, -83.201], [38.94, -82.212]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_edc5c2239545c43dd6e2b12f75391ad4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_78b722436ed5b32c6247e99c53349329 = $(`<div id="html_78b722436ed5b32c6247e99c53349329" style="width: 100.0%; height: 100.0%;"><b>121</b> (#122) ⇄ <b>138</b> (#139)<br>回路: 1 | 类型: 线路<br>距离(大圆): 384.9 km</div>`)[0];
+                popup_edc5c2239545c43dd6e2b12f75391ad4.setContent(html_78b722436ed5b32c6247e99c53349329);
+            
+        
+
+        poly_line_50bc05c825d4c81a7f9e616e2e77f723.bindPopup(popup_edc5c2239545c43dd6e2b12f75391ad4)
+        ;
+
+        
+    
+    
+            poly_line_50bc05c825d4c81a7f9e616e2e77f723.bindTooltip(
+                `<div>
+                     Line 122-139 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_70389b764067200c6a3308b31941471d = L.polyline(
+                [[40.627, -74.709], [40.486, -74.301]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_1c261a2c82060b9d8a5ff9b40b6f192b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4babe7b88731c90c4b6adf25d316f93c = $(`<div id="html_4babe7b88731c90c4b6adf25d316f93c" style="width: 100.0%; height: 100.0%;"><b>123</b> (#124) ⇄ <b>124</b> (#125)<br>回路: 1 | 类型: 线路<br>距离(大圆): 37.9 km</div>`)[0];
+                popup_1c261a2c82060b9d8a5ff9b40b6f192b.setContent(html_4babe7b88731c90c4b6adf25d316f93c);
+            
+        
+
+        poly_line_70389b764067200c6a3308b31941471d.bindPopup(popup_1c261a2c82060b9d8a5ff9b40b6f192b)
+        ;
+
+        
+    
+    
+            poly_line_70389b764067200c6a3308b31941471d.bindTooltip(
+                `<div>
+                     Line 124-125 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9e439d6d84deaedbd63112ab44dde629 = L.polyline(
+                [[40.627, -74.709], [40.892, -74.047]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_b51888e0a71131f23f6ddf35f5d219c2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e682f218457287d25a02e90a1345a913 = $(`<div id="html_e682f218457287d25a02e90a1345a913" style="width: 100.0%; height: 100.0%;"><b>123</b> (#124) ⇄ <b>125</b> (#126)<br>回路: 1 | 类型: 线路<br>距离(大圆): 63.1 km</div>`)[0];
+                popup_b51888e0a71131f23f6ddf35f5d219c2.setContent(html_e682f218457287d25a02e90a1345a913);
+            
+        
+
+        poly_line_9e439d6d84deaedbd63112ab44dde629.bindPopup(popup_b51888e0a71131f23f6ddf35f5d219c2)
+        ;
+
+        
+    
+    
+            poly_line_9e439d6d84deaedbd63112ab44dde629.bindTooltip(
+                `<div>
+                     Line 124-126 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1796352cd62c1366962d827d6838d8f3 = L.polyline(
+                [[40.627, -74.709], [40.779, -75.706]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_cefbfb68be3b6e009f13c4a12a4256b5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_90b23d72a842aec8ea2ff418717a829c = $(`<div id="html_90b23d72a842aec8ea2ff418717a829c" style="width: 100.0%; height: 100.0%;"><b>123</b> (#124) ⇄ <b>126</b> (#127)<br>回路: 1 | 类型: 线路<br>距离(大圆): 85.7 km</div>`)[0];
+                popup_cefbfb68be3b6e009f13c4a12a4256b5.setContent(html_90b23d72a842aec8ea2ff418717a829c);
+            
+        
+
+        poly_line_1796352cd62c1366962d827d6838d8f3.bindPopup(popup_cefbfb68be3b6e009f13c4a12a4256b5)
+        ;
+
+        
+    
+    
+            poly_line_1796352cd62c1366962d827d6838d8f3.bindTooltip(
+                `<div>
+                     Line 124-127 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_948ed1c4afb21ba369167622b6f7f428 = L.polyline(
+                [[40.627, -74.709], [40.136, -75.202]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_b7a2fb5885ef2003cbb3d1d1ea930514 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6727accef0c5460ef974458c22d89fea = $(`<div id="html_6727accef0c5460ef974458c22d89fea" style="width: 100.0%; height: 100.0%;"><b>123</b> (#124) ⇄ <b>127</b> (#128)<br>回路: 1 | 类型: 线路<br>距离(大圆): 68.7 km</div>`)[0];
+                popup_b7a2fb5885ef2003cbb3d1d1ea930514.setContent(html_6727accef0c5460ef974458c22d89fea);
+            
+        
+
+        poly_line_948ed1c4afb21ba369167622b6f7f428.bindPopup(popup_b7a2fb5885ef2003cbb3d1d1ea930514)
+        ;
+
+        
+    
+    
+            poly_line_948ed1c4afb21ba369167622b6f7f428.bindTooltip(
+                `<div>
+                     Line 124-128 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_719be46632156e140d8039fbdfe95bd1 = L.polyline(
+                [[40.486, -74.301], [40.892, -74.047]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_fc32180b92fcb85b0543a86bd33b7775 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8f4435637135660b4d9b4c9d95baad05 = $(`<div id="html_8f4435637135660b4d9b4c9d95baad05" style="width: 100.0%; height: 100.0%;"><b>124</b> (#125) ⇄ <b>125</b> (#126)<br>回路: 1 | 类型: 线路<br>距离(大圆): 50.0 km</div>`)[0];
+                popup_fc32180b92fcb85b0543a86bd33b7775.setContent(html_8f4435637135660b4d9b4c9d95baad05);
+            
+        
+
+        poly_line_719be46632156e140d8039fbdfe95bd1.bindPopup(popup_fc32180b92fcb85b0543a86bd33b7775)
+        ;
+
+        
+    
+    
+            poly_line_719be46632156e140d8039fbdfe95bd1.bindTooltip(
+                `<div>
+                     Line 125-126 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_0017441f624181dda9232ad3cad450bb = L.polyline(
+                [[40.486, -74.301], [40.136, -75.202]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_378d1fe6aa1221d154a97620dd0389de = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_54843a61031a5a03c0cb6e00f2483e1b = $(`<div id="html_54843a61031a5a03c0cb6e00f2483e1b" style="width: 100.0%; height: 100.0%;"><b>124</b> (#125) ⇄ <b>127</b> (#128)<br>回路: 1 | 类型: 线路<br>距离(大圆): 85.7 km</div>`)[0];
+                popup_378d1fe6aa1221d154a97620dd0389de.setContent(html_54843a61031a5a03c0cb6e00f2483e1b);
+            
+        
+
+        poly_line_0017441f624181dda9232ad3cad450bb.bindPopup(popup_378d1fe6aa1221d154a97620dd0389de)
+        ;
+
+        
+    
+    
+            poly_line_0017441f624181dda9232ad3cad450bb.bindTooltip(
+                `<div>
+                     Line 125-128 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f17e7329cb75467e74dc35755977fd3b = L.polyline(
+                [[40.892, -74.047], [40.779, -75.706]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_976456b38fe121d2b36a40f14dfd6075 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a94e9a3f343b3d0a22d9d8f8de0d1e35 = $(`<div id="html_a94e9a3f343b3d0a22d9d8f8de0d1e35" style="width: 100.0%; height: 100.0%;"><b>125</b> (#126) ⇄ <b>126</b> (#127)<br>回路: 1 | 类型: 线路<br>距离(大圆): 140.1 km</div>`)[0];
+                popup_976456b38fe121d2b36a40f14dfd6075.setContent(html_a94e9a3f343b3d0a22d9d8f8de0d1e35);
+            
+        
+
+        poly_line_f17e7329cb75467e74dc35755977fd3b.bindPopup(popup_976456b38fe121d2b36a40f14dfd6075)
+        ;
+
+        
+    
+    
+            poly_line_f17e7329cb75467e74dc35755977fd3b.bindTooltip(
+                `<div>
+                     Line 126-127 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_54c40755e0dd8bb14486f516e173395e = L.polyline(
+                [[40.892, -74.047], [40.136, -75.202]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_6ecbda80a2a2c47f8bcd91c16030f7b2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aa1399315ce478f0c63797ecf1dfbd02 = $(`<div id="html_aa1399315ce478f0c63797ecf1dfbd02" style="width: 100.0%; height: 100.0%;"><b>125</b> (#126) ⇄ <b>127</b> (#128)<br>回路: 1 | 类型: 线路<br>距离(大圆): 128.8 km</div>`)[0];
+                popup_6ecbda80a2a2c47f8bcd91c16030f7b2.setContent(html_aa1399315ce478f0c63797ecf1dfbd02);
+            
+        
+
+        poly_line_54c40755e0dd8bb14486f516e173395e.bindPopup(popup_6ecbda80a2a2c47f8bcd91c16030f7b2)
+        ;
+
+        
+    
+    
+            poly_line_54c40755e0dd8bb14486f516e173395e.bindTooltip(
+                `<div>
+                     Line 126-128 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_bc59d1bd05569e112b3337309f55fe1f = L.polyline(
+                [[40.892, -74.047], [41.715, -76.266]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_ec66af77399b7e5027c02478dd9a8e77 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_987dc053a7d00bae0ed6fa0a3fe92c9a = $(`<div id="html_987dc053a7d00bae0ed6fa0a3fe92c9a" style="width: 100.0%; height: 100.0%;"><b>125</b> (#126) ⇄ <b>137</b> (#138)<br>回路: 1 | 类型: 线路<br>距离(大圆): 206.7 km</div>`)[0];
+                popup_ec66af77399b7e5027c02478dd9a8e77.setContent(html_987dc053a7d00bae0ed6fa0a3fe92c9a);
+            
+        
+
+        poly_line_bc59d1bd05569e112b3337309f55fe1f.bindPopup(popup_ec66af77399b7e5027c02478dd9a8e77)
+        ;
+
+        
+    
+    
+            poly_line_bc59d1bd05569e112b3337309f55fe1f.bindTooltip(
+                `<div>
+                     Line 126-138 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e8364fdf4ca10bdfa7bffc73b44b9fd7 = L.polyline(
+                [[40.779, -75.706], [40.136, -75.202]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_ddea89a1e98a456f83ae96acf171c61d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_795b0fc3cba580884168b5a224b6e6a8 = $(`<div id="html_795b0fc3cba580884168b5a224b6e6a8" style="width: 100.0%; height: 100.0%;"><b>126</b> (#127) ⇄ <b>127</b> (#128)<br>回路: 1 | 类型: 线路<br>距离(大圆): 83.2 km</div>`)[0];
+                popup_ddea89a1e98a456f83ae96acf171c61d.setContent(html_795b0fc3cba580884168b5a224b6e6a8);
+            
+        
+
+        poly_line_e8364fdf4ca10bdfa7bffc73b44b9fd7.bindPopup(popup_ddea89a1e98a456f83ae96acf171c61d)
+        ;
+
+        
+    
+    
+            poly_line_e8364fdf4ca10bdfa7bffc73b44b9fd7.bindTooltip(
+                `<div>
+                     Line 127-128 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9a7b92b30f2d33101ec7c631d39f27c2 = L.polyline(
+                [[40.779, -75.706], [40.638, -77.389]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_e4d5ec6e86c5f3d63f2ec6e75c9dc4a3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_faf8690a326d96b5f3398ea3a529f48e = $(`<div id="html_faf8690a326d96b5f3398ea3a529f48e" style="width: 100.0%; height: 100.0%;"><b>126</b> (#127) ⇄ <b>131</b> (#132)<br>回路: 1 | 类型: 线路<br>距离(大圆): 142.7 km</div>`)[0];
+                popup_e4d5ec6e86c5f3d63f2ec6e75c9dc4a3.setContent(html_faf8690a326d96b5f3398ea3a529f48e);
+            
+        
+
+        poly_line_9a7b92b30f2d33101ec7c631d39f27c2.bindPopup(popup_e4d5ec6e86c5f3d63f2ec6e75c9dc4a3)
+        ;
+
+        
+    
+    
+            poly_line_9a7b92b30f2d33101ec7c631d39f27c2.bindTooltip(
+                `<div>
+                     Line 127-132 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2fe7a9878a11585804379e8474138418 = L.polyline(
+                [[40.136, -75.202], [39.837, -75.68]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_5c87c631a82a9d7e9955a76b79a7a0e8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_983ab4f85b06618a440ae3ded481bad9 = $(`<div id="html_983ab4f85b06618a440ae3ded481bad9" style="width: 100.0%; height: 100.0%;"><b>127</b> (#128) ⇄ <b>128</b> (#129)<br>回路: 1 | 类型: 线路<br>距离(大圆): 52.6 km</div>`)[0];
+                popup_5c87c631a82a9d7e9955a76b79a7a0e8.setContent(html_983ab4f85b06618a440ae3ded481bad9);
+            
+        
+
+        poly_line_2fe7a9878a11585804379e8474138418.bindPopup(popup_5c87c631a82a9d7e9955a76b79a7a0e8)
+        ;
+
+        
+    
+    
+            poly_line_2fe7a9878a11585804379e8474138418.bindTooltip(
+                `<div>
+                     Line 128-129 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_5294e23d426235e5d1eb708d82bdbc09 = L.polyline(
+                [[40.136, -75.202], [39.91, -76.079]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_d485abb5f1334fb527c16999b966c166 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d32dbe5d9b4b62bbfb019e519cfdcde5 = $(`<div id="html_d32dbe5d9b4b62bbfb019e519cfdcde5" style="width: 100.0%; height: 100.0%;"><b>127</b> (#128) ⇄ <b>129</b> (#130)<br>回路: 1 | 类型: 线路<br>距离(大圆): 78.8 km</div>`)[0];
+                popup_d485abb5f1334fb527c16999b966c166.setContent(html_d32dbe5d9b4b62bbfb019e519cfdcde5);
+            
+        
+
+        poly_line_5294e23d426235e5d1eb708d82bdbc09.bindPopup(popup_d485abb5f1334fb527c16999b966c166)
+        ;
+
+        
+    
+    
+            poly_line_5294e23d426235e5d1eb708d82bdbc09.bindTooltip(
+                `<div>
+                     Line 128-130 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_8a09fa2d48882bba8a91ddb3b3b0d1bd = L.polyline(
+                [[39.837, -75.68], [39.91, -76.079]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_4c044f1cee9c192af1a813672320c7a1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d41fcd035c63f6a46dcfd116eca988b1 = $(`<div id="html_d41fcd035c63f6a46dcfd116eca988b1" style="width: 100.0%; height: 100.0%;"><b>128</b> (#129) ⇄ <b>129</b> (#130)<br>回路: 1 | 类型: 线路<br>距离(大圆): 35.0 km</div>`)[0];
+                popup_4c044f1cee9c192af1a813672320c7a1.setContent(html_d41fcd035c63f6a46dcfd116eca988b1);
+            
+        
+
+        poly_line_8a09fa2d48882bba8a91ddb3b3b0d1bd.bindPopup(popup_4c044f1cee9c192af1a813672320c7a1)
+        ;
+
+        
+    
+    
+            poly_line_8a09fa2d48882bba8a91ddb3b3b0d1bd.bindTooltip(
+                `<div>
+                     Line 129-130 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_bb381370033af5b00f448432fbb70103 = L.polyline(
+                [[39.91, -76.079], [39.961, -76.518]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_4ea93b422fa553689480b732298e524a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_42e03b8317c2c9e6b19cdae4494f3b50 = $(`<div id="html_42e03b8317c2c9e6b19cdae4494f3b50" style="width: 100.0%; height: 100.0%;"><b>129</b> (#130) ⇄ <b>130</b> (#131)<br>回路: 1 | 类型: 线路<br>距离(大圆): 37.9 km</div>`)[0];
+                popup_4ea93b422fa553689480b732298e524a.setContent(html_42e03b8317c2c9e6b19cdae4494f3b50);
+            
+        
+
+        poly_line_bb381370033af5b00f448432fbb70103.bindPopup(popup_4ea93b422fa553689480b732298e524a)
+        ;
+
+        
+    
+    
+            poly_line_bb381370033af5b00f448432fbb70103.bindTooltip(
+                `<div>
+                     Line 130-131 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_42a64d1eba0b2f2154ba23fa17797d88 = L.polyline(
+                [[39.91, -76.079], [40.638, -77.389]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_cf116846349843e13b033af07bfd3e74 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c142c0acee0a63cd2e105924f3761e89 = $(`<div id="html_c142c0acee0a63cd2e105924f3761e89" style="width: 100.0%; height: 100.0%;"><b>129</b> (#130) ⇄ <b>131</b> (#132)<br>回路: 1 | 类型: 线路<br>距离(大圆): 137.5 km</div>`)[0];
+                popup_cf116846349843e13b033af07bfd3e74.setContent(html_c142c0acee0a63cd2e105924f3761e89);
+            
+        
+
+        poly_line_42a64d1eba0b2f2154ba23fa17797d88.bindPopup(popup_cf116846349843e13b033af07bfd3e74)
+        ;
+
+        
+    
+    
+            poly_line_42a64d1eba0b2f2154ba23fa17797d88.bindTooltip(
+                `<div>
+                     Line 130-132 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1402afd6f0359fb52d1913873f3fd112 = L.polyline(
+                [[39.961, -76.518], [40.435, -79.096]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_9847ab325e0f4f4ea39ff89608ba0ceb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9b2157e548f6d7146a098871215c283a = $(`<div id="html_9b2157e548f6d7146a098871215c283a" style="width: 100.0%; height: 100.0%;"><b>130</b> (#131) ⇄ <b>132</b> (#133)<br>回路: 1 | 类型: 线路<br>距离(大圆): 225.2 km</div>`)[0];
+                popup_9847ab325e0f4f4ea39ff89608ba0ceb.setContent(html_9b2157e548f6d7146a098871215c283a);
+            
+        
+
+        poly_line_1402afd6f0359fb52d1913873f3fd112.bindPopup(popup_9847ab325e0f4f4ea39ff89608ba0ceb)
+        ;
+
+        
+    
+    
+            poly_line_1402afd6f0359fb52d1913873f3fd112.bindTooltip(
+                `<div>
+                     Line 131-133 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_529cb27dd5dd1c03cac5403c0634dae1 = L.polyline(
+                [[39.961, -76.518], [40.785, -79.408]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_b2aaa7b7d7527ef76d8eeb72102304ed = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a950fb854971ee096cd264a6742d1740 = $(`<div id="html_a950fb854971ee096cd264a6742d1740" style="width: 100.0%; height: 100.0%;"><b>130</b> (#131) ⇄ <b>134</b> (#135)<br>回路: 1 | 类型: 线路<br>距离(大圆): 261.4 km</div>`)[0];
+                popup_b2aaa7b7d7527ef76d8eeb72102304ed.setContent(html_a950fb854971ee096cd264a6742d1740);
+            
+        
+
+        poly_line_529cb27dd5dd1c03cac5403c0634dae1.bindPopup(popup_b2aaa7b7d7527ef76d8eeb72102304ed)
+        ;
+
+        
+    
+    
+            poly_line_529cb27dd5dd1c03cac5403c0634dae1.bindTooltip(
+                `<div>
+                     Line 131-135 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_179ad8bd0410bcdbb5847af289fb44a1 = L.polyline(
+                [[39.961, -76.518], [38.94, -82.212]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_ae7c8c241c04c4dcf443973a6e14cb18 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1a1750bd20f0b6c25bb618da890099c8 = $(`<div id="html_1a1750bd20f0b6c25bb618da890099c8" style="width: 100.0%; height: 100.0%;"><b>130</b> (#131) ⇄ <b>138</b> (#139)<br>回路: 1 | 类型: 线路<br>距离(大圆): 501.8 km</div>`)[0];
+                popup_ae7c8c241c04c4dcf443973a6e14cb18.setContent(html_1a1750bd20f0b6c25bb618da890099c8);
+            
+        
+
+        poly_line_179ad8bd0410bcdbb5847af289fb44a1.bindPopup(popup_ae7c8c241c04c4dcf443973a6e14cb18)
+        ;
+
+        
+    
+    
+            poly_line_179ad8bd0410bcdbb5847af289fb44a1.bindTooltip(
+                `<div>
+                     Line 131-139 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ee2e742c03929fd63ccd28c70cabfe3c = L.polyline(
+                [[40.638, -77.389], [40.435, -79.096]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_7c9d5c7d8baf1347d6b226354b0662a1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f28d45f8ba2b8c8aa0e3f8398f4434c2 = $(`<div id="html_f28d45f8ba2b8c8aa0e3f8398f4434c2" style="width: 100.0%; height: 100.0%;"><b>131</b> (#132) ⇄ <b>132</b> (#133)<br>回路: 1 | 类型: 线路<br>距离(大圆): 146.0 km</div>`)[0];
+                popup_7c9d5c7d8baf1347d6b226354b0662a1.setContent(html_f28d45f8ba2b8c8aa0e3f8398f4434c2);
+            
+        
+
+        poly_line_ee2e742c03929fd63ccd28c70cabfe3c.bindPopup(popup_7c9d5c7d8baf1347d6b226354b0662a1)
+        ;
+
+        
+    
+    
+            poly_line_ee2e742c03929fd63ccd28c70cabfe3c.bindTooltip(
+                `<div>
+                     Line 132-133 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7f8c1288e03a936becd58b55ee669049 = L.polyline(
+                [[40.638, -77.389], [41.072, -78.826]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_bc711eaf5dbf5d2e411e7d6db58c52f2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_504224806928f1291b874ed8fc6bc722 = $(`<div id="html_504224806928f1291b874ed8fc6bc722" style="width: 100.0%; height: 100.0%;"><b>131</b> (#132) ⇄ <b>133</b> (#134)<br>回路: 1 | 类型: 线路<br>距离(大圆): 130.1 km</div>`)[0];
+                popup_bc711eaf5dbf5d2e411e7d6db58c52f2.setContent(html_504224806928f1291b874ed8fc6bc722);
+            
+        
+
+        poly_line_7f8c1288e03a936becd58b55ee669049.bindPopup(popup_bc711eaf5dbf5d2e411e7d6db58c52f2)
+        ;
+
+        
+    
+    
+            poly_line_7f8c1288e03a936becd58b55ee669049.bindTooltip(
+                `<div>
+                     Line 132-134 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_68bd6cc82a0ac6ea49416bc985fd9872 = L.polyline(
+                [[40.638, -77.389], [40.785, -79.408]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_433f64cbff18e99f21b07f0331a10f15 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7a23dc48c935375d400dfcd43d74786b = $(`<div id="html_7a23dc48c935375d400dfcd43d74786b" style="width: 100.0%; height: 100.0%;"><b>131</b> (#132) ⇄ <b>134</b> (#135)<br>回路: 1 | 类型: 线路<br>距离(大圆): 171.0 km</div>`)[0];
+                popup_433f64cbff18e99f21b07f0331a10f15.setContent(html_7a23dc48c935375d400dfcd43d74786b);
+            
+        
+
+        poly_line_68bd6cc82a0ac6ea49416bc985fd9872.bindPopup(popup_433f64cbff18e99f21b07f0331a10f15)
+        ;
+
+        
+    
+    
+            poly_line_68bd6cc82a0ac6ea49416bc985fd9872.bindTooltip(
+                `<div>
+                     Line 132-135 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_36f237365d27ac6bc7d9cc9685278168 = L.polyline(
+                [[40.638, -77.389], [41.715, -76.266]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_8aef70d3998bc85a53ee36f03d3fc987 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cbddccdbdc4832911ba93a1ce1befd4c = $(`<div id="html_cbddccdbdc4832911ba93a1ce1befd4c" style="width: 100.0%; height: 100.0%;"><b>131</b> (#132) ⇄ <b>137</b> (#138)<br>回路: 1 | 类型: 线路<br>距离(大圆): 152.2 km</div>`)[0];
+                popup_8aef70d3998bc85a53ee36f03d3fc987.setContent(html_cbddccdbdc4832911ba93a1ce1befd4c);
+            
+        
+
+        poly_line_36f237365d27ac6bc7d9cc9685278168.bindPopup(popup_8aef70d3998bc85a53ee36f03d3fc987)
+        ;
+
+        
+    
+    
+            poly_line_36f237365d27ac6bc7d9cc9685278168.bindTooltip(
+                `<div>
+                     Line 132-138 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_21f7d14578f4b2753ba8cabf02c287c9 = L.polyline(
+                [[40.435, -79.096], [40.785, -79.408]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_1c3af2bfb0f209b5e6a9e2827a0c6eaa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7774c26c1720ae3fb1b120be99ff818e = $(`<div id="html_7774c26c1720ae3fb1b120be99ff818e" style="width: 100.0%; height: 100.0%;"><b>132</b> (#133) ⇄ <b>134</b> (#135)<br>回路: 1 | 类型: 线路<br>距离(大圆): 47.0 km</div>`)[0];
+                popup_1c3af2bfb0f209b5e6a9e2827a0c6eaa.setContent(html_7774c26c1720ae3fb1b120be99ff818e);
+            
+        
+
+        poly_line_21f7d14578f4b2753ba8cabf02c287c9.bindPopup(popup_1c3af2bfb0f209b5e6a9e2827a0c6eaa)
+        ;
+
+        
+    
+    
+            poly_line_21f7d14578f4b2753ba8cabf02c287c9.bindTooltip(
+                `<div>
+                     Line 133-135 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_6aefeffc76a68f61f663dd241a0533db = L.polyline(
+                [[41.072, -78.826], [40.785, -79.408]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_ddffcd0ab0f411aa62f8435002048044 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_352680460e4b83ce2250a0c6f4281352 = $(`<div id="html_352680460e4b83ce2250a0c6f4281352" style="width: 100.0%; height: 100.0%;"><b>133</b> (#134) ⇄ <b>134</b> (#135)<br>回路: 1 | 类型: 线路<br>距离(大圆): 58.4 km</div>`)[0];
+                popup_ddffcd0ab0f411aa62f8435002048044.setContent(html_352680460e4b83ce2250a0c6f4281352);
+            
+        
+
+        poly_line_6aefeffc76a68f61f663dd241a0533db.bindPopup(popup_ddffcd0ab0f411aa62f8435002048044)
+        ;
+
+        
+    
+    
+            poly_line_6aefeffc76a68f61f663dd241a0533db.bindTooltip(
+                `<div>
+                     Line 134-135 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2463c5bedd477f448e593b7b79df0388 = L.polyline(
+                [[41.072, -78.826], [41.665, -80.295]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_43f4ba4a4c5278958c2ed4ed4b5b6b9d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4cfb09c7eb1e63e515d4f53da01c2d75 = $(`<div id="html_4cfb09c7eb1e63e515d4f53da01c2d75" style="width: 100.0%; height: 100.0%;"><b>133</b> (#134) ⇄ <b>135</b> (#136)<br>回路: 1 | 类型: 线路<br>距离(大圆): 139.2 km</div>`)[0];
+                popup_43f4ba4a4c5278958c2ed4ed4b5b6b9d.setContent(html_4cfb09c7eb1e63e515d4f53da01c2d75);
+            
+        
+
+        poly_line_2463c5bedd477f448e593b7b79df0388.bindPopup(popup_43f4ba4a4c5278958c2ed4ed4b5b6b9d)
+        ;
+
+        
+    
+    
+            poly_line_2463c5bedd477f448e593b7b79df0388.bindTooltip(
+                `<div>
+                     Line 134-136 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_0582b53e801ffb2789339dc100ffdbf4 = L.polyline(
+                [[40.785, -79.408], [38.94, -82.212]],
+                {"bubblingMouseEvents": true, "color": "#ff7f00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff7f00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_605313542e36e43b58785cd02b178682 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_74922c22f45a7ca39f1a371acdc2a57a = $(`<div id="html_74922c22f45a7ca39f1a371acdc2a57a" style="width: 100.0%; height: 100.0%;"><b>134</b> (#135) ⇄ <b>138</b> (#139)<br>回路: 1 | 类型: 线路<br>距离(大圆): 315.2 km</div>`)[0];
+                popup_605313542e36e43b58785cd02b178682.setContent(html_74922c22f45a7ca39f1a371acdc2a57a);
+            
+        
+
+        poly_line_0582b53e801ffb2789339dc100ffdbf4.bindPopup(popup_605313542e36e43b58785cd02b178682)
+        ;
+
+        
+    
+    
+            poly_line_0582b53e801ffb2789339dc100ffdbf4.bindTooltip(
+                `<div>
+                     Line 135-139 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a021f8eed961a433eecc367cd8860e3d = L.polyline(
+                [[41.665, -80.295], [38.94, -82.212]],
+                {"bubblingMouseEvents": true, "color": "#e31a1c", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e31a1c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_52566a18dc78b2311040fffac99bf318 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_47aabbc675f427fd22eb2cbc53402b15 = $(`<div id="html_47aabbc675f427fd22eb2cbc53402b15" style="width: 100.0%; height: 100.0%;"><b>135</b> (#136) ⇄ <b>138</b> (#139)<br>回路: 1 | 类型: 线路<br>距离(大圆): 343.8 km</div>`)[0];
+                popup_52566a18dc78b2311040fffac99bf318.setContent(html_47aabbc675f427fd22eb2cbc53402b15);
+            
+        
+
+        poly_line_a021f8eed961a433eecc367cd8860e3d.bindPopup(popup_52566a18dc78b2311040fffac99bf318)
+        ;
+
+        
+    
+    
+            poly_line_a021f8eed961a433eecc367cd8860e3d.bindTooltip(
+                `<div>
+                     Line 136-139 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_eb051eb8aa5d71d1f98c7905033ab720 = L.polyline(
+                [[42.133, -79.953], [41.715, -76.266]],
+                {"bubblingMouseEvents": true, "color": "#1f78b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f78b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_02536cff67570d404ddab59ecaa2ca59);
+        
+    
+        var popup_c33b4850b8bf64654aa7d893bec13c7e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f74c4cb902eba0048c08943cf3bc1f22 = $(`<div id="html_f74c4cb902eba0048c08943cf3bc1f22" style="width: 100.0%; height: 100.0%;"><b>136</b> (#137) ⇄ <b>137</b> (#138)<br>回路: 1 | 类型: 线路<br>距离(大圆): 308.5 km</div>`)[0];
+                popup_c33b4850b8bf64654aa7d893bec13c7e.setContent(html_f74c4cb902eba0048c08943cf3bc1f22);
+            
+        
+
+        poly_line_eb051eb8aa5d71d1f98c7905033ab720.bindPopup(popup_c33b4850b8bf64654aa7d893bec13c7e)
+        ;
+
+        
+    
+    
+            poly_line_eb051eb8aa5d71d1f98c7905033ab720.bindTooltip(
+                `<div>
+                     Line 137-138 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_02536cff67570d404ddab59ecaa2ca59.addTo(map_0859cb3e008a0e7d26f75470f66c88ff);
+        
+    
+            var feature_group_59ac71d7b55bf48ff2808f78e422be4f = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_9854ef356ddcb8c83e5badfe8f1b2f79 = L.polyline(
+                [[41.005, -72.057], [41.005, -72.404]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_a9cd5a186aea98ca3716512c76dd2295 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_43e607a19c298717d3efdd58f765f3d8 = $(`<div id="html_43e607a19c298717d3efdd58f765f3d8" style="width: 100.0%; height: 100.0%;"><b>0</b> (#1) ⇄ <b>20</b> (#21)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 29.1 km</div>`)[0];
+                popup_a9cd5a186aea98ca3716512c76dd2295.setContent(html_43e607a19c298717d3efdd58f765f3d8);
+            
+        
+
+        poly_line_9854ef356ddcb8c83e5badfe8f1b2f79.bindPopup(popup_a9cd5a186aea98ca3716512c76dd2295)
+        ;
+
+        
+    
+    
+            poly_line_9854ef356ddcb8c83e5badfe8f1b2f79.bindTooltip(
+                `<div>
+                     XFMR 1-21 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_518fa01d25410ea812829af271e14e74 = L.polyline(
+                [[41.478, -72.01], [41.298, -72.297]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_1dbc7b65ccf9c82c354b0f7ca14f2140 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2d32fef39850ffb550104dd29c2ed961 = $(`<div id="html_2d32fef39850ffb550104dd29c2ed961" style="width: 100.0%; height: 100.0%;"><b>2</b> (#3) ⇄ <b>1</b> (#2)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 31.2 km</div>`)[0];
+                popup_1dbc7b65ccf9c82c354b0f7ca14f2140.setContent(html_2d32fef39850ffb550104dd29c2ed961);
+            
+        
+
+        poly_line_518fa01d25410ea812829af271e14e74.bindPopup(popup_1dbc7b65ccf9c82c354b0f7ca14f2140)
+        ;
+
+        
+    
+    
+            poly_line_518fa01d25410ea812829af271e14e74.bindTooltip(
+                `<div>
+                     XFMR 3-2 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c94f752f8306a56120104b703590b70d = L.polyline(
+                [[41.478, -72.01], [41.275, -71.798]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_207f590e0bd5d7e4cab5cf5d9e24e4d7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_20c661ee214d1c4a1df53c9cda515ec0 = $(`<div id="html_20c661ee214d1c4a1df53c9cda515ec0" style="width: 100.0%; height: 100.0%;"><b>2</b> (#3) ⇄ <b>3</b> (#4)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 28.7 km</div>`)[0];
+                popup_207f590e0bd5d7e4cab5cf5d9e24e4d7.setContent(html_20c661ee214d1c4a1df53c9cda515ec0);
+            
+        
+
+        poly_line_c94f752f8306a56120104b703590b70d.bindPopup(popup_207f590e0bd5d7e4cab5cf5d9e24e4d7)
+        ;
+
+        
+    
+    
+            poly_line_c94f752f8306a56120104b703590b70d.bindTooltip(
+                `<div>
+                     XFMR 3-4 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_67fd192dd53294d62d890bd52737e1f3 = L.polyline(
+                [[41.648, -71.089], [41.507, -71.455]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_4a05f81f437cd3f2db77271d06dbeb3f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5f2386c682955484039be06da0d1b3e9 = $(`<div id="html_5f2386c682955484039be06da0d1b3e9" style="width: 100.0%; height: 100.0%;"><b>9</b> (#10) ⇄ <b>10</b> (#11)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 34.2 km</div>`)[0];
+                popup_4a05f81f437cd3f2db77271d06dbeb3f.setContent(html_5f2386c682955484039be06da0d1b3e9);
+            
+        
+
+        poly_line_67fd192dd53294d62d890bd52737e1f3.bindPopup(popup_4a05f81f437cd3f2db77271d06dbeb3f)
+        ;
+
+        
+    
+    
+            poly_line_67fd192dd53294d62d890bd52737e1f3.bindTooltip(
+                `<div>
+                     XFMR 10-11 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f458ac24c1f2ab70cbad0b0b9a68ee60 = L.polyline(
+                [[41.648, -71.089], [41.411, -70.881]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_535374510db5570c42e6d964146d3273 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f86410ed9b1ceb75f3e6f3bf89478c6e = $(`<div id="html_f86410ed9b1ceb75f3e6f3bf89478c6e" style="width: 100.0%; height: 100.0%;"><b>9</b> (#10) ⇄ <b>21</b> (#22)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 31.5 km</div>`)[0];
+                popup_535374510db5570c42e6d964146d3273.setContent(html_f86410ed9b1ceb75f3e6f3bf89478c6e);
+            
+        
+
+        poly_line_f458ac24c1f2ab70cbad0b0b9a68ee60.bindPopup(popup_535374510db5570c42e6d964146d3273)
+        ;
+
+        
+    
+    
+            poly_line_f458ac24c1f2ab70cbad0b0b9a68ee60.bindTooltip(
+                `<div>
+                     XFMR 10-22 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9a1ec32d7cd5805f378a924e32c6a7e5 = L.polyline(
+                [[41.507, -71.455], [41.349, -71.343]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_ff0919d91cc2d97f050a0373a9195105 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2995355e076698b07d8e5b9a21f805e3 = $(`<div id="html_2995355e076698b07d8e5b9a21f805e3" style="width: 100.0%; height: 100.0%;"><b>10</b> (#11) ⇄ <b>22</b> (#23)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 19.9 km</div>`)[0];
+                popup_ff0919d91cc2d97f050a0373a9195105.setContent(html_2995355e076698b07d8e5b9a21f805e3);
+            
+        
+
+        poly_line_9a1ec32d7cd5805f378a924e32c6a7e5.bindPopup(popup_ff0919d91cc2d97f050a0373a9195105)
+        ;
+
+        
+    
+    
+            poly_line_9a1ec32d7cd5805f378a924e32c6a7e5.bindTooltip(
+                `<div>
+                     XFMR 11-23 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_20a1306d79a911dae8bc7f17ccfb8ef1 = L.polyline(
+                [[41.71, -70.49], [41.467, -70.538]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_a677e2928d22f09e7cb99440adcba060 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4f8185bbd3ca7e501e1160b58a9978df = $(`<div id="html_4f8185bbd3ca7e501e1160b58a9978df" style="width: 100.0%; height: 100.0%;"><b>12</b> (#13) ⇄ <b>23</b> (#24)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 27.3 km</div>`)[0];
+                popup_a677e2928d22f09e7cb99440adcba060.setContent(html_4f8185bbd3ca7e501e1160b58a9978df);
+            
+        
+
+        poly_line_20a1306d79a911dae8bc7f17ccfb8ef1.bindPopup(popup_a677e2928d22f09e7cb99440adcba060)
+        ;
+
+        
+    
+    
+            poly_line_20a1306d79a911dae8bc7f17ccfb8ef1.bindTooltip(
+                `<div>
+                     XFMR 13-24 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_51fc817af57886402aa4bc1ebb7aa423 = L.polyline(
+                [[41.721, -70.163], [41.399, -70.187]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_e9774a6114b77b3bfe38e703d4660a50 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_329d3b00b9e992c008b9aa924b4112f9 = $(`<div id="html_329d3b00b9e992c008b9aa924b4112f9" style="width: 100.0%; height: 100.0%;"><b>13</b> (#14) ⇄ <b>24</b> (#25)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 35.9 km</div>`)[0];
+                popup_e9774a6114b77b3bfe38e703d4660a50.setContent(html_329d3b00b9e992c008b9aa924b4112f9);
+            
+        
+
+        poly_line_51fc817af57886402aa4bc1ebb7aa423.bindPopup(popup_e9774a6114b77b3bfe38e703d4660a50)
+        ;
+
+        
+    
+    
+            poly_line_51fc817af57886402aa4bc1ebb7aa423.bindTooltip(
+                `<div>
+                     XFMR 14-25 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_62788deea8756a5b0732365a93bed7fd = L.polyline(
+                [[42.81, -72.479], [43.001, -72.91]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_06968c8c9d3c4ba9d1ad4b6557ad4010 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1d0c9efa94773660fc83892a5a12b823 = $(`<div id="html_1d0c9efa94773660fc83892a5a12b823" style="width: 100.0%; height: 100.0%;"><b>15</b> (#16) ⇄ <b>26</b> (#27)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 41.0 km</div>`)[0];
+                popup_06968c8c9d3c4ba9d1ad4b6557ad4010.setContent(html_1d0c9efa94773660fc83892a5a12b823);
+            
+        
+
+        poly_line_62788deea8756a5b0732365a93bed7fd.bindPopup(popup_06968c8c9d3c4ba9d1ad4b6557ad4010)
+        ;
+
+        
+    
+    
+            poly_line_62788deea8756a5b0732365a93bed7fd.bindTooltip(
+                `<div>
+                     XFMR 16-27 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d11aa6f54419418d5243bb3bbab83545 = L.polyline(
+                [[43.864, -69.833], [43.893, -69.506]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_c96a787c2e0f0b0002a4c4a4469028e5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c65437d0859a33560499f0a396f048dc = $(`<div id="html_c65437d0859a33560499f0a396f048dc" style="width: 100.0%; height: 100.0%;"><b>19</b> (#20) ⇄ <b>25</b> (#26)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 26.4 km</div>`)[0];
+                popup_c96a787c2e0f0b0002a4c4a4469028e5.setContent(html_c65437d0859a33560499f0a396f048dc);
+            
+        
+
+        poly_line_d11aa6f54419418d5243bb3bbab83545.bindPopup(popup_c96a787c2e0f0b0002a4c4a4469028e5)
+        ;
+
+        
+    
+    
+            poly_line_d11aa6f54419418d5243bb3bbab83545.bindTooltip(
+                `<div>
+                     XFMR 20-26 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a0eb8898cbf75e6728b295460cbaffc7 = L.polyline(
+                [[42.465, -72.199], [42.482, -72.726]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_70ba1b7432094f1a6439b17dec646855 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0a870b6acfcde46ca4559a4475311d25 = $(`<div id="html_0a870b6acfcde46ca4559a4475311d25" style="width: 100.0%; height: 100.0%;"><b>27</b> (#28) ⇄ <b>28</b> (#29)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 43.3 km</div>`)[0];
+                popup_70ba1b7432094f1a6439b17dec646855.setContent(html_0a870b6acfcde46ca4559a4475311d25);
+            
+        
+
+        poly_line_a0eb8898cbf75e6728b295460cbaffc7.bindPopup(popup_70ba1b7432094f1a6439b17dec646855)
+        ;
+
+        
+    
+    
+            poly_line_a0eb8898cbf75e6728b295460cbaffc7.bindTooltip(
+                `<div>
+                     XFMR 28-29 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_70d2512ae1501801d257a3d945fbea1f = L.polyline(
+                [[41.371, -72.556], [41.174, -72.643]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_56b1fac75350d685ba82ecce11fb4201 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c28910ec23048822201f46dcb8165bf9 = $(`<div id="html_c28910ec23048822201f46dcb8165bf9" style="width: 100.0%; height: 100.0%;"><b>32</b> (#33) ⇄ <b>35</b> (#36)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 23.1 km</div>`)[0];
+                popup_56b1fac75350d685ba82ecce11fb4201.setContent(html_c28910ec23048822201f46dcb8165bf9);
+            
+        
+
+        poly_line_70d2512ae1501801d257a3d945fbea1f.bindPopup(popup_56b1fac75350d685ba82ecce11fb4201)
+        ;
+
+        
+    
+    
+            poly_line_70d2512ae1501801d257a3d945fbea1f.bindTooltip(
+                `<div>
+                     XFMR 33-36 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_378f98e6dbe1af1e9f49e27ca0999564 = L.polyline(
+                [[42.646, -74.066], [43.086, -73.78]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_9e705b3ff3bb0a4841f79ad8c7e68ef3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_294a326cd8921ab495fb85f38b345d4b = $(`<div id="html_294a326cd8921ab495fb85f38b345d4b" style="width: 100.0%; height: 100.0%;"><b>39</b> (#40) ⇄ <b>40</b> (#41)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 54.2 km</div>`)[0];
+                popup_9e705b3ff3bb0a4841f79ad8c7e68ef3.setContent(html_294a326cd8921ab495fb85f38b345d4b);
+            
+        
+
+        poly_line_378f98e6dbe1af1e9f49e27ca0999564.bindPopup(popup_9e705b3ff3bb0a4841f79ad8c7e68ef3)
+        ;
+
+        
+    
+    
+            poly_line_378f98e6dbe1af1e9f49e27ca0999564.bindTooltip(
+                `<div>
+                     XFMR 40-41 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_62974f94fef89b7ebb75ba9923d037d0 = L.polyline(
+                [[44.699, -74.134], [44.846, -74.821]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_f75551a9c9caa937de591c70a4bb0a0d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_430f30f82693a34805b1a93347398c95 = $(`<div id="html_430f30f82693a34805b1a93347398c95" style="width: 100.0%; height: 100.0%;"><b>48</b> (#49) ⇄ <b>47</b> (#48)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 56.6 km</div>`)[0];
+                popup_f75551a9c9caa937de591c70a4bb0a0d.setContent(html_430f30f82693a34805b1a93347398c95);
+            
+        
+
+        poly_line_62974f94fef89b7ebb75ba9923d037d0.bindPopup(popup_f75551a9c9caa937de591c70a4bb0a0d)
+        ;
+
+        
+    
+    
+            poly_line_62974f94fef89b7ebb75ba9923d037d0.bindTooltip(
+                `<div>
+                     XFMR 49-48 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_35755024106e73a6f6faa23e8a6eae9b = L.polyline(
+                [[44.846, -74.821], [45.066, -74.853]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_b9fd511c3fd70908c0e02410413ecf67 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_83938ee05cdabbf6e2709a3abcd2b92a = $(`<div id="html_83938ee05cdabbf6e2709a3abcd2b92a" style="width: 100.0%; height: 100.0%;"><b>47</b> (#48) ⇄ <b>99</b> (#100)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 24.6 km</div>`)[0];
+                popup_b9fd511c3fd70908c0e02410413ecf67.setContent(html_83938ee05cdabbf6e2709a3abcd2b92a);
+            
+        
+
+        poly_line_35755024106e73a6f6faa23e8a6eae9b.bindPopup(popup_b9fd511c3fd70908c0e02410413ecf67)
+        ;
+
+        
+    
+    
+            poly_line_35755024106e73a6f6faa23e8a6eae9b.bindTooltip(
+                `<div>
+                     XFMR 48-100 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_61269602d15523607dc7718d412ea868 = L.polyline(
+                [[43.125, -78.352], [43.312, -77.482]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_4a81b9c797c2f1009183d01a95e16563 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9dbae501dca9cc093d227ffcd3e21fac = $(`<div id="html_9dbae501dca9cc093d227ffcd3e21fac" style="width: 100.0%; height: 100.0%;"><b>53</b> (#54) ⇄ <b>51</b> (#52)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 73.5 km</div>`)[0];
+                popup_4a81b9c797c2f1009183d01a95e16563.setContent(html_9dbae501dca9cc093d227ffcd3e21fac);
+            
+        
+
+        poly_line_61269602d15523607dc7718d412ea868.bindPopup(popup_4a81b9c797c2f1009183d01a95e16563)
+        ;
+
+        
+    
+    
+            poly_line_61269602d15523607dc7718d412ea868.bindTooltip(
+                `<div>
+                     XFMR 54-52 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_0e4351ce3e7bc2d2060a96e943045850 = L.polyline(
+                [[43.125, -78.352], [42.996, -78.591]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_c40f59670ce3173c0af34cda6a325555 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_24781aab685444dbc2d4237ca387cd9b = $(`<div id="html_24781aab685444dbc2d4237ca387cd9b" style="width: 100.0%; height: 100.0%;"><b>53</b> (#54) ⇄ <b>54</b> (#55)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 24.1 km</div>`)[0];
+                popup_c40f59670ce3173c0af34cda6a325555.setContent(html_24781aab685444dbc2d4237ca387cd9b);
+            
+        
+
+        poly_line_0e4351ce3e7bc2d2060a96e943045850.bindPopup(popup_c40f59670ce3173c0af34cda6a325555)
+        ;
+
+        
+    
+    
+            poly_line_0e4351ce3e7bc2d2060a96e943045850.bindTooltip(
+                `<div>
+                     XFMR 54-55 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_75bca28ea23e8c79c984954a249de0c0 = L.polyline(
+                [[43.312, -78.743], [42.911, -79.125]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_8693ae400517e1ef918c5c687670f3ab = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9fe9eef46bcbf73638a70dd52e4e1a59 = $(`<div id="html_9fe9eef46bcbf73638a70dd52e4e1a59" style="width: 100.0%; height: 100.0%;"><b>55</b> (#56) ⇄ <b>56</b> (#57)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 54.3 km</div>`)[0];
+                popup_8693ae400517e1ef918c5c687670f3ab.setContent(html_9fe9eef46bcbf73638a70dd52e4e1a59);
+            
+        
+
+        poly_line_75bca28ea23e8c79c984954a249de0c0.bindPopup(popup_8693ae400517e1ef918c5c687670f3ab)
+        ;
+
+        
+    
+    
+            poly_line_75bca28ea23e8c79c984954a249de0c0.bindTooltip(
+                `<div>
+                     XFMR 56-57 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7542ba4c69daa31f2abdd3e3173a366d = L.polyline(
+                [[42.714, -79.133], [42.561, -78.797]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_50f1a73353a284e97ad1df9d2ebc7033 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_798966853e482664fbb438c0ae816fcd = $(`<div id="html_798966853e482664fbb438c0ae816fcd" style="width: 100.0%; height: 100.0%;"><b>57</b> (#58) ⇄ <b>58</b> (#59)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 32.3 km</div>`)[0];
+                popup_50f1a73353a284e97ad1df9d2ebc7033.setContent(html_798966853e482664fbb438c0ae816fcd);
+            
+        
+
+        poly_line_7542ba4c69daa31f2abdd3e3173a366d.bindPopup(popup_50f1a73353a284e97ad1df9d2ebc7033)
+        ;
+
+        
+    
+    
+            poly_line_7542ba4c69daa31f2abdd3e3173a366d.bindTooltip(
+                `<div>
+                     XFMR 58-59 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_892ec0fb2e82155bd17ccbf3ef572695 = L.polyline(
+                [[42.33, -79.315], [42.234, -78.828]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_d766ede4424185197edc5d06aec6cf80 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_957f734daa6d51a07ef166e2f8bb6119 = $(`<div id="html_957f734daa6d51a07ef166e2f8bb6119" style="width: 100.0%; height: 100.0%;"><b>59</b> (#60) ⇄ <b>60</b> (#61)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 41.5 km</div>`)[0];
+                popup_d766ede4424185197edc5d06aec6cf80.setContent(html_957f734daa6d51a07ef166e2f8bb6119);
+            
+        
+
+        poly_line_892ec0fb2e82155bd17ccbf3ef572695.bindPopup(popup_d766ede4424185197edc5d06aec6cf80)
+        ;
+
+        
+    
+    
+            poly_line_892ec0fb2e82155bd17ccbf3ef572695.bindTooltip(
+                `<div>
+                     XFMR 60-61 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_fa8c4feb7988f6330aff12b49c1c9df9 = L.polyline(
+                [[41.078, -74.861], [41.174, -74.311]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_cc3abc78e6cce822960749c6b4f62470 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_68b9a5fbe3d015c6577c864603f7a4de = $(`<div id="html_68b9a5fbe3d015c6577c864603f7a4de" style="width: 100.0%; height: 100.0%;"><b>74</b> (#75) ⇄ <b>75</b> (#76)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 47.3 km</div>`)[0];
+                popup_cc3abc78e6cce822960749c6b4f62470.setContent(html_68b9a5fbe3d015c6577c864603f7a4de);
+            
+        
+
+        poly_line_fa8c4feb7988f6330aff12b49c1c9df9.bindPopup(popup_cc3abc78e6cce822960749c6b4f62470)
+        ;
+
+        
+    
+    
+            poly_line_fa8c4feb7988f6330aff12b49c1c9df9.bindTooltip(
+                `<div>
+                     XFMR 75-76 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_70c2ee669716144cc134bb473a58865c = L.polyline(
+                [[41.975, -83.24], [42.11, -82.905]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_6dcecd904268b7321a7b1d38744588aa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fdb08256568b906c4f6e87b233be32cb = $(`<div id="html_fdb08256568b906c4f6e87b233be32cb" style="width: 100.0%; height: 100.0%;"><b>83</b> (#84) ⇄ <b>82</b> (#83)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 31.5 km</div>`)[0];
+                popup_6dcecd904268b7321a7b1d38744588aa.setContent(html_fdb08256568b906c4f6e87b233be32cb);
+            
+        
+
+        poly_line_70c2ee669716144cc134bb473a58865c.bindPopup(popup_6dcecd904268b7321a7b1d38744588aa)
+        ;
+
+        
+    
+    
+            poly_line_70c2ee669716144cc134bb473a58865c.bindTooltip(
+                `<div>
+                     XFMR 84-83 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a842640feffbed2d5639463d5cb45a79 = L.polyline(
+                [[42.544, -82.443], [42.81, -82.476]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_e3069343bfbc6935a3242b4ebbe26771 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_da2ae1f151e1e53ad2b14ced3442321f = $(`<div id="html_da2ae1f151e1e53ad2b14ced3442321f" style="width: 100.0%; height: 100.0%;"><b>84</b> (#85) ⇄ <b>85</b> (#86)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 29.7 km</div>`)[0];
+                popup_e3069343bfbc6935a3242b4ebbe26771.setContent(html_da2ae1f151e1e53ad2b14ced3442321f);
+            
+        
+
+        poly_line_a842640feffbed2d5639463d5cb45a79.bindPopup(popup_e3069343bfbc6935a3242b4ebbe26771)
+        ;
+
+        
+    
+    
+            poly_line_a842640feffbed2d5639463d5cb45a79.bindTooltip(
+                `<div>
+                     XFMR 85-86 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c63b836351bd56ef87050c5cfa9f0319 = L.polyline(
+                [[42.437, -82.61], [42.544, -82.443]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_ff94a001f1bd753db13cf2f705e8b5fc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_908de018c6c0af2064a8a866e337dab9 = $(`<div id="html_908de018c6c0af2064a8a866e337dab9" style="width: 100.0%; height: 100.0%;"><b>86</b> (#87) ⇄ <b>84</b> (#85)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 18.1 km</div>`)[0];
+                popup_ff94a001f1bd753db13cf2f705e8b5fc.setContent(html_908de018c6c0af2064a8a866e337dab9);
+            
+        
+
+        poly_line_c63b836351bd56ef87050c5cfa9f0319.bindPopup(popup_ff94a001f1bd753db13cf2f705e8b5fc)
+        ;
+
+        
+    
+    
+            poly_line_c63b836351bd56ef87050c5cfa9f0319.bindTooltip(
+                `<div>
+                     XFMR 87-85 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f35e841796088e77489cddfeab1c56e9 = L.polyline(
+                [[42.917, -79.843], [43.266, -79.349]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_a1d13ce80e5af28a8eef412b9e4b4c05 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bdb57a8add1184bb3a5c8647bd7572a6 = $(`<div id="html_bdb57a8add1184bb3a5c8647bd7572a6" style="width: 100.0%; height: 100.0%;"><b>100</b> (#101) ⇄ <b>101</b> (#102)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 55.8 km</div>`)[0];
+                popup_a1d13ce80e5af28a8eef412b9e4b4c05.setContent(html_bdb57a8add1184bb3a5c8647bd7572a6);
+            
+        
+
+        poly_line_f35e841796088e77489cddfeab1c56e9.bindPopup(popup_a1d13ce80e5af28a8eef412b9e4b4c05)
+        ;
+
+        
+    
+    
+            poly_line_f35e841796088e77489cddfeab1c56e9.bindTooltip(
+                `<div>
+                     XFMR 101-102 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_b8fec70b6bced036db0571313d70d416 = L.polyline(
+                [[42.917, -79.843], [43.069, -79.317]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_a050c057040d22da2dc33d5c871e9718 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4334c69f0935bb17894a8c6c978a113f = $(`<div id="html_4334c69f0935bb17894a8c6c978a113f" style="width: 100.0%; height: 100.0%;"><b>100</b> (#101) ⇄ <b>102</b> (#103)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 46.0 km</div>`)[0];
+                popup_a050c057040d22da2dc33d5c871e9718.setContent(html_4334c69f0935bb17894a8c6c978a113f);
+            
+        
+
+        poly_line_b8fec70b6bced036db0571313d70d416.bindPopup(popup_a050c057040d22da2dc33d5c871e9718)
+        ;
+
+        
+    
+    
+            poly_line_b8fec70b6bced036db0571313d70d416.bindTooltip(
+                `<div>
+                     XFMR 101-103 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9504a7c8ed1ba0cedde4d62c915124ab = L.polyline(
+                [[42.133, -79.953], [41.665, -80.295]],
+                {"bubblingMouseEvents": true, "color": "#ff8c00", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ff8c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_59ac71d7b55bf48ff2808f78e422be4f);
+        
+    
+        var popup_1134beabeba07ab29e2a637b5c53b954 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d94027d2f0f01a0c03e12e9a71a06f4d = $(`<div id="html_d94027d2f0f01a0c03e12e9a71a06f4d" style="width: 100.0%; height: 100.0%;"><b>136</b> (#137) ⇄ <b>135</b> (#136)<br>回路: 1 | 类型: 变压器<br>距离(大圆): 59.2 km</div>`)[0];
+                popup_1134beabeba07ab29e2a637b5c53b954.setContent(html_d94027d2f0f01a0c03e12e9a71a06f4d);
+            
+        
+
+        poly_line_9504a7c8ed1ba0cedde4d62c915124ab.bindPopup(popup_1134beabeba07ab29e2a637b5c53b954)
+        ;
+
+        
+    
+    
+            poly_line_9504a7c8ed1ba0cedde4d62c915124ab.bindTooltip(
+                `<div>
+                     XFMR 137-136 (1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_59ac71d7b55bf48ff2808f78e422be4f.addTo(map_0859cb3e008a0e7d26f75470f66c88ff);
+        
+    
+            var layer_control_deabab18d092c213b9dfc6f9f41ec12b_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_9818abd953676d82f63f095e31c7b44d,
+                    "Terrain" : tile_layer_be1a672370fdbfe274ae7593af508295,
+                    "Positron" : tile_layer_8db4352cae80e4960661949d69eb8797,
+                },
+                overlays :  {
+                    "Buses" : feature_group_2c4725e9ed5bad8e25dfb25a2680eb01,
+                    "Transmission Lines" : feature_group_02536cff67570d404ddab59ecaa2ca59,
+                    "Transformers" : feature_group_59ac71d7b55bf48ff2808f78e422be4f,
+                },
+            };
+            let layer_control_deabab18d092c213b9dfc6f9f41ec12b = L.control.layers(
+                layer_control_deabab18d092c213b9dfc6f9f41ec12b_layers.base_layers,
+                layer_control_deabab18d092c213b9dfc6f9f41ec12b_layers.overlays,
+                {
+  "position": "topleft",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_0859cb3e008a0e7d26f75470f66c88ff);
+
+        
+</script>
+</html> npcc_real_map.html…]()
+
 
 ## Data Sources
 - **Bus and branch data**: NPCC-140 Bus test system dataset.
