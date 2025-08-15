@@ -32,7 +32,7 @@ The NPCC-140 system is widely used in power systems research for **grid planning
 - **Bus and branch data**: NPCC-140 Bus test system dataset.
 - **Geographic basemap**: [OpenStreetMap](https://www.openstreetmap.org/) contributors.
 - **Visualization tools**: [Leaflet](https://leafletjs.com/) and [CARTO](https://carto.com/).
-![NPCC-140 Bus System Map](npcc140_map.png)
+![NPCC-140 Bus System Map](npcc140.png)
 
 ---
 
