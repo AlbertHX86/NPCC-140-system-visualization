@@ -50,7 +50,8 @@ The NPCC-140 system is widely used in power systems research for **grid planning
 
 ---
 
-## Credits
-- Map design and implementation: **Xiao Huang (2025)**
+## References
+- J. Chow and G. Rogers, “User manual for power system toolbox,” Version,
+vol. 3, pp. 1991–2008, 1991
 - Data: NPCC-140 Bus Test System  
 - Basemap: © OpenStreetMap contributors, Esri, CARTO
