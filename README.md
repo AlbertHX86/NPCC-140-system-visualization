@@ -55,3 +55,5 @@ The NPCC-140 system is widely used in power systems research for **grid planning
 vol. 3, pp. 1991–2008, 1991
 - Data: NPCC-140 Bus Test System  
 - Basemap: © OpenStreetMap contributors, Esri, CARTO
+
+# If you find this repository useful, please kindly give credits to it, cheers.
